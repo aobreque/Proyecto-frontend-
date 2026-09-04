@@ -53,7 +53,7 @@ nav {
 
 /* Secciones */
 main {
-    margin-top: 60px;
+    margin-top: 90px;
 }
 
 section {
@@ -107,14 +107,14 @@ section {
 }
 
 .card {
-    background: #f9fafb;
+    background: #E8FFE2;
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .card h3 {
-    color: #2563eb;
+    color: #548C45;
     margin-bottom: 0.5rem;
 }
 
@@ -155,4 +155,51 @@ footer {
 .bus {
     height: 60px; /* tamaño de la imagen */
     width: auto;
+}
+/* Barra de búsqueda */
+.busqueda {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex: 1;
+    max-width: 420px;
+    margin: 0 2rem;
+    background: #fff;
+    border: 1.5px solid #cfe3c2;
+    border-radius: 999px;
+    padding: 0.3rem 0.3rem 0.3rem 1.2rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.busqueda:focus-within {
+    border-color: #9DC183;
+    box-shadow: 0 0 0 3px rgba(157, 193, 131, 0.25);
+}
+
+.busqueda input[type="search"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 0.6rem 0;
+    background: transparent;
+}
+
+.btn-buscar {
+    background: #9DC183;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s;
+}
+
+.btn-buscar:hover {
+    background: #8bb56e;
 }
