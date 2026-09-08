@@ -32,7 +32,7 @@ nav {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #22ccad;
+    color: #0d7317;
 }
 
 .menu {
@@ -64,11 +64,12 @@ section {
 
 /* Hero */
 .hero {
-    text-align: center;
+    width: 100%;
+    max-width: 100%;
     padding: 6rem 2rem;
     background: linear-gradient(135deg, #a1ea66 0%, #2eb690 100%);
     color: white;
-    border-radius: 0 0 20px 20px;
+    border-radius: 0 0 0 0;
 }
 
 .hero h1 {
