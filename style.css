@@ -20,19 +20,27 @@ header {
     top: 0;
 }
 
+
+
 nav {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1rem 180px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .logo {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
     font-size: 1.5rem;
     font-weight: bold;
     color: #0d7317;
+    display:flex;
+    align-items: center;
+    transform: translateY(-50%);
 }
 
 .menu {
@@ -48,7 +56,7 @@ nav {
 }
 
 .menu a:hover {
-    color: #eb25de;
+    color: #208643;
 }
 
 /* Secciones */
@@ -66,31 +74,41 @@ section {
 .hero {
     width: 100%;
     max-width: 100%;
+    height: 250px;
     padding: 6rem 2rem;
-    background: linear-gradient(135deg, #a1ea66 0%, #2eb690 100%);
+    background: linear-gradient(135deg, #a1ea66 0%, #2ad463 100%);
     color: white;
     border-radius: 0 0 0 0;
 }
 
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+/*carrusel de imagenes*/
+
+.carrusel {
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    gap: 1rem;
+    max-width: 900px;         
+    margin: 2rem auto;        
+    padding: 2rem;
+    background: #FFFFFF;
+    border-radius: 12px;
 }
 
-.btn-primary {
-    background: white;
-    color: #667eea;
-    padding: 0.75rem 2rem;
-    border: none;
+.carrusel img {
+    width: 150px;             
+    height: 150px;
+    object-fit: cover;        
     border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    margin-top: 1.5rem;
+    flex-shrink: 0;
 }
 
-.btn-primary:hover {
-    background: #f0f0f0;
+.carrusel__flecha {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 /* Servicios */
@@ -146,7 +164,14 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
+
+    .busqueda {
+        max-width: 100%;
+        transform: scale(9.0);
+        margin: 0.5rem 0;  
+    }
 }
+
 .bus_logo {
     display: flex;
     align-items: center;

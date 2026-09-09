@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Sitio Web</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<header>
+
+<header> 
+
+    <div class="logo">
+        <img src="imagenes/bus.v2.jpeg" alt="" class="bus">
+        <span>EcoRuta</span>
+    </div>
+
     <nav>
-        <span class="logo"><img src="imagenes/bus.v2.jpeg" alt="bus_logo" class="bus"> EcoRuta</span>
         <div class="busqueda">
             <input type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
             <button type="button" class="btn-buscar" aria-label="Buscar"></button>
@@ -20,11 +28,19 @@
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
+
 </header>
 
     <main>
-        <section id="inicio" class="hero"></section>
+        <section id="inicio" class="hero" aria-hidden="true"></section>
 
+        <section class="carrusel">
+    <button class="carrusel__flecha" aria-label="Anterior">‹</button>
+    <img src="imagenes/emprendimiento1_frontend.png" alt="Foto de emprendimiento1">
+    <img src="imagenes/emprendimiento2_frontend.png" alt="Foto de emprendimiento2">
+    <img src="imagenes/lagoLicanray_frontend.jpg" alt="Foto de lago Licanray">
+    <button class="carrusel__flecha" aria-label="Siguiente">›</button>
+        </section>
 
         <section id="servicios" class="servicios">
     <h2>Nuestros servicios</h2>
@@ -42,19 +58,19 @@
         <p>Reserva tu asiento en línea y recibe la confirmación al instante.</p>
     </li>
 </ul>
-
+        </section>
 
         <section id="contacto" class="contacto">
             <h2>Contacto</h2>
             <p>ig: EcoRutasAraucania </p>
-            </p>Teléfono: +56 9 1234 5678</p>
+            <p>Teléfono: +56 9 1234 5678</p>
         </section>
     </main>
-
 
     <footer>
         <p>&copy; Todos los derechos reservados.
         </p>
     </footer>
+
 </body>
 </html>
