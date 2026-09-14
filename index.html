@@ -4,72 +4,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Sitio Web</title>
+    <title>Ruta Segura</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header> 
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-    <div class="logo">
-        <img src="imagenes/bus.v2.jpeg" alt="" class="bus">
-        <span>EcoRuta</span>
-    </div>
+    <header>
+        <nav aria-label="Navegación principal">
+            <span class="logo">
+                <img src="imagenes/bus.v2.jpeg" alt="" class="bus">
+                Ruta Segura
+            </span>
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <nav>
-        <div class="busqueda">
-            <input type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
-            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
-        </div>
-        <ul class="menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#servicios">Servicios</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-</header>
-
-    <main>
-        <section id="inicio" class="hero" aria-hidden="true"></section>
-
-        <section class="carrusel">
-    <button class="carrusel__flecha" aria-label="Anterior">‹</button>
-    <img src="imagenes/emprendimiento1_frontend.png" alt="Foto de emprendimiento1">
-    <img src="imagenes/emprendimiento2_frontend.png" alt="Foto de emprendimiento2">
-    <img src="imagenes/lagoLicanray_frontend.jpg" alt="Foto de lago Licanray">
-    <button class="carrusel__flecha" aria-label="Siguiente">›</button>
+    <main id="main-content">
+        <section id="inicio" class="hero">
+            <h1>Northern Parliament</h1>
+            <p>aqui y solo aqui encontraras tus viajes de preferencia a un excelente precio</p>
+            <button class="btn-primary" type="button">Saber más</button>
         </section>
 
         <section id="servicios" class="servicios">
-    <h2>Nuestros servicios</h2>
-    <ul class="grid">
-    <li class="card">
-        <h3>Rutas de viaje</h3>
-        <p>Consulta horarios, destinos y frecuencias de buses entre ciudades del sur.</p>
-    </li>
-    <li class="card">
-        <h3>Imágenes y ofertas</h3>
-        <p>Galería de destinos y promociones vigentes en rutas seleccionadas.</p>
-    </li>
-    <li class="card">
-        <h3>Reservación</h3>
-        <p>Reserva tu asiento en línea y recibe la confirmación al instante.</p>
-    </li>
-</ul>
+            <h2>Categorías</h2>
+            <ul class="grid">
+                <li class="card">
+                    <span class="card-icon" aria-hidden="true">🚌</span>
+                    <h3>Servicio 1</h3>
+                    <p>viajes y envios</p>
+                </li>
+                <li class="card">
+                    <span class="card-icon" aria-hidden="true">🗺️</span>
+                    <h3>Servicio 2</h3>
+                    <p>mapas de turismo y comercio</p>
+                </li>
+                <li class="card">
+                    <span class="card-icon" aria-hidden="true">🏪</span>
+                    <h3>Servicio 3</h3>
+                    <p>visibilidad de comercios</p>
+                </li>
+            </ul>
         </section>
 
         <section id="contacto" class="contacto">
             <h2>Contacto</h2>
-            <p>ig: EcoRutasAraucania </p>
-            <p>Teléfono: +56 9 1234 5678</p>
+            <address>
+                <a href="mailto:aobreque2026@alu.uct.cl">aobreque2026@alu.uct.cl</a> y benjamin jara, dueño de las batallas de aura
+            </address>
         </section>
     </main>
 
     <footer>
-        <p>&copy; Todos los derechos reservados.
-        </p>
+        <p>&copy; Todos los derechos reservados.</p>
     </footer>
 
 </body>
