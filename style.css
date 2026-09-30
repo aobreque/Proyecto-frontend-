@@ -1,8 +1,8 @@
 :root {
-    --color-primary: #0d9488;
-    --color-primary-dark: #115e59;
-    --color-secondary: #16a34a;
-    --color-secondary-dark: #14532d;
+    --color-primary: #3af12d;
+    --color-primary-dark: #2ecc2b;
+    --color-secondary: #17cf51;
+    --color-secondary-dark: #238e0d;
 
     --color-text: #1f2937;
     --color-text-light: #52606d;
@@ -231,10 +231,6 @@ section {
 
 .card:hover .card-icon,
 .card:focus-within .card-icon {
-    transform: scale(1.2);
-}
-
-.card:hover .card-icon {
     transform: scale(1.2);
 }
 
