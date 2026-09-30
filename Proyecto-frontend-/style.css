@@ -223,15 +223,26 @@ section {
     border-top-color: var(--color-primary-dark);
 }
 
-.card:hover {
+.card:hover,
+.card:focus-within {
     transform: translateY(-6px);
     box-shadow: 0 16px 28px rgba(15, 23, 42, 0.1);
+}
+
+.card:hover .card-icon,
+.card:focus-within .card-icon {
+    transform: scale(1.2);
+}
+
+.card:hover .card-icon {
+    transform: scale(1.2);
 }
 
 .card-icon {
     display: block;
     font-size: 1.75rem;
     margin-bottom: 0.75rem;
+    transition: transform var(--transition);
 }
 
 .card h3 {
@@ -244,6 +255,21 @@ section {
     color: var(--color-text-light);
 }
 
+.card-link {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-primary-dark);
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: color var(--transition), border-color var(--transition);
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+    color: var(--color-secondary-dark);
+    border-bottom-color: var(--color-secondary);
+}
 .contacto {
     text-align: center;
     background: var(--color-bg-alt);
