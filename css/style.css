@@ -3,6 +3,7 @@
     --color-primary-dark: #2ecc2b;
     --color-secondary: #17cf51;
     --color-secondary-dark: #238e0d;
+    --color-tertiary:#1f2e2a;
 
     --color-text: #1f2937;
     --color-text-light: #52606d;
@@ -313,12 +314,123 @@ section {
     color: var(--color-secondary-dark);
 }
 
+
+.pagina-simple h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+}
+
+.pagina-simple p {
+    color: var(--color-text-light);
+    max-width: 640px;
+}
+
+.cta-emprendedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--color-bg-alt);
+    border-radius: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+}
+
+.cta-emprendedor__texto {
+    flex: 1;
+    min-width: 220px;
+    padding: 2rem;
+    color: var(--color-tertiary);
+}
+
+.cta-emprendedor__texto h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    color: var(--color-secondary-dark);
+    margin-bottom: 0.5rem;
+}
+
+.cta-emprendedor__link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-secondary-dark);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.cta-emprendedor__imagen {
+    flex: 1;
+    min-width: 220px;
+    max-height: 330px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.lista-emprendimientos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+}
+
+.emprendimiento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.emprendimiento__imagen {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 0.75rem;
+}
+
+.emprendimiento__nombre {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.emprendimiento__ciudad {
+    color: var(--color-text-light);
+}
+
+.volver {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.volver:hover,
+.volver:focus-visible {
+    text-decoration: underline;
+}
+
+
 footer {
     text-align: center;
     padding: 2.5rem 2rem;
     background: #0d2b26;
     color: #e6fffa;
     margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .emprendimiento {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
