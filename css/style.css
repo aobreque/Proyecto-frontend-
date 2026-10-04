@@ -127,7 +127,7 @@ search input[type="search"] {
 
 .btn-buscar {
     background-color: var(--color-bg-alt);
-    background-image: url('imagenes/lupa_buscador.png');
+    background-image: url('../assets/iconos/lupa_buscador.png');
     background-size: 50%;
     background-position: center;
     background-repeat: no-repeat;
@@ -250,6 +250,11 @@ section {
 }
 
 .card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color:inherit;
     background: var(--color-bg);
     padding: 2.25rem 1.75rem;
     border-radius: var(--radius);
