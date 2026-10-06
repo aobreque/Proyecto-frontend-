@@ -16,6 +16,25 @@
     --header-height: 4.5rem;
 }
 
+body.modo-oscuro {
+    --color-primary: #26d773;
+    --color-primary-dark: #2bcc89;
+    --color-secondary: #15c48f;
+    --color-secondary-dark: #0d8e7b;
+    --color-tertiary:#effbf4;
+
+    --color-text: #ffffff;
+    --color-text-light: #cbd5e1;
+    --color-bg: #272632;
+    --color-bg-alt: #293c42;
+    --color-border: #3a3a3a;
+}
+
+body.modo-oscuro a:focus-visible,
+body.modo-oscuro button:focus-visible {
+    outline-color: var(--color-primary);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -106,7 +125,7 @@ search {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    background: #fff;
+    background:var(--color-bg);
     border: 1.5px solid var(--color-border);
     border-radius: 999px;
     padding: 0.3rem 0.3rem 0.3rem 1.2rem;
@@ -348,14 +367,14 @@ section {
 
 .cta-emprendedor__texto h1 {
     font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
-    color: var(--color-secondary-dark);
+    color: var(--color-primary);
     margin-bottom: 0.5rem;
 }
 
 .cta-emprendedor__link {
     display: inline-block;
     margin-top: 0.75rem;
-    color: var(--color-secondary-dark);
+    color: var(--color-primary);
     font-weight: 700;
     text-decoration: underline;
 }
