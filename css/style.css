@@ -370,7 +370,7 @@ footer {
     margin: 64px auto;
     padding: 56px 24px;
     text-align: center;
-    background: linear-gradient(180deg, #f3fbf3 0%, #ffffff 100%);
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
     border-radius: 24px;
 }
 
@@ -378,7 +378,7 @@ footer {
     margin: 0 0 24px;
     text-align: center;
     font-size: 2rem;
-    color: #1a1a1a;
+    color: var(--color-text);
 }
 
 #quienes-somos h2::after {
@@ -388,7 +388,7 @@ footer {
     height: 4px;
     margin: 12px auto 0;
     border-radius: 999px;
-    background: #22b322;
+    background: var(--color-primary);
 }
 
 #quienes-somos .quienes-intro {
@@ -397,7 +397,7 @@ footer {
     font-size: 1.15rem;
     line-height: 1.7;
     text-align: center;
-    color: #444;
+    color: var(--color-text-light);
 }
 
 #quienes-somos .valores {
@@ -411,9 +411,9 @@ footer {
 
 #quienes-somos .valores li {
     padding: 32px 24px;
-    background: #fff;
-    border: 1px solid #e5efe5;
-    border-top: 4px solid #22b322;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid var(--color-primary);
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     text-align: center;
@@ -433,7 +433,7 @@ footer {
     height: 64px;
     margin-bottom: 16px;
     font-size: 1.9rem;
-    background: #e8f7e8;
+    background: var(--color-bg-alt);
     border-radius: 50%;
 }
 
@@ -446,7 +446,7 @@ footer {
 #quienes-somos .valores p {
     margin: 0;
     line-height: 1.6;
-    color: #555;
+    color: var(--color-text-light);
 }
 
 @media (prefers-reduced-motion: reduce) {
