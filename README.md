@@ -33,8 +33,6 @@ lo que ayuda a los comercios de la zona a tener mas visibilidad.
 - Sprint actual: Sprint 2
 - Última actualización: 06/10/2026
 
-![Meme PC](https://media.tenor.com/images/dc948b89417efc87d402aa3dd23e6f98/tenor.gif)
-
 ## Tablero Kanban
 
 Enlace al tablero: [text](https://trello.com/b/boKgPiYD)
