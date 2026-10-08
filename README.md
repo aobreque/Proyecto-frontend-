@@ -2,11 +2,11 @@
 
 ## Integrantes y roles (Sprint actual)
 
-|Angel Obreque|Developer|
-|Sofia Morales|Developer|
-|Alejandro lincoguir|QA/Tester|
-|Macarena Melin|Product Owner|
-|Benjamin jara|Scrum Master|
+|Angel Obreque|Product Owner|
+|Sofia Morales|Scrum Master|
+|Alejandro lincoguir|Developer|
+|Macarena Melin|Developer|
+|Benjamin jara|QA/Tester|
 
 ## Descripción breve
 EcoRuta Temuco es un sitio web enfocado en la promoción del turismo sostenible y consciente en la Región de La Araucanía. 
@@ -16,7 +16,7 @@ lo que ayuda a los comercios de la zona a tener mas visibilidad.
 
 ## Tecnologías utilizadas
 
-- HTML5/css3
+- HTML5/css3/JS(por aplicar)
 
  (Framework a definir)
 
@@ -30,10 +30,8 @@ lo que ayuda a los comercios de la zona a tener mas visibilidad.
 
 ## Estado del proyecto
 
-- Sprint actual: Sprint 1
-- Última actualización: 04/10/2026
-
-![Meme PC](https://media.tenor.com/images/dc948b89417efc87d402aa3dd23e6f98/tenor.gif)
+- Sprint actual: Sprint 2
+- Última actualización: 06/10/2026
 
 ## Tablero Kanban
 
