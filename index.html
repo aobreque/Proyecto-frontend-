@@ -4,34 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecoruta</title>
+    <title>EcoRuta</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
-         <div class="logo">
-        <img src="assets/imagenes/bus.v2.png" alt="" class="bus">
-        <span>EcoRuta</span>
-    </div>
+        <div class="logo">
+            <img src="assets/imagenes/bus.v2.jpeg" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
 
-    <search>
-        <input type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
-        <button type="button" class="btn-buscar" aria-label="Buscar"></button>
-    </search>
+        <search>
+            <input
+                type="search"
+                placeholder="Buscar ruta o destino..."
+                aria-label="Buscar ruta o destino"
+            >
+            <button
+                type="button"
+                class="btn-buscar"
+                aria-label="Buscar"
+            ></button>
+        </search>
 
-    <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
-        <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
-        <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
-        <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false" >🌙</button>
-    </div>
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button
+                type="button"
+                id="btn-letra-mas"
+                aria-label="Aumentar tamaño de letra"
+            >
+                A+
+            </button>
+
+            <button
+                type="button"
+                id="btn-letra-menos"
+                aria-label="Disminuir tamaño de letra"
+            >
+                A-
+            </button>
+
+            <button
+                type="button"
+                id="btn-modo-oscuro"
+                aria-label="Alternar modo oscuro"
+            >
+                🌙
+            </button>
+        </div>
+
         <nav aria-label="Navegación principal">
             <ul class="menu">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+                <li>
+                    <a href="#servicios">Servicios</a>
+                </li>
+                <li>
+                    <a href="#contacto">Contacto</a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -39,31 +75,39 @@
     <main id="main-content">
         <section id="inicio" class="hero">
             <h1>Tu viaje consciente comienza aquí</h1>
-            <p>Encuentra rutas y destinos turísticos de la Araucanía en un solo lugar.</p>
+            <p>
+                Encuentra rutas y destinos turísticos de la Araucanía en un solo lugar.
+            </p>
         </section>
 
         <section id="servicios" class="servicios">
             <h2>Servicios</h2>
+
             <ul class="grid">
                 <li>
                     <a href="paginas/rutas.html" class="card">
                         <h3>Rutas</h3>
-                        <p>Encuentra Rutas turisticas recomendadas.</p>
+                        <p>Encuentra rutas turísticas recomendadas.</p>
                     </a>
                 </li>
+
                 <li>
                     <a href="paginas/turismo.html" class="card">
                         <h3>Turismo</h3>
                         <p>Descubre destinos y lugares turísticos de la zona.</p>
                     </a>
                 </li>
+
                 <li>
                     <a href="paginas/comercios-locales.html" class="card">
                         <h3>Comercios locales</h3>
-                        <p>Conoce emprendimientos y comercios que puedes encontrar durante tu viaje.</p>
+                        <p>
+                            Conoce emprendimientos y comercios que puedes encontrar
+                            durante tu viaje.
+                        </p>
                     </a>
                 </li>
-            </ul>            
+            </ul>
         </section>
                        <section id="quienes-somos" class="quienes-somos">
             <h2>Quiénes somos</h2>
@@ -92,6 +136,7 @@
         </section>
         <section id="contacto" class="contacto">
             <h2>Contacto</h2>
+
             <address>
                 <a href="mailto:Ecoruta@email.cl">Ecoruta@email.cl</a>
                 <br>
@@ -104,7 +149,8 @@
         <p>&copy; Todos los derechos reservados.</p>
     </footer>
 
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
+
 </html>

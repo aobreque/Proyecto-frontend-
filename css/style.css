@@ -1,6 +1,6 @@
 :root {
     --color-primary: #3af12d;
-    --color-primary-dark: #2ecc2b;
+    --color-primary-dark: #238e0d;
     --color-secondary: #17cf51;
     --color-secondary-dark: #238e0d;
     --color-tertiary:#1f2e2a;
@@ -171,10 +171,11 @@ search input[type="search"] {
     flex-shrink: 0;
 }
 
-
-.accesibilidad { 
-    grid-area: accesibilidad; 
-    display: flex; gap: 0.5rem; }
+.accesibilidad {
+    grid-area: accesibilidad;
+    display: flex;
+    gap: 0.5rem;
+}
 
 .accesibilidad button {
     width: 36px;
@@ -186,10 +187,10 @@ search input[type="search"] {
     cursor: pointer;
 }
 
-nav { 
-    grid-area: menu; 
+nav {
+    grid-area: menu;
     border-top: 1px solid var(--color-border);
-    padding-top: 0.4rem; 
+    padding-top: 0.4rem;
 }
 
 .bus {
@@ -243,11 +244,15 @@ section {
 
 .hero {
     width: 100%;
-    max-width:100%;
+    max-width: 100%;
     margin: 0;
     text-align: center;
     padding: 5.5rem 2rem;
-    background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-secondary-dark) 100%);
+    background: linear-gradient(
+        135deg,
+        var(--color-primary-dark) 0%,
+        var(--color-secondary-dark) 100%
+    );
     color: #ffffff;
     box-shadow: 0 12px 24px rgba(6, 78, 59, 0.18);
 }
@@ -265,7 +270,6 @@ section {
     margin: 0 auto 1.75rem;
     color: #f0fdfa;
 }
-
 
 .servicios h2,
 .contacto h2 {
@@ -287,7 +291,7 @@ section {
     flex-direction: column;
     height: 100%;
     text-decoration: none;
-    color:inherit;
+    color: inherit;
     background: var(--color-bg);
     padding: 2.25rem 1.75rem;
     border-radius: var(--radius);
@@ -308,7 +312,6 @@ section {
 .card:focus-within {
     box-shadow: 0 16px 28px rgba(15, 23, 42, 0.1);
 }
-
 
 .card h3 {
     color: var(--color-text);
@@ -336,7 +339,7 @@ section {
 }
 
 .contacto a {
-    color: var(--color-primary-dark);
+    color: #176b0a;
     font-weight: 600;
     text-decoration: underline;
     text-underline-offset: 3px;
