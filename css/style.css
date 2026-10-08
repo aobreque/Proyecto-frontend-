@@ -508,3 +508,96 @@ footer {
         border-radius: 16px;
     }
 }
+/* ===== Quiénes somos ===== */
+#quienes-somos {
+    max-width: 1100px;
+    margin: 64px auto;
+    padding: 56px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    border-radius: 24px;
+}
+
+#quienes-somos h2 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-text);
+}
+
+#quienes-somos h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background: var(--color-primary);
+}
+
+#quienes-somos .quienes-intro {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+#quienes-somos .valores {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+#quienes-somos .valores li {
+    padding: 32px 24px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#quienes-somos .valores li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(34, 179, 34, 0.18);
+}
+
+#quienes-somos .valor-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    font-size: 1.9rem;
+    background: var(--color-bg-alt);
+    border-radius: 50%;
+}
+
+#quienes-somos .valores h3 {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+    color: #1a8f1a;
+}
+
+#quienes-somos .valores p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #quienes-somos .valores li {
+        transition: none;
+    }
+    #quienes-somos .valores li:hover {
+        transform: none;
+    }
+}
