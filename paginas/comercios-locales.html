@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comercios Locales-La Araucanía</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+      <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <p id="anuncios" class="sr-only" aria-live="polite"></p>
+    <header>
+        <div class="logo">
+            <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
+
+        <search>
+            <input type="search" placeholder="Buscar emprendimiento..." aria-label="Buscar emprendimiento">
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+        </search>
+        
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
+            <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false" >🌙</button>
+        </div>
+
+        <nav aria-label="Navegación principal">
+            <ul class="menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <a href="../index.html" class="volver">← Volver a inicio</a>
+        <section class="cta-emprendedor">
+             <div class="cta-emprendedor__texto">
+                <h1>¿Eres emprendedor?</h1>
+                <a href="emprendedores.html" class="cta-emprendedor__link">Haz clic aquí</a>
+            </div>
+            <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen">
+        </section>
+
+        <section class="lista-emprendimientos">
+                <article class="emprendimiento">
+                    <div class="emprendimiento__ficha">
+                        <img src="../assets/imagenes/emprendimiento1_frontend.png" alt="" class="emprendimiento__imagen">
+                        <p class="emprendimiento__nombre">Nombre emprendimiento</p>
+                        <p class="emprendimiento__ciudad">Ciudad</p>
+                    </div>
+                    <div class="emprendimiento__info">
+                        <p>Descripción de emprendedor  sobre su negocio, productos y contacto.</p>
+                    </div>
+                </article>
+
+                <article class="emprendimiento">
+                    <div class="emprendimiento__ficha">
+                        <img src="../assets/imagenes/emprendimiento2_frontend.png" alt="" class="emprendimiento__imagen">
+                        <p class="emprendimiento__nombre">Nombre emprendimiento</p>
+                        <p class="emprendimiento__ciudad">Ciudad</p>
+                    </div>
+                    <div class="emprendimiento__info">
+                        <p>Descripción de emprendedor  sobre su negocio, productos y contacto.</p>
+                    </div>
+                </article>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
