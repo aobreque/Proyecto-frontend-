@@ -3,6 +3,7 @@
     --color-primary-dark: #238e0d;
     --color-secondary: #17cf51;
     --color-secondary-dark: #238e0d;
+    --color-tertiary:#1f2e2a;
 
     --color-text: #1f2937;
     --color-text-light: #52606d;
@@ -13,6 +14,37 @@
     --radius: 12px;
     --transition: 0.25s ease;
     --header-height: 4.5rem;
+}
+
+body.modo-oscuro {
+    --color-primary: #26d773;
+    --color-primary-dark: #2bcc89;
+    --color-secondary: #15c48f;
+    --color-secondary-dark: #0d8e7b;
+    --color-tertiary:#effbf4;
+
+    --color-text: #ffffff;
+    --color-text-light: #cbd5e1;
+    --color-bg: #272632;
+    --color-bg-alt: #293c42;
+    --color-border: #3a3a3a;
+}
+
+body.modo-oscuro a:focus-visible,
+body.modo-oscuro button:focus-visible {
+    outline-color: var(--color-primary);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 * {
@@ -105,7 +137,7 @@ search {
     display: flex;
     align-items: center;
     gap: 0.4rem;
-    background: #fff;
+    background:var(--color-bg);
     border: 1.5px solid var(--color-border);
     border-radius: 999px;
     padding: 0.3rem 0.3rem 0.3rem 1.2rem;
@@ -150,7 +182,8 @@ search input[type="search"] {
     height: 36px;
     border-radius: 8px;
     border: 1px solid var(--color-border);
-    background: #fff;
+    background: var(--color-bg-alt);
+    color:var(--color-text);
     cursor: pointer;
 }
 
@@ -316,12 +349,123 @@ section {
     color: var(--color-secondary-dark);
 }
 
+
+.pagina-simple h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+}
+
+.pagina-simple p {
+    color: var(--color-text-light);
+    max-width: 640px;
+}
+
+.cta-emprendedor {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--color-bg-alt);
+    border-radius: 0;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem 0;
+}
+
+.cta-emprendedor__texto {
+    flex: 1;
+    min-width: 220px;
+    padding: 2rem;
+    color: var(--color-tertiary);
+}
+
+.cta-emprendedor__texto h1 {
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.cta-emprendedor__link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.cta-emprendedor__imagen {
+    flex: 1;
+    min-width: 220px;
+    max-height: 330px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 20px 20px 20px 20px;
+}
+
+.lista-emprendimientos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 3rem;
+}
+
+.emprendimiento {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+}
+
+.emprendimiento__imagen {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    margin-bottom: 0.75rem;
+}
+
+.emprendimiento__nombre {
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.emprendimiento__ciudad {
+    color: var(--color-text-light);
+}
+
+.volver {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    margin-left: 2rem;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.volver:hover,
+.volver:focus-visible {
+    text-decoration: underline;
+}
+
+
 footer {
     text-align: center;
     padding: 2.5rem 2rem;
     background: #0d2b26;
     color: #e6fffa;
     margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .emprendimiento {
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px) {
@@ -365,5 +509,98 @@ footer {
     .hero,
     .contacto {
         border-radius: 16px;
+    }
+}
+/* ===== Quiénes somos ===== */
+#quienes-somos {
+    max-width: 1100px;
+    margin: 64px auto;
+    padding: 56px 24px;
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+    border-radius: 24px;
+}
+
+#quienes-somos h2 {
+    margin: 0 0 24px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--color-text);
+}
+
+#quienes-somos h2::after {
+    content: "";
+    display: block;
+    width: 64px;
+    height: 4px;
+    margin: 12px auto 0;
+    border-radius: 999px;
+    background: var(--color-primary);
+}
+
+#quienes-somos .quienes-intro {
+    max-width: 720px;
+    margin: 0 auto 40px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+#quienes-somos .valores {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+#quienes-somos .valores li {
+    padding: 32px 24px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-top: 4px solid var(--color-primary);
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#quienes-somos .valores li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(34, 179, 34, 0.18);
+}
+
+#quienes-somos .valor-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 16px;
+    font-size: 1.9rem;
+    background: var(--color-bg-alt);
+    border-radius: 50%;
+}
+
+#quienes-somos .valores h3 {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+    color: #1a8f1a;
+}
+
+#quienes-somos .valores p {
+    margin: 0;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #quienes-somos .valores li {
+        transition: none;
+    }
+    #quienes-somos .valores li:hover {
+        transform: none;
     }
 }
