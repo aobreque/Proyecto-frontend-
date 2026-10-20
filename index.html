@@ -12,6 +12,7 @@
 
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
+
     <header>
         <div class="logo">
             <img src="assets/imagenes/bus.v2.jpeg" alt="" class="bus">
@@ -24,27 +25,15 @@
                 placeholder="Buscar ruta o destino..."
                 aria-label="Buscar ruta o destino"
             >
-            <button
-                type="button"
-                class="btn-buscar"
-                aria-label="Buscar"
-            ></button>
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
         </search>
 
         <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
-            <button
-                type="button"
-                id="btn-letra-mas"
-                aria-label="Aumentar tamaño de letra"
-            >
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">
                 A+
             </button>
 
-            <button
-                type="button"
-                id="btn-letra-menos"
-                aria-label="Disminuir tamaño de letra"
-            >
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">
                 A-
             </button>
 
@@ -52,6 +41,7 @@
                 type="button"
                 id="btn-modo-oscuro"
                 aria-label="Alternar modo oscuro"
+                aria-pressed="false"
             >
                 🌙
             </button>
@@ -59,26 +49,72 @@
 
         <nav aria-label="Navegación principal">
             <ul class="menu">
-                <li>
-                    <a href="#inicio">Inicio</a>
-                </li>
-                <li>
-                    <a href="#servicios">Servicios</a>
-                </li>
-                <li>
-                    <a href="#contacto">Contacto</a>
-                </li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#quienes-somos">Quiénes somos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
-        <section id="inicio" class="hero">
+    <!-- Portada con carrusel de destinos -->
+<section id="inicio" class="hero portada-carrusel"
+    aria-label="Destinos recomendados">
+
+    <div class="carrusel">
+
+        <button type="button" class="carrusel__flecha"
+            id="anterior" aria-label="Imagen anterior">
+            &lsaquo;
+        </button>
+
+        <div class="carrusel__viewport">
+            <div class="carrusel__track">
+
+                <img
+                    src="assets/imagenes/Imagenes_carrusel/img1.webp"
+                    alt="Destino turístico de La Araucanía">
+
+                <img
+                    src="assets/imagenes/Imagenes_carrusel/emprendimiento1_frontend.png"
+                    alt="Emprendimiento local"
+                    loading="lazy">
+
+                <img
+                    src="assets/imagenes/Imagenes_carrusel/emprendimiento2_frontend.png"
+                    alt="Otro emprendimiento local"
+                    loading="lazy">
+
+                <img
+                    src="assets/imagenes/Imagenes_carrusel/lagoLicanray_frontend.jpg"
+                    alt="Vista del lago Lican Ray"
+                    loading="lazy">
+
+            </div>
+        </div>
+
+        <button type="button" class="carrusel__flecha"
+            id="siguiente" aria-label="Imagen siguiente">
+            &rsaquo;
+        </button>
+
+        <div class="portada-carrusel__texto">
             <h1>Tu viaje consciente comienza aquí</h1>
             <p>
-                Encuentra rutas y destinos turísticos de la Araucanía en un solo lugar.
+                Encuentra rutas y destinos turísticos de la Araucanía
+                en un solo lugar.
             </p>
-        </section>
+        </div>
+
+    </div>
+
+    <div class="carrusel__puntos" id="puntos"
+        aria-label="Posición del carrusel"></div>
+
+</section>
+
+    <main id="main-content">
+
 
         <section id="servicios" class="servicios">
             <h2>Servicios</h2>
@@ -109,24 +145,35 @@
                 </li>
             </ul>
         </section>
-                       <section id="quienes-somos" class="quienes-somos">
+
+        <section id="quienes-somos" class="quienes-somos">
             <h2>Quiénes somos</h2>
+
             <p class="quienes-intro">
-                Somos Ecoruta, una plataforma que reúne rutas de transporte, destinos turísticos
-                y comercios locales de La Araucanía, para que viajes de forma segura y consciente.
+                Somos EcoRuta, una plataforma que reúne rutas de transporte,
+                destinos turísticos y comercios locales de La Araucanía,
+                para que viajes de forma segura y consciente.
             </p>
 
             <ul class="valores">
                 <li>
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Misión</h3>
-                    <p>Facilitar el acceso a información de rutas y destinos de la región en un solo lugar.</p>
+                    <p>
+                        Facilitar el acceso a información de rutas y destinos
+                        de la región en un solo lugar.
+                    </p>
                 </li>
+
                 <li>
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Visión</h3>
-                    <p>Ser la guía de viaje de referencia para quienes recorren La Araucanía.</p>
+                    <p>
+                        Ser la guía de viaje de referencia para quienes
+                        recorren La Araucanía.
+                    </p>
                 </li>
+
                 <li>
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Valores</h3>
@@ -134,6 +181,7 @@
                 </li>
             </ul>
         </section>
+
         <section id="contacto" class="contacto">
             <h2>Contacto</h2>
 
@@ -143,6 +191,7 @@
                 <a href="tel:+56912345678">+56 9 1234 5678</a>
             </address>
         </section>
+
     </main>
 
     <footer>
@@ -150,7 +199,6 @@
     </footer>
 
     <script src="js/main.js"></script>
-
 </body>
 
 </html>
