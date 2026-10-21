@@ -1,45 +1,69 @@
-const btnModoOscuro = document.getElementById('btn-modo-oscuro');
+const carrusel = document.querySelector('#inicio .carrusel');
+const track = carrusel?.querySelector('.carrusel__track');
+const puntos = document.getElementById('puntos');
+const btnAnterior = document.getElementById('anterior');
+const btnSiguiente = document.getElementById('siguiente');
 
-if (localStorage.getItem('modoOscuro') === 'true') {
-    document.body.classList.add('modo-oscuro');
-    btnModoOscuro.setAttribute('aria-pressed', 'true');
-    btnModoOscuro.textContent = '☀️';
-}
+if (carrusel && track && puntos && btnAnterior && btnSiguiente) {
+    const imagenes = track.querySelectorAll('img');
 
-btnModoOscuro.addEventListener('click', () => {
-    document.body.classList.toggle('modo-oscuro');
-    const activado = document.body.classList.contains('modo-oscuro');
+    if (imagenes.length > 0) {
+        let indiceActual = 0;
 
-    btnModoOscuro.setAttribute('aria-pressed', activado);
-    btnModoOscuro.textContent = activado ? '☀️' : '🌙';
-    anuncios.textContent = activado ? 'Modo oscuro activado' : 'Modo oscuro desactivado';
+        // Crear los indicadores de las imagenes.
+        imagenes.forEach((imagen, indice) => {
+            const punto = document.createElement('button');
 
-    localStorage.setItem('modoOscuro', activado);
-});
+            punto.type = 'button';
+            punto.classList.add('carrusel__punto');
+            punto.setAttribute(
+                'aria-label',
+                `Mostrar imagen ${indice + 1} de ${imagenes.length}`
+            );
 
-const btnLetraMas = document.getElementById('btn-letra-mas');
-const btnLetraMenos = document.getElementById('btn-letra-menos');
-const anuncios = document.getElementById('anuncios');
+            punto.addEventListener('click', () => {
+                mostrarImagen(indice);
+            });
 
-let tamanoBase = parseInt(localStorage.getItem('tamanoLetra')) || 100;
-document.documentElement.style.fontSize = tamanoBase + '%';
+            puntos.appendChild(punto);
+        });
 
-function actualizarTamano() {
-    document.documentElement.style.fontSize = tamanoBase + '%';
-    localStorage.setItem('tamanoLetra', tamanoBase);
-    anuncios.textContent = 'Tamaño de letra: ' + tamanoBase + '%';
-}
+        const indicadores = puntos.querySelectorAll('.carrusel__punto');
 
-btnLetraMas.addEventListener('click', () => {
-    if (tamanoBase < 200) {
-        tamanoBase += 10;
-        actualizarTamano();
+        // Mostrar una imagen y actualizar los indicadores.
+        function mostrarImagen(indice) {
+            indiceActual = (indice + imagenes.length) % imagenes.length;
+
+            track.style.transform = `translateX(-${indiceActual * 100}%)`;
+
+            indicadores.forEach((indicador, posicion) => {
+                if (posicion === indiceActual) {
+                    indicador.setAttribute('aria-current', 'true');
+                } else {
+                    indicador.removeAttribute('aria-current');
+                }
+            });
+
+            if (anuncios) {
+                const descripcion = imagenes[indiceActual].alt;
+
+                anuncios.textContent =
+                    `Imagen ${indiceActual + 1} de ${imagenes.length}. ` +
+                    (descripcion ? descripcion : 'Sin descripción disponible.');
+            }
+        }
+
+        // Ir a la imagen anterior.
+        btnAnterior.addEventListener('click', () => {
+            mostrarImagen(indiceActual - 1);
+        });
+
+        // Ir a la imagen siguiente.
+        btnSiguiente.addEventListener('click', () => {
+            mostrarImagen(indiceActual + 1);
+        });
+
+        // Configurar el carrusel al cargar la pagina.
+        mostrarImagen(0);
     }
-});
-
-btnLetraMenos.addEventListener('click', () => {
-    if (tamanoBase > 80) {
-        tamanoBase -= 10;
-        actualizarTamano();
-    }
-});
+}

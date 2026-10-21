@@ -605,142 +605,282 @@ footer {
     }
 }
 
+:root {
+    --color-primary: #15803d;
+    --color-primary-dark: #166534;
+    --color-secondary: #16a34a;
+    --color-secondary-dark: #166534;
 
-/* ===== Carrusel de destinos EcoRuta ===== */
-.carrusel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    --color-text: #1f2937;
+    --color-text-light: #52606d;
+
+    --color-bg: #ffffff;
+    --color-bg-alt: #f4faf9;
+    --color-border: #d1d5db;
+}
+
+/* Colores para el modo oscuro */
+body.modo-oscuro {
+    --color-primary: #4ade80;
+    --color-primary-dark: #86efac;
+    --color-secondary: #34d399;
+    --color-secondary-dark: #6ee7b7;
+
+    --color-text: #f9fafb;
+    --color-text-light: #d1d5db;
+
+    --color-bg: #272632;
+    --color-bg-alt: #293c42;
+    --color-border: #4b5563;
+}
+
+/* 2. Corregir colores de textos y enlaces */
+body {
+    color: var(--color-text);
+    background-color: var(--color-bg);
+}
+
+.servicios h2,
+.contacto h2,
+#quienes-somos h2,
+#quienes-somos .valores h3,
+.card h3 {
+    color: var(--color-text);
+}
+
+.card p,
+.quienes-intro,
+#quienes-somos .valores p,
+.contacto address {
+    color: var(--color-text-light);
+}
+
+.contacto a {
+    color: var(--color-primary-dark);
+}
+
+.contacto a:hover {
+    color: var(--color-secondary-dark);
+}
+
+/* 3. Reducir el fondo verde de la portada */
+#inicio.portada-carrusel {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 1.25rem 1rem;
+    background: linear-gradient(
+        135deg,
+        var(--color-primary-dark),
+        var(--color-secondary-dark)
+    );
+    border-radius: 0;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+/* 4. Convertir el carrusel en un contenedor
+   para superponer el texto y los controles */
+#inicio .carrusel {
+    position: relative;
+    display: block;
     width: 100%;
     max-width: 1000px;
-    margin: 2rem auto 0;
-    padding: 1.5rem 2rem;
-    background: var(--color-bg-alt);
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    background: transparent;
     border-radius: var(--radius);
 }
 
-.carrusel__viewport {
-    width: min(100%, 720px);
-    height: clamp(220px, 42vw, 420px);
+/* Ventana de las imágenes */
+#inicio .carrusel__viewport {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 35vw, 390px);
     overflow: hidden;
     border-radius: var(--radius);
-    background: var(--color-border);
+    background: #1f2937;
 }
 
-.carrusel__track {
+/* Oscurecer la parte inferior de la imagen
+   para que el texto blanco sea legible */
+#inicio .carrusel__viewport::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.05) 15%,
+        rgba(0, 0, 0, 0.25) 45%,
+        rgba(0, 0, 0, 0.78) 100%
+    );
+    pointer-events: none;
+}
+
+/* Pista que moverá JavaScript */
+#inicio .carrusel__track {
     display: flex;
+    width: 100%;
     height: 100%;
-    transform: translateX(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.35s ease;
 }
 
-.carrusel__track img {
+/* Imágenes del carrusel */
+#inicio .carrusel__track img {
+    display: block;
     flex: 0 0 100%;
     width: 100%;
+    min-width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.carrusel__flecha {
+/* 5. Texto superpuesto sobre las imágenes */
+#inicio .portada-carrusel__texto {
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    bottom: 45px;
+    transform: translateX(-50%);
+    width: calc(100% - 100px);
+    max-width: 760px;
+    margin: 0;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.32);
+    border-radius: 12px;
+}
+
+#inicio .portada-carrusel__texto h1 {
+    margin: 0 0 0.5rem;
+    color: #ffffff;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+#inicio .portada-carrusel__texto p {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    line-height: 1.5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* 6. Flechas a los lados de la imagen */
+#inicio .carrusel__flecha {
+    position: absolute;
+    z-index: 3;
+    top: 50%;
+    transform: translateY(-50%);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    flex: 0 0 44px;
     width: 44px;
     height: 44px;
-    border: 1px solid var(--color-border);
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.8);
     border-radius: 50%;
-    background: var(--color-bg);
-    color: var(--color-text);
+    background: rgba(0, 0, 0, 0.65);
+    color: #ffffff;
     font-size: 2rem;
     line-height: 1;
     cursor: pointer;
-    transition: background-color var(--transition), color var(--transition);
 }
 
-.carrusel__flecha:hover {
-    background: var(--color-primary-dark);
-    color: #ffffff;
+#inicio .carrusel__flecha--anterior {
+    left: 12px;
 }
 
-.carrusel__texto {
-    max-width: 760px;
-    margin: 1rem auto 0;
-    padding: 0 1.5rem;
-    text-align: center;
+#inicio .carrusel__flecha--siguiente {
+    right: 12px;
 }
 
-.carrusel__texto h2 {
-    margin-bottom: 0.5rem;
-    color: var(--color-text);
+#inicio .carrusel__flecha:hover {
+    background: #ffffff;
+    color: #166534;
 }
 
-.carrusel__texto p {
-    color: var(--color-text-light);
-}
-
-.carrusel__puntos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-    margin: 1rem auto 2rem;
-}
-
-.carrusel__punto {
-    width: 12px;
-    height: 12px;
-    padding: 0;
-    border: 0;
-    border-radius: 50%;
-    background: var(--color-border);
-    cursor: pointer;
-}
-
-.carrusel__punto[aria-current="true"] {
-    background: var(--color-primary-dark);
-    transform: scale(1.15);
-}
-
-.carrusel__flecha:focus-visible,
-.carrusel__punto:focus-visible {
-    outline: 3px solid var(--color-primary-dark);
+#inicio .carrusel__flecha:focus-visible,
+#inicio .carrusel__punto:focus-visible {
+    outline: 3px solid #ffffff;
     outline-offset: 3px;
 }
 
+/* 7. Puntos indicadores dentro de la portada */
+#inicio .carrusel__puntos {
+    position: absolute;
+    z-index: 3;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 0.25rem;
+}
+
+#inicio .carrusel__punto {
+    width: 12px;
+    height: 12px;
+    padding: 0;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    cursor: pointer;
+}
+
+#inicio .carrusel__punto[aria-current="true"] {
+    background: #ffffff;
+    transform: scale(1.15);
+}
+
+/* 8. Adaptación a pantallas pequeñas */
 @media (max-width: 560px) {
-    .carrusel {
-        gap: 0.5rem;
-        padding: 1rem 0.5rem;
+    #inicio.portada-carrusel {
+        padding: 0.75rem 0.5rem;
     }
 
-    .carrusel__viewport {
-        height: 240px;
+    #inicio .carrusel__viewport {
+        height: 300px;
     }
 
-    .carrusel__flecha {
-        flex-basis: 34px;
+    #inicio .portada-carrusel__texto {
+        bottom: 42px;
+        width: calc(100% - 72px);
+        padding: 0.75rem 0.5rem;
+    }
+
+    #inicio .portada-carrusel__texto h1 {
+        font-size: 1.4rem;
+    }
+
+    #inicio .portada-carrusel__texto p {
+        font-size: 0.9rem;
+    }
+
+    #inicio .carrusel__flecha {
         width: 34px;
         height: 34px;
         font-size: 1.6rem;
     }
-}
 
-@media (prefers-reduced-motion: reduce) {
-    .carrusel__track {
-        transition: none;
+    #inicio .carrusel__flecha--anterior {
+        left: 6px;
+    }
+
+    #inicio .carrusel__flecha--siguiente {
+        right: 6px;
     }
 }
-/* Ajustar el hero para que funcione como fondo del carrusel */
-.portada-carrusel {
-    padding: 2rem 1rem;
-    min-height: auto;
-}
 
-/* Evitar que el carrusel ocupe demasiado espacio */
-.portada-carrusel .carrusel {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 1rem;
+/* Respetar la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+    #inicio .carrusel__track {
+        transition: none;
+    }
 }

@@ -4,36 +4,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Descubre rutas, destinos turísticos y comercios locales de La Araucanía con EcoRuta.">
     <title>EcoRuta</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <a href="#main-content" class="skip-link">
+        Saltar al contenido principal
+    </a>
+
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
 
+    <!-- ENCABEZADO -->
     <header>
         <div class="logo">
-            <img src="assets/imagenes/bus.v2.jpeg" alt="" class="bus">
+            <img
+                src="assets/imagenes/bus.v2.jpeg"
+                alt=""
+                class="bus"
+            >
             <span>EcoRuta</span>
         </div>
 
         <search>
             <input
                 type="search"
+                id="buscar"
                 placeholder="Buscar ruta o destino..."
                 aria-label="Buscar ruta o destino"
             >
-            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+
+            <button
+                type="button"
+                class="btn-buscar"
+                aria-label="Buscar"
+            ></button>
         </search>
 
-        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
-            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">
+        <!-- CONTROLES DE ACCESIBILIDAD -->
+        <div
+            class="accesibilidad"
+            role="toolbar"
+            aria-label="Accesibilidad"
+        >
+            <button
+                type="button"
+                id="btn-letra-mas"
+                aria-label="Aumentar tamaño de letra"
+            >
                 A+
             </button>
 
-            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">
+            <button
+                type="button"
+                id="btn-letra-menos"
+                aria-label="Disminuir tamaño de letra"
+            >
                 A-
             </button>
 
@@ -47,6 +75,7 @@
             </button>
         </div>
 
+        <!-- NAVEGACIÓN -->
         <nav aria-label="Navegación principal">
             <ul class="menu">
                 <li><a href="#inicio">Inicio</a></li>
@@ -57,80 +86,103 @@
         </nav>
     </header>
 
-    <!-- Portada con carrusel de destinos -->
-<section id="inicio" class="hero portada-carrusel"
-    aria-label="Destinos recomendados">
-
-    <div class="carrusel">
-
-        <button type="button" class="carrusel__flecha"
-            id="anterior" aria-label="Imagen anterior">
-            &lsaquo;
-        </button>
-
-        <div class="carrusel__viewport">
-            <div class="carrusel__track">
-
-                <img
-                    src="assets/imagenes/Imagenes_carrusel/img1.webp"
-                    alt="Destino turístico de La Araucanía">
-
-                <img
-                    src="assets/imagenes/Imagenes_carrusel/emprendimiento1_frontend.png"
-                    alt="Emprendimiento local"
-                    loading="lazy">
-
-                <img
-                    src="assets/imagenes/Imagenes_carrusel/emprendimiento2_frontend.png"
-                    alt="Otro emprendimiento local"
-                    loading="lazy">
-
-                <img
-                    src="assets/imagenes/Imagenes_carrusel/lagoLicanray_frontend.jpg"
-                    alt="Vista del lago Lican Ray"
-                    loading="lazy">
-
-            </div>
-        </div>
-
-        <button type="button" class="carrusel__flecha"
-            id="siguiente" aria-label="Imagen siguiente">
-            &rsaquo;
-        </button>
-
-        <div class="portada-carrusel__texto">
-            <h1>Tu viaje consciente comienza aquí</h1>
-            <p>
-                Encuentra rutas y destinos turísticos de la Araucanía
-                en un solo lugar.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="carrusel__puntos" id="puntos"
-        aria-label="Posición del carrusel"></div>
-
-</section>
-
+    <!-- CONTENIDO PRINCIPAL -->
     <main id="main-content">
 
+        <!-- PORTADA Y CARRUSEL -->
+        <section
+            id="inicio"
+            class="hero portada-carrusel"
+            aria-label="Destinos recomendados"
+        >
 
+            <div class="carrusel">
+
+                <!-- IMÁGENES -->
+                <div class="carrusel__viewport">
+                    <div class="carrusel__track">
+
+                        <img
+                            src="assets/Imagenes_carrusel/img1.webp"
+                            alt="Destino turístico de la Araucanía">
+
+                        <img
+                            src="assets/Imagenes_carrusel/img2.webp"
+                            alt="Emprendimiento local de la región">
+
+                        <img
+                            src="assets/Imagenes_carrusel/img3.webp"
+                            alt="Emprendimiento de la Araucanía">
+
+                        <img
+                            src="assets/Imagenes_carrusel/img4.webp"
+                            alt="Paisaje natural de la región">
+
+                    </div>
+                </div>
+
+                <!-- TEXTO SUPERPUESTO A LA IMAGEN -->
+                <div class="portada-carrusel__texto">
+                    <h1>Tu viaje consciente comienza aquí</h1>
+
+                    <p>
+                        Encuentra rutas y destinos turísticos de la Araucanía
+                        en un solo lugar.
+                    </p>
+                </div>
+
+                <!-- FLECHAS DEL CARRUSEL -->
+                <button
+                    type="button"
+                    class="carrusel__flecha carrusel__flecha--anterior"
+                    id="anterior"
+                    aria-label="Mostrar imagen anterior"
+                >
+                    &lsaquo;
+                </button>
+
+                <button
+                    type="button"
+                    class="carrusel__flecha carrusel__flecha--siguiente"
+                    id="siguiente"
+                    aria-label="Mostrar imagen siguiente"
+                >
+                    &rsaquo;
+                </button>
+
+                <!-- INDICADORES -->
+                <div
+                    class="carrusel__puntos"
+                    id="puntos"
+                    aria-label="Seleccionar imagen del carrusel"
+                ></div>
+
+            </div>
+
+        </section>
+
+        <!-- SERVICIOS -->
         <section id="servicios" class="servicios">
+
             <h2>Servicios</h2>
 
             <ul class="grid">
+
                 <li>
                     <a href="paginas/rutas.html" class="card">
                         <h3>Rutas</h3>
-                        <p>Encuentra rutas turísticas recomendadas.</p>
+                        <p>
+                            Encuentra rutas turísticas recomendadas.
+                        </p>
                     </a>
                 </li>
 
                 <li>
                     <a href="paginas/turismo.html" class="card">
                         <h3>Turismo</h3>
-                        <p>Descubre destinos y lugares turísticos de la zona.</p>
+                        <p>
+                            Descubre destinos y lugares turísticos de la zona.
+                        </p>
                     </a>
                 </li>
 
@@ -138,15 +190,19 @@
                     <a href="paginas/comercios-locales.html" class="card">
                         <h3>Comercios locales</h3>
                         <p>
-                            Conoce emprendimientos y comercios que puedes encontrar
-                            durante tu viaje.
+                            Conoce emprendimientos y comercios que puedes
+                            encontrar durante tu viaje.
                         </p>
                     </a>
                 </li>
+
             </ul>
+
         </section>
 
+        <!-- QUIÉNES SOMOS -->
         <section id="quienes-somos" class="quienes-somos">
+
             <h2>Quiénes somos</h2>
 
             <p class="quienes-intro">
@@ -156,6 +212,7 @@
             </p>
 
             <ul class="valores">
+
                 <li>
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Misión</h3>
@@ -177,12 +234,18 @@
                 <li>
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Valores</h3>
-                    <p>Seguridad, accesibilidad y apoyo al comercio local.</p>
+                    <p>
+                        Seguridad, accesibilidad y apoyo al comercio local.
+                    </p>
                 </li>
+
             </ul>
+
         </section>
 
+        <!-- CONTACTO -->
         <section id="contacto" class="contacto">
+
             <h2>Contacto</h2>
 
             <address>
@@ -190,15 +253,17 @@
                 <br>
                 <a href="tel:+56912345678">+56 9 1234 5678</a>
             </address>
+
         </section>
 
     </main>
 
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; Todos los derechos reservados.</p>
+        <p>&copy; 2026 EcoRuta. Todos los derechos reservados.</p>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
 
+</body>
 </html>
