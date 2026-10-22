@@ -521,23 +521,6 @@ footer {
     border-radius: 24px;
 }
 
-#quienes-somos h2 {
-    margin: 0 0 24px;
-    text-align: center;
-    font-size: 2rem;
-    color: var(--color-text);
-}
-
-#quienes-somos h2::after {
-    content: "";
-    display: block;
-    width: 64px;
-    height: 4px;
-    margin: 12px auto 0;
-    border-radius: 999px;
-    background: var(--color-primary);
-}
-
 #quienes-somos .quienes-intro {
     max-width: 720px;
     margin: 0 auto 40px;
@@ -883,4 +866,20 @@ body {
     #inicio .carrusel__track {
         transition: none;
     }
+}
+
+/* esto es para la lectura con tab del quienes somos*/
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #f59e0b;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
+html {
+    scroll-padding-top: 90px;
 }
