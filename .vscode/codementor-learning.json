@@ -1,17 +1,17 @@
 {
   "CSS-003": {
-    "occurrences": 22,
+    "occurrences": 62,
     "confidence": 1,
     "mastered_explicitly": false,
     "first_seen": "2026-09-18T14:15:33.941Z",
-    "last_seen": "2026-10-20T01:29:11.092Z"
+    "last_seen": "2026-10-22T11:28:50.919Z"
   },
   "CC-001": {
-    "occurrences": 6,
+    "occurrences": 8,
     "confidence": 1,
     "mastered_explicitly": false,
     "first_seen": "2026-10-16T18:59:46.361Z",
-    "last_seen": "2026-10-19T23:30:18.730Z"
+    "last_seen": "2026-10-21T00:27:06.927Z"
   },
   "HTML-002": {
     "occurrences": 1,
