@@ -57,7 +57,8 @@ btnLetraMenos.addEventListener('click', () => {
     }
 });
 
-// ===== Reducción de movimiento =====
+
+ // ===== Reducción de movimiento =====
 const claveMovimiento = 'reducirMovimiento';
 
 function aplicarPreferenciaMovimiento(reducir) {
@@ -66,37 +67,43 @@ function aplicarPreferenciaMovimiento(reducir) {
         reducir
     );
 
-    btnReducirMovimiento.setAttribute(
-        'aria-pressed',
-        String(reducir)
-    );
+    // Actualizar el botón solo si existe en esta página.
+    if (btnReducirMovimiento) {
+        btnReducirMovimiento.setAttribute(
+            'aria-pressed',
+            String(reducir)
+        );
 
-    btnReducirMovimiento.setAttribute(
-        'aria-label',
-        reducir
-            ? 'Activar animaciones y transiciones'
-            : 'Reducir animaciones y transiciones'
-    );
+        btnReducirMovimiento.setAttribute(
+            'aria-label',
+            reducir
+                ? 'Activar animaciones y transiciones'
+                : 'Reducir animaciones y transiciones'
+        );
+    }
 }
 
 const preferenciaGuardada = localStorage.getItem(claveMovimiento);
 
 aplicarPreferenciaMovimiento(preferenciaGuardada === 'true');
 
-btnReducirMovimiento.addEventListener('click', () => {
-    const estaActivo = document.documentElement.classList.contains(
-        'reducir-movimiento'
-    );
+// Registrar el evento solo si el botón existe.
+if (btnReducirMovimiento) {
+    btnReducirMovimiento.addEventListener('click', () => {
+        const estaActivo = document.documentElement.classList.contains(
+            'reducir-movimiento'
+        );
 
-    const nuevoEstado = !estaActivo;
+        const nuevoEstado = !estaActivo;
 
-    aplicarPreferenciaMovimiento(nuevoEstado);
+        aplicarPreferenciaMovimiento(nuevoEstado);
 
-    localStorage.setItem(
-        claveMovimiento,
-        String(nuevoEstado)
-    );
-});
+        localStorage.setItem(
+            claveMovimiento,
+            String(nuevoEstado)
+        );
+    });
+}
 
 // FORMULARIO DE AGENDA DE RUTA
 const formRuta = document.getElementById('form-ruta');
@@ -135,7 +142,11 @@ if (formRuta) {
             resultadoRuta.focus();
             return;
         }
-
+        if (!fecha) {
+            resultadoRuta.textContent = 'Selecciona la fecha de tu viaje.';
+            campoFecha.focus();
+            return;
+        }
         if (!Number.isInteger(pasajeros) || pasajeros < 1 || pasajeros > 20) {
             resultadoRuta.textContent = 'Indica entre 1 y 20 pasajeros.';
             resultadoRuta.focus();
