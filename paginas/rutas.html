@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutas-EcoRuta</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <p id="anuncios" class="sr-only" aria-live="polite"></p>
+    <header>
+        <div class="logo">
+            <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
+
+        <search>
+            <input type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+        </search>
+
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
+            <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
+        </div>
+
+        <nav aria-label="Navegación principal">
+            <ul class="menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <a href="../index.html" class="volver">← Volver a inicio</a>
+        <section class="pagina-simple rutas-pagina">
+            <h1>Agenda tu ruta</h1>
+            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Indica tu origen y destino para comenzar.</p>
+
+            <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
+                <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
+
+                <div class="campos-ruta">
+                    <div class="campo-ruta">
+                        <label for="origen">¿Desde dónde viajas? <span aria-hidden="true">*</span></label>
+                        <select id="origen" name="origen" required>
+                            <option value="">Selecciona una ciudad</option>
+                            <option value="Temuco">Temuco</option>
+                            <option value="Villarrica">Villarrica</option>
+                            <option value="Pucón">Pucón</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Victoria">Victoria</option>
+                            <option value="Lautaro">Lautaro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-ruta">
+                        <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
+                        <select id="destino" name="destino" required>
+                            <option value="">Selecciona una ciudad</option>
+                            <option value="Temuco">Temuco</option>
+                            <option value="Villarrica">Villarrica</option>
+                            <option value="Pucón">Pucón</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Victoria">Victoria</option>
+                            <option value="Lautaro">Lautaro</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-ruta">
+                        <label for="fecha-viaje">Fecha del viaje</label>
+                        <input type="date" id="fecha-viaje" name="fecha-viaje">
+                    </div>
+
+                    <div class="campo-ruta">
+                        <label for="pasajeros">Número de pasajeros</label>
+                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-agendar-ruta">Buscar ruta</button>
+                <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
+            </form>
+
+            <p class="nota-rutas">Esta función es una demostración del formulario. Todavía no consulta horarios, tarifas ni disponibilidad de transporte en tiempo real.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
