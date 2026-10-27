@@ -626,3 +626,133 @@ footer {
         transform: none;
     }
 }
+
+/* =========================================
+   FORMULARIO: AGENDA TU RUTA
+   ========================================= */
+.rutas-pagina {
+    max-width: 1000px;
+    margin: 48px auto;
+    padding: 32px 24px;
+}
+
+.rutas-pagina h1 {
+    margin-bottom: 8px;
+    color: var(--color-primary-dark);
+}
+
+.rutas-intro {
+    max-width: 700px;
+    margin-bottom: 24px;
+}
+
+.form-ruta {
+    padding: 24px;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+}
+
+.ayuda-formulario,
+.nota-rutas {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.ayuda-formulario {
+    margin-bottom: 18px;
+}
+
+.campos-ruta {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.campo-ruta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.campo-ruta label {
+    font-weight: 650;
+}
+
+.campo-ruta label span {
+    color: #b42318;
+}
+
+.campo-ruta input,
+.campo-ruta select {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font: inherit;
+}
+
+.campo-ruta input:focus-visible,
+.campo-ruta select:focus-visible {
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 2px;
+}
+
+.btn-agendar-ruta {
+    min-height: 46px;
+    margin-top: 22px;
+    padding: 10px 22px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--color-primary-dark);
+    color: #fff;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.btn-agendar-ruta:hover {
+    filter: brightness(0.92);
+}
+
+.btn-agendar-ruta:focus-visible,
+.resultado-ruta:focus-visible {
+    outline: 3px solid var(--color-primary-dark);
+    outline-offset: 3px;
+}
+
+.resultado-ruta:not(:empty) {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-left: 4px solid var(--color-primary-dark);
+    border-radius: 6px;
+    background: var(--color-bg);
+    line-height: 1.6;
+}
+
+.nota-rutas {
+    margin-top: 18px;
+}
+
+@media (max-width: 600px) {
+    .rutas-pagina {
+        margin: 24px auto;
+        padding: 24px 16px;
+    }
+
+    .form-ruta {
+        padding: 18px 14px;
+    }
+
+    .campos-ruta {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .btn-agendar-ruta {
+        width: 100%;
+    }
+}

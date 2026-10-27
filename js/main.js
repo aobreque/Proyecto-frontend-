@@ -97,3 +97,61 @@ btnReducirMovimiento.addEventListener('click', () => {
         String(nuevoEstado)
     );
 });
+
+// FORMULARIO DE AGENDA DE RUTA
+const formRuta = document.getElementById('form-ruta');
+
+if (formRuta) {
+    const campoOrigen = document.getElementById('origen');
+    const campoDestino = document.getElementById('destino');
+    const campoFecha = document.getElementById('fecha-viaje');
+    const campoPasajeros = document.getElementById('pasajeros');
+    const resultadoRuta = document.getElementById('resultado-ruta');
+
+    // Impide seleccionar una fecha anterior a hoy.
+    const hoy = new Date();
+    const fechaLocal = new Date(hoy.getTime() - hoy.getTimezoneOffset() * 60000)
+        .toISOString()
+        .slice(0, 10);
+    campoFecha.min = fechaLocal;
+
+    formRuta.addEventListener('submit', (evento) => {
+        evento.preventDefault();
+        resultadoRuta.textContent = '';
+
+        const origen = campoOrigen.value;
+        const destino = campoDestino.value;
+        const fecha = campoFecha.value;
+        const pasajeros = Number(campoPasajeros.value);
+
+        if (!origen || !destino) {
+            resultadoRuta.textContent = 'Selecciona una ciudad de origen y una de destino.';
+            resultadoRuta.focus();
+            return;
+        }
+
+        if (origen === destino) {
+            resultadoRuta.textContent = 'El origen y el destino deben ser ciudades diferentes.';
+            resultadoRuta.focus();
+            return;
+        }
+
+        if (!Number.isInteger(pasajeros) || pasajeros < 1 || pasajeros > 20) {
+            resultadoRuta.textContent = 'Indica entre 1 y 20 pasajeros.';
+            resultadoRuta.focus();
+            return;
+        }
+
+        const fechaTexto = fecha
+            ? ` Fecha del viaje: ${fecha}.`
+            : '';
+
+        resultadoRuta.textContent =
+            'B\u00fasqueda preparada: ' + origen +
+            ' \u2192 ' + destino +
+            '. Pasajeros: ' + pasajeros + '.' +
+            fechaTexto +
+            ' Esta demostraci\u00f3n no consulta horarios ni disponibilidad reales.';
+        resultadoRuta.focus();
+    });
+}
