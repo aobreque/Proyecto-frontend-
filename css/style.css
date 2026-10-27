@@ -511,6 +511,7 @@ footer {
         border-radius: 16px;
     }
 }
+
 /* ===== Quiénes somos ===== */
 #quienes-somos {
     max-width: 1100px;
@@ -596,10 +597,31 @@ footer {
     color: var(--color-text-light);
 }
 
+/* ===== Control de reducción de movimiento ===== */
+#btn-reducir-movimiento[aria-pressed="true"] {
+    background-color: var(--color-primary);
+    color: white;
+    border-color: var(--color-primary);
+}
+
+.reducir-movimiento *,
+.reducir-movimiento *::before,
+.reducir-movimiento *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+}
+
+/* Respeta también la preferencia del sistema operativo */
 @media (prefers-reduced-motion: reduce) {
-    #quienes-somos .valores li {
-        transition: none;
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
     }
+
     #quienes-somos .valores li:hover {
         transform: none;
     }
