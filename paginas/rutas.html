@@ -35,26 +35,59 @@
         </nav>
     </header>
 
-    <main id="main-content">
-        <a href="../index.html" class="volver">← Volver a inicio</a>
+<main>
+    <section class="pagina-simple rutas-page">
+        
 
-        <section class="pagina-simple rutas-page">
-            <h1>Rutas turísticas</h1>
+            <h1>Agenda tu ruta</h1>
+            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Indica tu origen y destino para comenzar.</p>
 
-            <p class="rutas-intro">
-                Explora rutas y destinos de La Araucanía y descubre
-                los lugares que puedes visitar durante tu viaje.
-            </p>
+            <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
+                <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
 
-        <section class="rutas-listado" aria-labelledby="titulo-rutas">
-            <h2 id="titulo-rutas">Rutas disponibles</h2>
+                <div class="campos-ruta">
+                    <div class="campo-ruta">
+                        <label for="origen">¿Desde dónde viajas? <span aria-hidden="true">*</span></label>
+                        <select id="origen" name="origen" required>
+                            <option value="">Selecciona una ciudad</option>
+                            <option value="Temuco">Temuco</option>
+                            <option value="Villarrica">Villarrica</option>
+                            <option value="Pucón">Pucón</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Victoria">Victoria</option>
+                            <option value="Lautaro">Lautaro</option>
+                        </select>
+                    </div>
 
-            <p id="estado-rutas" role="status" aria-live="polite">
-                Cargando rutas...
-            </p>
+                    <div class="campo-ruta">
+                        <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
+                        <select id="destino" name="destino" required>
+                            <option value="">Selecciona una ciudad</option>
+                            <option value="Temuco">Temuco</option>
+                            <option value="Villarrica">Villarrica</option>
+                            <option value="Pucón">Pucón</option>
+                            <option value="Angol">Angol</option>
+                            <option value="Victoria">Victoria</option>
+                            <option value="Lautaro">Lautaro</option>
+                        </select>
+                    </div>
 
-            <div id="lista-rutas" class="rutas-grid"></div>
+                    <div class="campo-ruta">
+                        <label for="fecha-viaje">Fecha del viaje</label>
+                        <input type="date" id="fecha-viaje" name="fecha-viaje" required>
+                    </div>
 
+                    <div class="campo-ruta">
+                        <label for="pasajeros">Número de pasajeros</label>
+                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-agendar-ruta">Buscar ruta</button>
+                <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
+            </form>
+
+            <p class="nota-rutas">Esta función es una demostración del formulario. Todavía no consulta horarios, tarifas ni disponibilidad de transporte en tiempo real.</p>
         </section>
 
         <section class="destinos-listado" aria-labelledby="titulo-destinos">
@@ -63,12 +96,7 @@
             <div id="lista-destinos" class="destinos-grid"></div>
         </section>
 
-        <section
-            id="panel-itinerario"
-            class="panel-itinerario"
-            aria-labelledby="titulo-itinerario"
-            hidden
-        >
+        <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
             <h2 id="titulo-itinerario">Itinerario de la ruta</h2>
             <div id="detalle-itinerario"></div>
 
@@ -77,7 +105,7 @@
             </button>
         </section>
     </section>
-    </main>
+</main>
 
     <footer>
         <p>&copy; Todos los derechos reservados.</p>
