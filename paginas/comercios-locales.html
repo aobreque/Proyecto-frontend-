@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comercios Locales-La Araucanía</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/comercios.css">
 </head>
-<>
+<body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
@@ -45,29 +46,16 @@
             <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen">
         </section>
 
-        <section class="lista-emprendimientos">
-                <article class="emprendimiento">
-                    <div class="emprendimiento__ficha">
-                        <img src="../assets/imagenes/emprendimiento1_frontend.png" alt="" class="emprendimiento__imagen">
-                        <p class="emprendimiento__nombre">Nombre emprendimiento</p>
-                        <p class="emprendimiento__ciudad">Ciudad</p>
-                    </div>
-                    <div class="emprendimiento__info">
-                        <p>Descripción de emprendedor  sobre su negocio, productos y contacto.</p>
-                    </div>
-                </article>
+        
+<section class="lista-emprendimientos"
+         aria-label="Comercios locales">
 
-                <article class="emprendimiento">
-                    <div class="emprendimiento__ficha">
-                        <img src="../assets/imagenes/emprendimiento2_frontend.png" alt="" class="emprendimiento__imagen">
-                        <p class="emprendimiento__nombre">Nombre emprendimiento</p>
-                        <p class="emprendimiento__ciudad">Ciudad</p>
-                    </div>
-                    <div class="emprendimiento__info">
-                        <p>Descripción de emprendedor  sobre su negocio, productos y contacto.</p>
-                    </div>
-                </article>
-        </section>
+    <div id="lista-comercios" aria-live="polite">
+        <p>Cargando comercios...</p>
+    </div>
+
+</section>
+
     </main>
 
     <footer>
@@ -76,14 +64,6 @@
 
     <script src="../js/main.js"></script>
 
-    <!--Aqui esta el carrusel
-    
-    
-    
-    
-    
-    
-    
     <h2 class = "titulo"> Slider automatico</h2>
     <div class=""Slider-box>
         <ul>
@@ -91,6 +71,9 @@
                 <img scr = 
             </li>
         </ul>
-    </div>-->
+    </div>
+
+    <script src="../js/listar-comercios.js"></script>
+
 </body>
 </html>
