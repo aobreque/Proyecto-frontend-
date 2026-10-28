@@ -21,7 +21,7 @@
     <header>
         <div class="logo">
             <img
-                src="assets/imagenes/bus.v2.jpeg"
+                src="assets/imagenes/bus.v2.png"
                 alt=""
                 class="bus"
             >
@@ -75,6 +75,7 @@
             </button>
         </div>
 
+        <!-- NAVEGACIÓN -->
         <nav aria-label="Navegación principal">
             <ul class="menu">
                 <li><a href="#inicio">Inicio</a></li>
@@ -86,83 +87,176 @@
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
- <main>
-    <section class="pagina-simple rutas-page">
-        <h1>Rutas turísticas</h1>
+    <main id="main-content">
 
-        <p class="rutas-intro">
-            Explora rutas y destinos de La Araucanía y descubre
-            los lugares que puedes visitar durante tu viaje.
-        </p>
+        <!-- PORTADA Y CARRUSEL -->
+        <section
+            id="inicio"
+            class="hero portada-carrusel"
+            aria-label="Destinos recomendados"
+        >
 
-        <section class="rutas-listado">
-            <h1>Agenda tu ruta</h1>
-            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Indica tu origen y destino para comenzar.</p>
+            <div class="carrusel">
 
-            <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
-                <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
+                <!-- IMÁGENES -->
+                <div class="carrusel__viewport">
+                    <div class="carrusel__track">
 
-                <div class="campos-ruta">
-                    <div class="campo-ruta">
-                        <label for="origen">¿Desde dónde viajas? <span aria-hidden="true">*</span></label>
-                        <select id="origen" name="origen" required>
-                            <option value="">Selecciona una ciudad</option>
-                            <option value="Temuco">Temuco</option>
-                            <option value="Villarrica">Villarrica</option>
-                            <option value="Pucón">Pucón</option>
-                            <option value="Angol">Angol</option>
-                            <option value="Victoria">Victoria</option>
-                            <option value="Lautaro">Lautaro</option>
-                        </select>
-                    </div>
+                        <img
+                            src="assets/Imagenes_carrusel/img1.webp"
+                            alt="Destino turístico de la Araucanía">
 
-                    <div class="campo-ruta">
-                        <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
-                        <select id="destino" name="destino" required>
-                            <option value="">Selecciona una ciudad</option>
-                            <option value="Temuco">Temuco</option>
-                            <option value="Villarrica">Villarrica</option>
-                            <option value="Pucón">Pucón</option>
-                            <option value="Angol">Angol</option>
-                            <option value="Victoria">Victoria</option>
-                            <option value="Lautaro">Lautaro</option>
-                        </select>
-                    </div>
+                        <img
+                            src="assets/Imagenes_carrusel/img2.webp"
+                            alt="Emprendimiento local de la región">
 
-                    <div class="campo-ruta">
-                        <label for="fecha-viaje">Fecha del viaje</label>
-                        <input type="date" id="fecha-viaje" name="fecha-viaje" required>
-                    </div>
+                        <img
+                            src="assets/Imagenes_carrusel/img3.webp"
+                            alt="Emprendimiento de la Araucanía">
 
-                    <div class="campo-ruta">
-                        <label for="pasajeros">Número de pasajeros</label>
-                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1">
+                        <img
+                            src="assets/Imagenes_carrusel/img4.webp"
+                            alt="Paisaje natural de la región">
+
                     </div>
                 </div>
 
-                <button type="submit" class="btn-agendar-ruta">Buscar ruta</button>
-                <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
-            </form>
+                <!-- TEXTO SUPERPUESTO A LA IMAGEN -->
+                <div class="portada-carrusel__texto">
+                    <h1>Tu viaje consciente comienza aquí</h1>
 
-            <p class="nota-rutas">Esta función es una demostración del formulario. Todavía no consulta horarios, tarifas ni disponibilidad de transporte en tiempo real.</p>
+                    <p>
+                        Encuentra rutas y destinos turísticos de la Araucanía
+                        en un solo lugar.
+                    </p>
+                </div>
+
+                <!-- FLECHAS DEL CARRUSEL -->
+                <button
+                    type="button"
+                    class="carrusel__flecha carrusel__flecha--anterior"
+                    id="anterior"
+                    aria-label="Mostrar imagen anterior"
+                >
+                    &lsaquo;
+                </button>
+
+                <button
+                    type="button"
+                    class="carrusel__flecha carrusel__flecha--siguiente"
+                    id="siguiente"
+                    aria-label="Mostrar imagen siguiente"
+                >
+                    &rsaquo;
+                </button>
+
+                <!-- INDICADORES -->
+                <div
+                    class="carrusel__puntos"
+                    id="puntos"
+                    aria-label="Seleccionar imagen del carrusel"
+                ></div>
+
+            </div>
+
         </section>
 
-        <section class="destinos-listado" aria-labelledby="titulo-destinos">
-            <h2 id="titulo-destinos">Destinos turísticos</h2>
+        <!-- SERVICIOS -->
+        <section id="servicios" class="servicios">
 
-            <div id="lista-destinos" class="destinos-grid"></div>
+            <h2>Servicios</h2>
+
+            <ul class="grid">
+
+                <li>
+                    <a href="paginas/rutas.html" class="card">
+                        <h3>Rutas</h3>
+                        <p>
+                            Encuentra rutas turísticas recomendadas.
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="paginas/turismo.html" class="card">
+                        <h3>Turismo</h3>
+                        <p>
+                            Descubre destinos y lugares turísticos de la zona.
+                        </p>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="paginas/comercios-locales.html" class="card">
+                        <h3>Comercios locales</h3>
+                        <p>
+                            Conoce emprendimientos y comercios que puedes
+                            encontrar durante tu viaje.
+                        </p>
+                    </a>
+                </li>
+
+            </ul>
+
         </section>
 
-        <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
-            <h2 id="titulo-itinerario">Itinerario de la ruta</h2>
-            <div id="detalle-itinerario"></div>
+        <!-- QUIÉNES SOMOS -->
+        <section id="quienes-somos" class="quienes-somos">
 
-            <button id="cerrar-itinerario" type="button">
-                Cerrar itinerario
-            </button>
+            <h2>Quiénes somos</h2>
+
+            <p class="quienes-intro">
+                Somos EcoRuta, una plataforma que reúne rutas de transporte,
+                destinos turísticos y comercios locales de La Araucanía,
+                para que viajes de forma segura y consciente.
+            </p>
+
+            <ul class="valores">
+
+                <li>
+                    <span class="valor-icono" aria-hidden="true">✔</span>
+                    <h3>Misión</h3>
+                    <p>
+                        Facilitar el acceso a información de rutas y destinos
+                        de la región en un solo lugar.
+                    </p>
+                </li>
+
+                <li>
+                    <span class="valor-icono" aria-hidden="true">✔</span>
+                    <h3>Visión</h3>
+                    <p>
+                        Ser la guía de viaje de referencia para quienes
+                        recorren La Araucanía.
+                    </p>
+                </li>
+
+                <li>
+                    <span class="valor-icono" aria-hidden="true">✔</span>
+                    <h3>Valores</h3>
+                    <p>
+                        Seguridad, accesibilidad y apoyo al comercio local.
+                    </p>
+                </li>
+
+            </ul>
+
         </section>
-    </section>
-</main>
+
+        <!-- CONTACTO -->
+        <section id="contacto" class="contacto">
+
+            <h2>Contacto</h2>
+
+            <address>
+                <a href="mailto:Ecoruta@email.cl">Ecoruta@email.cl</a>
+                <br>
+                <a href="tel:+56912345678">+56 9 1234 5678</a>
+            </address>
+
+        </section>
+
+    </main>
 
     <!-- PIE DE PÁGINA -->
     <footer>
@@ -170,6 +264,7 @@
     </footer>
 
     <script src="js/main.js"></script>
-
+    <script src="../js/carrusel.js"></script>
+    
 </body>
 </html>

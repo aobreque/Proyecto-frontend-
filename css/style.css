@@ -1035,3 +1035,8 @@ html {
         width: 100%;
     }
 }
+
+   .rutas-page section {
+       padding: 2rem 0;
+       max-width: none;
+   }
