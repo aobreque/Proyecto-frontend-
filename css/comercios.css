@@ -1,0 +1,128 @@
+
+/* Formulario de registro - EcoRuta */
+
+.registro-comercio {
+    width: min(90%, 650px);
+    margin: 50px auto;
+    padding: 35px;
+    background: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
+}
+
+.registro-comercio h1 {
+    color: #245c3c;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.registro-comercio > p {
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+#form-comercio {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#form-comercio label {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+#form-comercio input,
+#form-comercio textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 2px solid #a8b5ac;
+    border-radius: 8px;
+    font: inherit;
+    background: #ffffff;
+    color: #222222;
+}
+
+#form-comercio textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+#form-comercio input:focus-visible,
+#form-comercio textarea:focus-visible {
+    outline: 3px solid #245c3c;
+    outline-offset: 2px;
+}
+
+#form-comercio .campo-invalido {
+    border-color: #b42318;
+}
+
+#form-comercio .campo-valido {
+    border-color: #247a43;
+}
+
+.error-campo {
+    color: #a51d15;
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+
+#btn-registrar {
+    margin-top: 20px;
+    padding: 14px;
+    background: #245c3c;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#btn-registrar:hover {
+    background: #17452c;
+}
+
+#btn-registrar:focus-visible {
+    outline: 3px solid #245c3c;
+    outline-offset: 3px;
+}
+
+#mensaje-formulario {
+    font-weight: 600;
+    text-align: center;
+    margin-top: 15px;
+}
+
+#mensaje-formulario.error {
+    color: #a51d15;
+}
+
+#mensaje-formulario.exito {
+    color: #245c3c;
+}
+
+@media (max-width: 600px) {
+    .registro-comercio {
+        padding: 20px;
+        margin: 25px auto;
+    }
+}
+#form-comercio input::placeholder,
+#form-comercio textarea::placeholder {
+    color: #666666;
+    opacity: 1;
+    #lista-comercios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+#lista-comercios .emprendimiento {
+    min-width: 0;
+}
+}
