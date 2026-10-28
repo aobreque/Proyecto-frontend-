@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Registrar comercio | EcoRuta</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/comercios.css">
+</head>
+<body>
+
+    <header>
+        <nav aria-label="Navegación principal">
+            <a href="../index.html">EcoRuta</a>
+            <a href="comercios-locales.html">
+                Ver comercios
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="registro-comercio">
+            <h1>Registra tu comercio local</h1>
+
+            <p>
+                Forma parte de EcoRuta y da a conocer
+                tu emprendimiento en La Araucanía.
+            </p>
+
+            <form id="form-comercio" novalidate>
+
+                
+<form id="form-comercio" novalidate>
+
+    <!-- Nombre del comercio -->
+    <label for="nombre">Nombre del comercio</label>
+    <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        placeholder="Ej: Eco Café Victoria"
+        minlength="3"
+        maxlength="100"
+        required
+    >
+
+    <!-- Descripción -->
+    <label for="descripcion">Descripción</label>
+    <textarea
+        id="descripcion"
+        name="descripcion"
+        placeholder="Ej: Cafetería con productos orgánicos y locales"
+        minlength="10"
+        maxlength="500"
+        required
+    ></textarea>
+
+    <!-- Ciudad -->
+    <label for="ciudad">Ciudad</label>
+    <input
+        type="text"
+        id="ciudad"
+        name="ciudad"
+        placeholder="Ej: Victoria"
+        required
+    >
+
+    <!-- Dirección -->
+    <label for="direccion">Dirección</label>
+    <input
+        type="text"
+        id="direccion"
+        name="direccion"
+        placeholder="Ej: Avenida Prat 123"
+        required
+    >
+
+    <!-- Correo -->
+    <label for="contacto">Correo de contacto</label>
+    <input
+        type="email"
+        id="contacto"
+        name="contacto"
+        placeholder="Ej: contacto@ecocafe.cl"
+        required
+    >
+
+    <!-- Botón de registro -->
+    <button type="submit" id="btn-registrar">
+        Registrar comercio
+    </button>
+
+    <!-- Mensajes de validación -->
+    <p
+        id="mensaje-formulario"
+        role="status"
+        aria-live="polite"
+    ></p>
+
+</form>
+
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/comercios.js"></script>
+</body>
+</html>
