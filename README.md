@@ -2,11 +2,15 @@
 
 ## Integrantes y roles (Sprint actual)
 
-|Angel Obreque|Product Owner|
+|Angel Obreque|QA/tester|
+
 |Sofia Morales|Scrum Master|
+
 |Alejandro lincoguir|Developer|
+
 |Macarena Melin|Developer|
-|Benjamin jara|QA/Tester|
+
+|Benjamin jara|Product Owner|
 
 ## Descripción breve
 EcoRuta Temuco es un sitio web enfocado en la promoción del turismo sostenible y consciente en la Región de La Araucanía. 
