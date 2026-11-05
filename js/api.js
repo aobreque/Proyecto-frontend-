@@ -23,14 +23,23 @@ async function enviar(recurso, datos) {
 }
 
 async function mostrarLista(contenedor, ruta, plantilla) {
-  contenedor.textContent = "Cargando...";
+  function mostrarEstado(mensaje) {
+    const elemento = document.createElement("li");
+    elemento.className = "card";
+    elemento.textContent = mensaje;
+    contenedor.replaceChildren(elemento);
+  }
+
+  mostrarEstado("Cargando rutas...");
   try {
     const datos = await obtener(ruta);
-    contenedor.innerHTML = datos.length
-      ? datos.map(plantilla).join("")
-      : "<li>No hay resultados.</li>";
+    if (datos.length > 0) {
+      contenedor.innerHTML = datos.map(plantilla).join("");
+    } else {
+      mostrarEstado("No hay rutas disponibles.");
+    }
   } catch (error) {
-    contenedor.textContent = "Error al cargar datos. Intenta nuevamente.";
+    mostrarEstado("No se pudieron cargar las rutas. Intenta nuevamente.");
   }
 }
 
@@ -41,5 +50,5 @@ const tarjetaRuta = (r) => `
     <ol>${esc(r.itinerario).split("; ").map((p) => `<li>${p}</li>`).join("")}</ol>
   </li>`;
 
-const listaRutas = document.querySelector("#lista-rutas");
+const listaRutas = document.querySelector("#lista-destinos");
 if (listaRutas) mostrarLista(listaRutas, "rutas", tarjetaRuta);
