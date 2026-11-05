@@ -1,5 +1,6 @@
 import type { Ruta } from "./types.js";
 import { API_RUTAS_BASE_URL, obtener } from "./api.js";
+import { duracionEnMinutos, formatearDuracion } from "./duracion.js";
 import { filtrarRutas, normalizarTexto } from "./rutas-utils.js";
 
 const listaRutas = document.querySelector<HTMLUListElement>("#lista-destinos");
@@ -44,6 +45,17 @@ function agregarTexto(contenedor: HTMLElement, etiqueta: string, texto: string):
     contenedor.appendChild(parrafo);
 }
 
+function textoDuracion(ruta: Ruta): string {
+    const minutos = duracionEnMinutos(ruta);
+
+    if (!Number.isFinite(minutos)) {
+        return ruta.duracion || "Duración no indicada";
+    }
+
+    const aproximada = ruta.duracion.toLocaleLowerCase("es-CL").includes("aprox");
+    return `${formatearDuracion(minutos)}${aproximada ? " aprox." : ""}`;
+}
+
 function mostrarItinerario(ruta: Ruta): void {
     if (!panelItinerario || !detalleItinerario) return;
 
@@ -54,7 +66,7 @@ function mostrarItinerario(ruta: Ruta): void {
 
     agregarTexto(detalleItinerario, "Origen", ruta.origen);
     agregarTexto(detalleItinerario, "Destino", ruta.destino);
-    agregarTexto(detalleItinerario, "Duración", ruta.duracion);
+    agregarTexto(detalleItinerario, "Duración", textoDuracion(ruta));
     agregarTexto(detalleItinerario, "Transporte", ruta.transporte);
 
     const pasos = document.createElement("ol");
@@ -84,7 +96,7 @@ function mostrarRutas(rutas: readonly Ruta[]): void {
 
         const resumen = document.createElement("p");
         resumen.textContent =
-            `${ruta.origen} → ${ruta.destino} · ${ruta.duracion} · ${ruta.transporte}`;
+            `${ruta.origen} → ${ruta.destino} · ${textoDuracion(ruta)} · ${ruta.transporte}`;
 
         const botonDetalle = document.createElement("button");
         botonDetalle.type = "button";
