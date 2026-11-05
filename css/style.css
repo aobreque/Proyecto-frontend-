@@ -500,6 +500,11 @@ footer {
     box-shadow: 0 12px 28px rgba(34, 179, 34, 0.18);
 }
 
+#quienes-somos .valores li:focus-visible {
+    outline: 3px solid var(--color-focus);
+    outline-offset: 4px;
+}
+
 #quienes-somos .valor-icono {
     display: inline-flex;
     align-items: center;
