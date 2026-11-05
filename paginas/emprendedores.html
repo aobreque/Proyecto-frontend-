@@ -12,17 +12,37 @@
     <link rel="stylesheet" href="../css/comercios.css">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <p id="anuncios" class="sr-only" aria-live="polite"></p>
 
     <header>
+        <div class="logo">
+            <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
+
+        <search>
+            <input type="search" id="buscar" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+        </search>
+
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
+            <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
+        </div>
+
         <nav aria-label="Navegación principal">
-            <a href="../index.html">EcoRuta</a>
-            <a href="comercios-locales.html">
-                Ver comercios
-            </a>
+            <ul class="menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
+    <main id="main-content">
         <section class="registro-comercio">
             <h1>Registra tu comercio local</h1>
 
@@ -32,9 +52,6 @@
             </p>
 
             <form id="form-comercio" novalidate>
-
-                
-<form id="form-comercio" novalidate>
 
     <!-- Nombre del comercio -->
     <label for="nombre">Nombre del comercio</label>
@@ -100,8 +117,6 @@
         role="status"
         aria-live="polite"
     ></p>
-
-</form>
 
             </form>
         </section>
