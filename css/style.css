@@ -1,40 +1,3 @@
-:root {
-    --color-primary: #3af12d;
-    --color-primary-dark: #238e0d;
-    --color-secondary: #17cf51;
-    --color-secondary-dark: #238e0d;
-    --color-tertiary:#1f2e2a;
-
-    --color-text: #1f2937;
-    --color-text-light: #52606d;
-    --color-bg: #ffffff;
-    --color-bg-alt: #f4faf9;
-    --color-border: #e2e8f0;
-
-    --radius: 12px;
-    --transition: 0.25s ease;
-    --header-height: 4.5rem;
-}
-
-body.modo-oscuro {
-    --color-primary: #26d773;
-    --color-primary-dark: #2bcc89;
-    --color-secondary: #15c48f;
-    --color-secondary-dark: #0d8e7b;
-    --color-tertiary:#effbf4;
-
-    --color-text: #ffffff;
-    --color-text-light: #cbd5e1;
-    --color-bg: #272632;
-    --color-bg-alt: #293c42;
-    --color-border: #3a3a3a;
-}
-
-body.modo-oscuro a:focus-visible,
-body.modo-oscuro button:focus-visible {
-    outline-color: var(--color-primary);
-}
-
 .sr-only {
     position: absolute;
     width: 1px;
@@ -54,7 +17,6 @@ body.modo-oscuro button:focus-visible {
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: var(--header-height);
 }
 
@@ -76,8 +38,8 @@ img {
     top: 0;
     left: -9999px;
     z-index: 1000;
-    background: var(--color-primary-dark);
-    color: #fff;
+    background: var(--color-action-bg);
+    color: var(--color-action-text);
     padding: 0.75rem 1.25rem;
     border-radius: 0 0 8px 0;
     font-weight: 600;
@@ -89,14 +51,13 @@ img {
 }
 
 a:focus-visible,
-button:focus-visible {
-    outline: 3px solid var(--color-primary-dark);
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--color-focus);
     outline-offset: 3px;
     border-radius: 4px;
-}
-
-.hero :focus-visible {
-    outline-color: #ffffff;
 }
 
 header {
@@ -141,7 +102,6 @@ search {
     border: 1.5px solid var(--color-border);
     border-radius: 999px;
     padding: 0.3rem 0.3rem 0.3rem 1.2rem;
-    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 search:focus-within {
@@ -212,7 +172,6 @@ nav {
     text-decoration: none;
     color: var(--color-text);
     font-weight: 600;
-    transition: color var(--transition);
 }
 
 .menu a::after {
@@ -223,7 +182,6 @@ nav {
     width: 0;
     height: 2px;
     background: var(--color-primary);
-    transition: width var(--transition);
 }
 
 .menu a:hover,
@@ -338,18 +296,6 @@ section {
     margin: 0 auto;
 }
 
-.contacto a {
-    color: #176b0a;
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.contacto a:hover {
-    color: var(--color-secondary-dark);
-}
-
-
 .pagina-simple h1 {
     font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
     color: var(--color-primary-dark);
@@ -383,14 +329,14 @@ section {
 
 .cta-emprendedor__texto h1 {
     font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     margin-bottom: 0.5rem;
 }
 
 .cta-emprendedor__link {
     display: inline-block;
     margin-top: 0.75rem;
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     font-weight: 700;
     text-decoration: underline;
 }
@@ -548,11 +494,9 @@ footer {
     border-radius: 16px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
     text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 #quienes-somos .valores li:hover {
-    transform: translateY(-6px);
     box-shadow: 0 12px 28px rgba(34, 179, 34, 0.18);
 }
 
@@ -571,7 +515,7 @@ footer {
 #quienes-somos .valores h3 {
     margin: 0 0 8px;
     font-size: 1.3rem;
-    color: #1a8f1a;
+    color: var(--color-primary-dark);
 }
 
 #quienes-somos .valores p {
@@ -582,9 +526,9 @@ footer {
 
 /* ===== Control de reducción de movimiento ===== */
 #btn-reducir-movimiento[aria-pressed="true"] {
-    background-color: var(--color-primary);
-    color: white;
-    border-color: var(--color-primary);
+    background-color: var(--color-action-bg);
+    color: var(--color-action-text);
+    border-color: var(--color-action-bg);
 }
 
 .reducir-movimiento *,
@@ -615,14 +559,25 @@ footer {
     --color-primary: #15803d;
     --color-primary-dark: #166534;
     --color-secondary: #16a34a;
-    --color-secondary-dark: #166534;
+    --color-secondary-dark: #14532d;
 
     --color-text: #1f2937;
     --color-text-light: #52606d;
+    --color-tertiary: #1f2e2a;
 
     --color-bg: #ffffff;
     --color-bg-alt: #f4faf9;
     --color-border: #d1d5db;
+    --color-focus: #166534;
+    --color-action-bg: #166534;
+    --color-action-text: #ffffff;
+    --color-error: #a51d15;
+    --color-hero-start: #166534;
+    --color-hero-end: #14532d;
+
+    --radius: 12px;
+    --transition: 0.25s ease;
+    --header-height: 4.5rem;
 }
 
 /* Colores para el modo oscuro */
@@ -631,6 +586,7 @@ body.modo-oscuro {
     --color-primary-dark: #86efac;
     --color-secondary: #34d399;
     --color-secondary-dark: #6ee7b7;
+    --color-tertiary: #effbf4;
 
     --color-text: #f9fafb;
     --color-text-light: #d1d5db;
@@ -638,12 +594,12 @@ body.modo-oscuro {
     --color-bg: #272632;
     --color-bg-alt: #293c42;
     --color-border: #4b5563;
-}
-
-/* 2. Corregir colores de textos y enlaces */
-body {
-    color: var(--color-text);
-    background-color: var(--color-bg);
+    --color-focus: #86efac;
+    --color-action-bg: #14532d;
+    --color-action-text: #ffffff;
+    --color-error: #ff8a80;
+    --color-hero-start: #166534;
+    --color-hero-end: #14532d;
 }
 
 .servicios h2,
@@ -671,14 +627,15 @@ body {
 
 /* 3. Reducir el fondo verde de la portada */
 #inicio.portada-carrusel {
+    --color-focus: #ffffff;
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding: 1.25rem 1rem;
     background: linear-gradient(
         135deg,
-        var(--color-primary-dark),
-        var(--color-secondary-dark)
+        var(--color-hero-start),
+        var(--color-hero-end)
     );
     border-radius: 0;
     box-shadow: none;
@@ -729,7 +686,6 @@ body {
     display: flex;
     width: 100%;
     height: 100%;
-    transition: transform 0.35s ease;
 }
 
 /* Imágenes del carrusel */
@@ -811,8 +767,7 @@ body {
 
 #inicio .carrusel__flecha:focus-visible,
 #inicio .carrusel__punto:focus-visible {
-    outline: 3px solid #ffffff;
-    outline-offset: 3px;
+    outline-color: var(--color-focus);
 }
 
 /* Puntos indicadores dentro de la portada */
@@ -842,7 +797,6 @@ body {
 
 #inicio .carrusel__punto[aria-current="true"] {
     background: #ffffff;
-    transform: scale(1.15);
 }
 
 /* Adaptación a pantallas pequeñas */
@@ -884,38 +838,19 @@ body {
     }
 }
 
-/* Respetar la preferencia de movimiento reducido */
-@media (prefers-reduced-motion: reduce) {
-    #inicio .carrusel__track {
-        transition: none;
-    }
-}
-
-/* esto es para la lectura con tab del quienes somos*/
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-    outline: 3px solid #f59e0b;
-    outline-offset: 4px;
-    border-radius: 4px;
-}
-
-
 html {
     scroll-padding-top: 90px;
 }
 
 /* FORMULARIO: AGENDA TU RUTA*/
 
-.rutas-pagina {
+.rutas-page {
     max-width: 1000px;
     margin: 48px auto;
     padding: 32px 24px;
 }
 
-.rutas-pagina h1 {
+.rutas-page h1 {
     margin-bottom: 8px;
     color: var(--color-primary-dark);
 }
@@ -959,7 +894,7 @@ html {
 }
 
 .campo-ruta label span {
-    color: #b42318;
+    color: var(--color-error);
 }
 
 .campo-ruta input,
@@ -974,20 +909,14 @@ html {
     font: inherit;
 }
 
-.campo-ruta input:focus-visible,
-.campo-ruta select:focus-visible {
-    outline: 3px solid var(--color-primary-dark);
-    outline-offset: 2px;
-}
-
 .btn-agendar-ruta {
     min-height: 46px;
     margin-top: 22px;
     padding: 10px 22px;
     border: 0;
     border-radius: 8px;
-    background: var(--color-primary-dark);
-    color: #fff;
+    background: var(--color-action-bg);
+    color: var(--color-action-text);
     font: inherit;
     font-weight: 700;
     cursor: pointer;
@@ -995,12 +924,6 @@ html {
 
 .btn-agendar-ruta:hover {
     filter: brightness(0.92);
-}
-
-.btn-agendar-ruta:focus-visible,
-.resultado-ruta:focus-visible {
-    outline: 3px solid var(--color-primary-dark);
-    outline-offset: 3px;
 }
 
 .resultado-ruta:not(:empty) {
@@ -1017,7 +940,7 @@ html {
 }
 
 @media (max-width: 600px) {
-    .rutas-pagina {
+    .rutas-page {
         margin: 24px auto;
         padding: 24px 16px;
     }
@@ -1036,7 +959,45 @@ html {
     }
 }
 
-   .rutas-page section {
-       padding: 2rem 0;
-       max-width: none;
-   }
+ .rutas-page > section {
+    padding: 2rem 0;
+    max-width: none;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    search {
+        transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .menu a {
+        transition: color var(--transition);
+    }
+
+    .menu a::after {
+        transition: width var(--transition);
+    }
+
+    #quienes-somos .valores li {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #quienes-somos .valores li:hover {
+        transform: translateY(-6px);
+    }
+
+    #inicio .carrusel__track {
+        transition: transform 0.35s ease;
+    }
+
+    #inicio .carrusel__punto[aria-current="true"] {
+        transform: scale(1.15);
+    }
+}

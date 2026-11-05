@@ -5,13 +5,13 @@
     width: min(90%, 650px);
     margin: 50px auto;
     padding: 35px;
-    background: #ffffff;
+    background: var(--color-bg);
     border-radius: 14px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.12);
 }
 
 .registro-comercio h1 {
-    color: #245c3c;
+    color: var(--color-primary-dark);
     text-align: center;
     margin-bottom: 15px;
 }
@@ -38,11 +38,11 @@
     width: 100%;
     box-sizing: border-box;
     padding: 12px;
-    border: 2px solid #a8b5ac;
+    border: 2px solid var(--color-border);
     border-radius: 8px;
     font: inherit;
-    background: #ffffff;
-    color: #222222;
+    background: var(--color-bg);
+    color: var(--color-text);
 }
 
 #form-comercio textarea {
@@ -50,22 +50,16 @@
     resize: vertical;
 }
 
-#form-comercio input:focus-visible,
-#form-comercio textarea:focus-visible {
-    outline: 3px solid #245c3c;
-    outline-offset: 2px;
-}
-
 #form-comercio .campo-invalido {
-    border-color: #b42318;
+    border-color: var(--color-error);
 }
 
 #form-comercio .campo-valido {
-    border-color: #247a43;
+    border-color: var(--color-primary-dark);
 }
 
 .error-campo {
-    color: #a51d15;
+    color: var(--color-error);
     font-size: 0.9rem;
     min-height: 1.2em;
 }
@@ -73,8 +67,8 @@
 #btn-registrar {
     margin-top: 20px;
     padding: 14px;
-    background: #245c3c;
-    color: white;
+    background: var(--color-action-bg);
+    color: var(--color-action-text);
     border: none;
     border-radius: 8px;
     font: inherit;
@@ -83,12 +77,11 @@
 }
 
 #btn-registrar:hover {
-    background: #17452c;
+    filter: brightness(0.92);
 }
 
 #btn-registrar:focus-visible {
-    outline: 3px solid #245c3c;
-    outline-offset: 3px;
+    outline-color: var(--color-focus);
 }
 
 #mensaje-formulario {
@@ -98,11 +91,11 @@
 }
 
 #mensaje-formulario.error {
-    color: #a51d15;
+    color: var(--color-error);
 }
 
 #mensaje-formulario.exito {
-    color: #245c3c;
+    color: var(--color-primary-dark);
 }
 
 @media (max-width: 600px) {
@@ -113,9 +106,11 @@
 }
 #form-comercio input::placeholder,
 #form-comercio textarea::placeholder {
-    color: #666666;
+    color: var(--color-text-light);
     opacity: 1;
-    #lista-comercios {
+}
+
+#lista-comercios {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
     gap: 24px;
@@ -124,5 +119,4 @@
 
 #lista-comercios .emprendimiento {
     min-width: 0;
-}
 }
