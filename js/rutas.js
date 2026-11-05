@@ -1,0 +1,162 @@
+import { filtrarRutas, normalizarTexto } from "./rutas-utils.js";
+const URL_RUTAS = "https://6ad9530ff89c5702ed9a864f.mockapi.io/api/v1/rutas";
+const listaRutas = document.querySelector("#lista-destinos");
+const formularioRuta = document.querySelector("#form-ruta");
+const resultadoRuta = document.querySelector("#resultado-ruta");
+const panelItinerario = document.querySelector("#panel-itinerario");
+const detalleItinerario = document.querySelector("#detalle-itinerario");
+const cerrarItinerario = document.querySelector("#cerrar-itinerario");
+const anunciosRuta = document.querySelector("#anuncios");
+let rutasDisponibles = [];
+let falloCarga = false;
+function esRuta(dato) {
+    if (typeof dato !== "object" || dato === null)
+        return false;
+    const ruta = dato;
+    return [
+        "id",
+        "createdAt",
+        "nombre",
+        "origen",
+        "destino",
+        "duracion",
+        "transporte",
+        "itinerario"
+    ].every((campo) => typeof ruta[campo] === "string");
+}
+function mostrarEstado(mensaje) {
+    if (!listaRutas)
+        return;
+    const elemento = document.createElement("li");
+    elemento.className = "card";
+    elemento.textContent = mensaje;
+    listaRutas.replaceChildren(elemento);
+}
+function agregarTexto(contenedor, etiqueta, texto) {
+    const parrafo = document.createElement("p");
+    parrafo.textContent = `${etiqueta}: ${texto}`;
+    contenedor.appendChild(parrafo);
+}
+function mostrarItinerario(ruta) {
+    if (!panelItinerario || !detalleItinerario)
+        return;
+    detalleItinerario.replaceChildren();
+    const titulo = document.createElement("h3");
+    titulo.textContent = ruta.nombre;
+    detalleItinerario.appendChild(titulo);
+    agregarTexto(detalleItinerario, "Origen", ruta.origen);
+    agregarTexto(detalleItinerario, "Destino", ruta.destino);
+    agregarTexto(detalleItinerario, "Duración", ruta.duracion);
+    agregarTexto(detalleItinerario, "Transporte", ruta.transporte);
+    const pasos = document.createElement("ol");
+    ruta.itinerario.split(";").map((paso) => paso.trim()).filter(Boolean).forEach((paso) => {
+        const elemento = document.createElement("li");
+        elemento.textContent = paso;
+        pasos.appendChild(elemento);
+    });
+    detalleItinerario.appendChild(pasos);
+    panelItinerario.hidden = false;
+}
+function mostrarRutas(rutas) {
+    if (!listaRutas)
+        return;
+    if (rutas.length === 0) {
+        mostrarEstado("No encontramos rutas que coincidan con ese origen y destino.");
+        return;
+    }
+    const tarjetas = rutas.map((ruta) => {
+        const tarjeta = document.createElement("li");
+        tarjeta.className = "card";
+        const titulo = document.createElement("h3");
+        titulo.textContent = ruta.nombre;
+        const resumen = document.createElement("p");
+        resumen.textContent =
+            `${ruta.origen} → ${ruta.destino} · ${ruta.duracion} · ${ruta.transporte}`;
+        const botonDetalle = document.createElement("button");
+        botonDetalle.type = "button";
+        botonDetalle.textContent = "Ver itinerario";
+        botonDetalle.addEventListener("click", () => mostrarItinerario(ruta));
+        tarjeta.append(titulo, resumen, botonDetalle);
+        return tarjeta;
+    });
+    listaRutas.replaceChildren(...tarjetas);
+}
+async function cargarRutas() {
+    if (!listaRutas)
+        return;
+    mostrarEstado("Cargando rutas...");
+    try {
+        const respuesta = await fetch(URL_RUTAS);
+        if (!respuesta.ok)
+            throw new Error(`Error HTTP ${respuesta.status}`);
+        const datos = await respuesta.json();
+        if (!Array.isArray(datos) || !datos.every(esRuta)) {
+            throw new Error("La respuesta no contiene una lista válida de rutas.");
+        }
+        rutasDisponibles = datos;
+        falloCarga = false;
+        mostrarRutas(rutasDisponibles);
+    }
+    catch {
+        falloCarga = true;
+        mostrarEstado("No se pudieron cargar las rutas. Intenta nuevamente.");
+    }
+}
+if (formularioRuta && resultadoRuta) {
+    const campoOrigen = formularioRuta.querySelector("#origen");
+    const campoDestino = formularioRuta.querySelector("#destino");
+    const campoFecha = formularioRuta.querySelector("#fecha-viaje");
+    const campoPasajeros = formularioRuta.querySelector("#pasajeros");
+    if (campoOrigen && campoDestino && campoFecha && campoPasajeros) {
+        const hoy = new Date();
+        campoFecha.min = new Date(hoy.getTime() - hoy.getTimezoneOffset() * 60000)
+            .toISOString()
+            .slice(0, 10);
+        formularioRuta.addEventListener("submit", (evento) => {
+            evento.preventDefault();
+            resultadoRuta.textContent = "";
+            const origen = campoOrigen.value;
+            const destino = campoDestino.value;
+            const fecha = campoFecha.value;
+            const pasajeros = Number(campoPasajeros.value);
+            if (!origen || !destino) {
+                resultadoRuta.textContent = "Selecciona una ciudad de origen y una de destino.";
+                campoOrigen.focus();
+                return;
+            }
+            if (normalizarTexto(origen) === normalizarTexto(destino)) {
+                resultadoRuta.textContent = "El origen y el destino deben ser ciudades diferentes.";
+                campoDestino.focus();
+                return;
+            }
+            if (!fecha) {
+                resultadoRuta.textContent = "Selecciona la fecha de tu viaje.";
+                campoFecha.focus();
+                return;
+            }
+            if (!Number.isInteger(pasajeros) || pasajeros < 1 || pasajeros > 20) {
+                resultadoRuta.textContent = "Indica entre 1 y 20 pasajeros.";
+                campoPasajeros.focus();
+                return;
+            }
+            if (falloCarga) {
+                resultadoRuta.textContent = "No se pudo consultar la lista de rutas. Intenta recargar la página.";
+                resultadoRuta.focus();
+                return;
+            }
+            const rutasFiltradas = filtrarRutas(rutasDisponibles, origen, destino);
+            mostrarRutas(rutasFiltradas);
+            resultadoRuta.textContent = rutasFiltradas.length > 0
+                ? `Encontramos ${rutasFiltradas.length} ruta(s) publicada(s) para ${origen} → ${destino}. Fecha: ${fecha}. Pasajeros: ${pasajeros}.`
+                : `No hay rutas publicadas para ${origen} → ${destino}.`;
+            if (anunciosRuta)
+                anunciosRuta.textContent = resultadoRuta.textContent;
+            resultadoRuta.focus();
+        });
+    }
+}
+cerrarItinerario?.addEventListener("click", () => {
+    if (panelItinerario)
+        panelItinerario.hidden = true;
+});
+void cargarRutas();
