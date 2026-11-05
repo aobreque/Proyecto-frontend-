@@ -1,4 +1,4 @@
-const URL_COMERCIOS = "https://6ae15049be3bc8fead98617f.mockapi.io/comercios";
+import { API_COMERCIOS_BASE_URL, obtener } from "./api.js";
 const listaComercios = document.querySelector("#lista-comercios");
 function esComercio(dato) {
     if (typeof dato !== "object" || dato === null)
@@ -46,10 +46,7 @@ async function cargarComercios() {
         return;
     listaComercios.textContent = "Cargando comercios...";
     try {
-        const respuesta = await fetch(URL_COMERCIOS);
-        if (!respuesta.ok)
-            throw new Error(`Error HTTP ${respuesta.status}`);
-        const datos = await respuesta.json();
+        const datos = await obtener(API_COMERCIOS_BASE_URL);
         if (!Array.isArray(datos) || !datos.every(esComercio)) {
             throw new Error("La respuesta no contiene una lista válida de comercios.");
         }
@@ -59,9 +56,9 @@ async function cargarComercios() {
         }
         listaComercios.replaceChildren(...datos.map(crearTarjeta));
     }
-    catch {
-        listaComercios.textContent = "No se pudieron cargar los comercios. Intenta nuevamente.";
+    catch (error) {
+        const detalle = error instanceof Error ? error.message : "Error inesperado.";
+        listaComercios.textContent = `No se pudieron cargar los comercios. ${detalle}`;
     }
 }
 void cargarComercios();
-export {};

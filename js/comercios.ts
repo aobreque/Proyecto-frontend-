@@ -1,6 +1,6 @@
 import type { Comercio } from "./types.js";
+import { API_COMERCIOS_BASE_URL, enviar } from "./api.js";
 
-const URL_COMERCIOS = "https://6ae15049be3bc8fead98617f.mockapi.io/comercios";
 const formulario = document.querySelector<HTMLFormElement>("#form-comercio");
 const mensajeFormulario = document.querySelector<HTMLElement>("#mensaje-formulario");
 const botonRegistrar = document.querySelector<HTMLButtonElement>("#btn-registrar");
@@ -102,14 +102,7 @@ if (formulario && mensajeFormulario && botonRegistrar) {
             mensajeFormulario.className = "";
 
             try {
-                const respuesta = await fetch(URL_COMERCIOS, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(datosComercio)
-                });
-
-                if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}`);
-                const respuestaJson: unknown = await respuesta.json();
+                const respuestaJson = await enviar<unknown>(API_COMERCIOS_BASE_URL, datosComercio);
                 if (!esComercio(respuestaJson)) {
                     throw new Error("La respuesta no contiene un comercio válido.");
                 }
@@ -125,9 +118,10 @@ if (formulario && mensajeFormulario && botonRegistrar) {
                     const error = document.getElementById(`error-${id}`);
                     if (error) error.textContent = "";
                 });
-            } catch {
+            } catch (error: unknown) {
+                const detalle = error instanceof Error ? error.message : "Inténtalo nuevamente.";
                 mensajeFormulario.textContent =
-                    "No se pudo registrar el comercio. Inténtalo nuevamente.";
+                    `No se pudo registrar el comercio. ${detalle}`;
                 mensajeFormulario.className = "error";
             } finally {
                 botonRegistrar.disabled = false;

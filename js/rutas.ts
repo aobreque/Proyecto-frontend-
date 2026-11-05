@@ -1,7 +1,7 @@
 import type { Ruta } from "./types.js";
+import { API_RUTAS_BASE_URL, obtener } from "./api.js";
 import { filtrarRutas, normalizarTexto } from "./rutas-utils.js";
 
-const URL_RUTAS = "https://6ad9530ff89c5702ed9a864f.mockapi.io/api/v1/rutas";
 const listaRutas = document.querySelector<HTMLUListElement>("#lista-destinos");
 const formularioRuta = document.querySelector<HTMLFormElement>("#form-ruta");
 const resultadoRuta = document.querySelector<HTMLElement>("#resultado-ruta");
@@ -103,10 +103,7 @@ async function cargarRutas(): Promise<void> {
 
     mostrarEstado("Cargando rutas...");
     try {
-        const respuesta = await fetch(URL_RUTAS);
-        if (!respuesta.ok) throw new Error(`Error HTTP ${respuesta.status}`);
-
-        const datos: unknown = await respuesta.json();
+        const datos = await obtener<unknown>(`${API_RUTAS_BASE_URL}/rutas`);
         if (!Array.isArray(datos) || !datos.every(esRuta)) {
             throw new Error("La respuesta no contiene una lista válida de rutas.");
         }
@@ -114,9 +111,10 @@ async function cargarRutas(): Promise<void> {
         rutasDisponibles = datos;
         falloCarga = false;
         mostrarRutas(rutasDisponibles);
-    } catch {
+    } catch (error: unknown) {
         falloCarga = true;
-        mostrarEstado("No se pudieron cargar las rutas. Intenta nuevamente.");
+        const detalle = error instanceof Error ? error.message : "Error inesperado.";
+        mostrarEstado(`No se pudieron cargar las rutas. ${detalle}`);
     }
 }
 

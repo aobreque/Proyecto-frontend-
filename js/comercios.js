@@ -1,4 +1,4 @@
-const URL_COMERCIOS = "https://6ae15049be3bc8fead98617f.mockapi.io/comercios";
+import { API_COMERCIOS_BASE_URL, enviar } from "./api.js";
 const formulario = document.querySelector("#form-comercio");
 const mensajeFormulario = document.querySelector("#mensaje-formulario");
 const botonRegistrar = document.querySelector("#btn-registrar");
@@ -84,14 +84,7 @@ if (formulario && mensajeFormulario && botonRegistrar) {
             mensajeFormulario.textContent = "Guardando comercio...";
             mensajeFormulario.className = "";
             try {
-                const respuesta = await fetch(URL_COMERCIOS, {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(datosComercio)
-                });
-                if (!respuesta.ok)
-                    throw new Error(`Error HTTP ${respuesta.status}`);
-                const respuestaJson = await respuesta.json();
+                const respuestaJson = await enviar(API_COMERCIOS_BASE_URL, datosComercio);
                 if (!esComercio(respuestaJson)) {
                     throw new Error("La respuesta no contiene un comercio válido.");
                 }
@@ -107,9 +100,10 @@ if (formulario && mensajeFormulario && botonRegistrar) {
                         error.textContent = "";
                 });
             }
-            catch {
+            catch (error) {
+                const detalle = error instanceof Error ? error.message : "Inténtalo nuevamente.";
                 mensajeFormulario.textContent =
-                    "No se pudo registrar el comercio. Inténtalo nuevamente.";
+                    `No se pudo registrar el comercio. ${detalle}`;
                 mensajeFormulario.className = "error";
             }
             finally {
@@ -119,4 +113,3 @@ if (formulario && mensajeFormulario && botonRegistrar) {
         });
     }
 }
-export {};
