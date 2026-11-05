@@ -1,0 +1,12 @@
+{
+  "name": "ecoruta-temuco",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2"
+  }
+}
