@@ -87,7 +87,7 @@ header {
     font-size: 1.4rem;
     font-weight: 800;
     letter-spacing: -0.01em;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
 }
 
 search {
@@ -186,7 +186,7 @@ nav {
 
 .menu a:hover,
 .menu a:focus-visible {
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
 }
 
 .menu a:hover::after,
@@ -208,8 +208,8 @@ section {
     padding: 5.5rem 2rem;
     background: linear-gradient(
         135deg,
-        var(--color-primary-dark) 0%,
-        var(--color-secondary-dark) 100%
+        var(--color-hero-start) 0%,
+        var(--color-hero-end) 100%
     );
     color: #ffffff;
     box-shadow: 0 12px 24px rgba(6, 78, 59, 0.18);
@@ -298,7 +298,7 @@ section {
 
 .pagina-simple h1 {
     font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
     margin-bottom: 1rem;
 }
 
@@ -329,14 +329,14 @@ section {
 
 .cta-emprendedor__texto h1 {
     font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
     margin-bottom: 0.5rem;
 }
 
 .cta-emprendedor__link {
     display: inline-block;
     margin-top: 0.75rem;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
     font-weight: 700;
     text-decoration: underline;
 }
@@ -389,7 +389,7 @@ section {
     margin-top: 2rem;
     margin-bottom: 0.5rem;
     margin-left: 2rem;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
     font-weight: 600;
     text-decoration: none;
 }
@@ -520,7 +520,7 @@ footer {
 #quienes-somos .valores h3 {
     margin: 0 0 8px;
     font-size: 1.3rem;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
 }
 
 #quienes-somos .valores p {
@@ -561,10 +561,12 @@ footer {
 
 
 :root {
-    --color-primary: #15803d;
-    --color-primary-dark: #166534;
-    --color-secondary: #16a34a;
-    --color-secondary-dark: #14532d;
+    --color-primary: #3af12d;
+    --color-primary-dark: #238e0d;
+    --color-primary-text: #20770d;
+    --color-secondary: #17cf51;
+    --color-secondary-dark: #238e0d;
+    --color-secondary-text: #20770d;
 
     --color-text: #1f2937;
     --color-text-light: #52606d;
@@ -572,12 +574,12 @@ footer {
 
     --color-bg: #ffffff;
     --color-bg-alt: #f4faf9;
-    --color-border: #d1d5db;
-    --color-focus: #166534;
-    --color-action-bg: #166534;
-    --color-action-text: #ffffff;
+    --color-border: #e2e8f0;
+    --color-focus: #238e0d;
+    --color-action-bg: #3af12d;
+    --color-action-text: #1f2e2a;
     --color-error: #a51d15;
-    --color-hero-start: #166534;
+    --color-hero-start: #1d760d;
     --color-hero-end: #14532d;
 
     --radius: 12px;
@@ -587,10 +589,12 @@ footer {
 
 /* Colores para el modo oscuro */
 body.modo-oscuro {
-    --color-primary: #4ade80;
-    --color-primary-dark: #86efac;
-    --color-secondary: #34d399;
-    --color-secondary-dark: #6ee7b7;
+    --color-primary: #26d773;
+    --color-primary-dark: #2bcc89;
+    --color-primary-text: #2bcc89;
+    --color-secondary: #15c48f;
+    --color-secondary-dark: #0d8e7b;
+    --color-secondary-text: #15c48f;
     --color-tertiary: #effbf4;
 
     --color-text: #f9fafb;
@@ -598,10 +602,10 @@ body.modo-oscuro {
 
     --color-bg: #272632;
     --color-bg-alt: #293c42;
-    --color-border: #4b5563;
-    --color-focus: #86efac;
-    --color-action-bg: #14532d;
-    --color-action-text: #ffffff;
+    --color-border: #3a3a3a;
+    --color-focus: #26d773;
+    --color-action-bg: #26d773;
+    --color-action-text: #1f2e2a;
     --color-error: #ff8a80;
     --color-hero-start: #166534;
     --color-hero-end: #14532d;
@@ -623,11 +627,11 @@ body.modo-oscuro {
 }
 
 .contacto a {
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
 }
 
 .contacto a:hover {
-    color: var(--color-secondary-dark);
+    color: var(--color-secondary-text);
 }
 
 /* 3. Reducir el fondo verde de la portada */
@@ -857,7 +861,7 @@ html {
 
 .rutas-page h1 {
     margin-bottom: 8px;
-    color: var(--color-primary-dark);
+    color: var(--color-primary-text);
 }
 
 .rutas-intro {
