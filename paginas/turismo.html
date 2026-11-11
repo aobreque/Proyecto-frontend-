@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo-La Araucanía</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body class="turismo-page">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
@@ -37,16 +38,88 @@
 
     <main id="main-content">
         <a href="../index.html" class="volver">← Volver a inicio</a>
-        <section class="pagina-simple">
-            <h1>Turismo</h1>
-            <p>Contenido de turismo próximamente.</p>
+        <section class="container my-5" aria-labelledby="titulo-turismo">
+
+            <div class="row g-4">
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card turismo-card h-100 shadow-sm">
+                        <img
+                            src="../assets/imagenes/carrusel/img1.webp"
+                            class="card-img-top turismo-img"
+                            alt="Paisaje turístico de La Araucanía"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">Villarrica</h2>
+                            <p class="card-text">
+                                Disfruta de los paisajes del lago Villarrica
+                                y de las vistas del volcán.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card turismo-card h-100 shadow-sm">
+                        <img
+                            src="../assets/imagenes/carrusel/img2.webp"
+                            class="card-img-top turismo-img"
+                            alt="Paisaje turístico de La Araucanía"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">Pucón</h2>
+                            <p class="card-text">
+                                Conoce un destino rodeado de naturaleza,
+                                montañas y actividades al aire libre.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card turismo-card h-100 shadow-sm">
+                        <img
+                            src="../assets/imagenes/carrusel/img3.webp"
+                            class="card-img-top turismo-img"
+                            alt="Paisaje natural de La Araucanía"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">Parque Nacional Conguillío</h2>
+                            <p class="card-text">
+                                Explora bosques de araucarias y paisajes
+                                naturales característicos de la región.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <article class="card turismo-card h-100 shadow-sm">
+                        <img
+                            src="../assets/imagenes/lagoLicanray_frontend.jpg"
+                            class="card-img-top turismo-img"
+                            alt="Lago en el sector de Lican Ray"
+                        >
+
+                        <div class="card-body">
+                            <h2 class="card-title h5">Lican Ray</h2>
+                            <p class="card-text">
+                                Descubre el entorno del lago Calafquén y
+                                sus paisajes naturales.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+
         </section>
     </main>
 
     <footer>
         <p>&copy; Todos los derechos reservados.</p>
     </footer>
-
-    <script src="../js/main.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/busqueda.js"></script>
 </body>
 </html>
