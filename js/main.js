@@ -1,85 +1,118 @@
-const btnReducirMovimiento = document.getElementById(
-    "btn-reducir-movimiento"
-);
 
-const claveMovimiento = "reducirMovimiento";
-
-function aplicarPreferenciaMovimiento(reducir) {
-    // Activa o desactiva la reducción de movimiento
-    document.documentElement.classList.toggle(
-        "reducir-movimiento",
-        reducir
-    );
-
-    // Informa el estado actual del botón
-    btnReducirMovimiento.setAttribute(
-        "aria-pressed",
-        String(reducir)
-    );
-
-    // Actualiza la descripción accesible del botón
-    btnReducirMovimiento.setAttribute(
-        "aria-label",
-        reducir
-            ? "Activar animaciones y transiciones"
-            : "Reducir animaciones y transiciones"
-    );
-}
-
-const preferenciaGuardada = localStorage.getItem(claveMovimiento);
-
-if (preferenciaGuardada !== null) {
-    aplicarPreferenciaMovimiento(
-        preferenciaGuardada === "true"
-    );
-}
-
-btnReducirMovimiento.addEventListener("click", () => {
-    const estaActivo =
-        document.documentElement.classList.contains(
-            "reducir-movimiento"
-        );
-
-    const nuevoEstado = !estaActivo;
-
-    aplicarPreferenciaMovimiento(nuevoEstado);
-
-    localStorage.setItem(
-        claveMovimiento,
-        String(nuevoEstado)
-    );
-});
-
+const btnModoOscuro = document.getElementById('btn-modo-oscuro');
 const btnLetraMas = document.getElementById('btn-letra-mas');
 const btnLetraMenos = document.getElementById('btn-letra-menos');
 const anuncios = document.getElementById('anuncios');
 
-let tamanoBase = parseInt(localStorage.getItem('tamanoLetra')) || 100;
+const btnReducirMovimiento = document.getElementById(
+    'btn-reducir-movimiento'
+);
+
+// ===== Modo oscuro =====
+if (btnModoOscuro) {
+    if (localStorage.getItem('modoOscuro') === 'true') {
+        document.body.classList.add('modo-oscuro');
+        btnModoOscuro.setAttribute('aria-pressed', 'true');
+        btnModoOscuro.textContent = '☀';
+    }
+
+    btnModoOscuro.addEventListener('click', () => {
+        document.body.classList.toggle('modo-oscuro');
+
+        const activado = document.body.classList.contains('modo-oscuro');
+
+        btnModoOscuro.setAttribute('aria-pressed', String(activado));
+        btnModoOscuro.textContent = activado ? '☀' : '🌙';
+
+        if (anuncios) {
+            anuncios.textContent = activado
+                ? 'Modo oscuro activado'
+                : 'Modo oscuro desactivado';
+        }
+
+        localStorage.setItem('modoOscuro', String(activado));
+    });
+}
+
+// ===== Tamaño de letra =====
+let tamanoBase = parseInt(localStorage.getItem('tamanoLetra'), 10) || 100;
+
 document.documentElement.style.fontSize = tamanoBase + '%';
 
 function actualizarTamano() {
     document.documentElement.style.fontSize = tamanoBase + '%';
+
     localStorage.setItem('tamanoLetra', tamanoBase);
-    anuncios.textContent = 'Tamaño de letra: ' + tamanoBase + '%';
+
+    if (anuncios) {
+        anuncios.textContent = 'Tamaño de letra: ' + tamanoBase + '%';
+    }
 }
 
-btnReducirMovimiento.addEventListener("click", () => {
-    const estaActivo =
-        document.documentElement.classList.contains(
-            "reducir-movimiento"
+if (btnLetraMas) {
+    btnLetraMas.addEventListener('click', () => {
+        if (tamanoBase < 200) {
+            tamanoBase += 10;
+            actualizarTamano();
+        }
+    });
+}
+
+if (btnLetraMenos) {
+    btnLetraMenos.addEventListener('click', () => {
+        if (tamanoBase > 80) {
+            tamanoBase -= 10;
+            actualizarTamano();
+        }
+    });
+}
+
+// ===== Reducción de movimiento =====
+const claveMovimiento = 'reducirMovimiento';
+
+function aplicarPreferenciaMovimiento(reducir) {
+    document.documentElement.classList.toggle(
+        'reducir-movimiento',
+        reducir
+    );
+
+    if (btnReducirMovimiento) {
+        btnReducirMovimiento.setAttribute(
+            'aria-pressed',
+            String(reducir)
         );
 
-    const nuevoEstado = !estaActivo;
+        btnReducirMovimiento.setAttribute(
+            'aria-label',
+            reducir
+                ? 'Activar animaciones y transiciones'
+                : 'Reducir animaciones y transiciones'
+        );
+    }
+}
 
-    aplicarPreferenciaMovimiento(nuevoEstado);
+const preferenciaGuardada = localStorage.getItem(claveMovimiento);
 
-    localStorage.setItem(
-        claveMovimiento,
-        String(nuevoEstado)
-    );
-});
+aplicarPreferenciaMovimiento(preferenciaGuardada === 'true');
 
-// FORMULARIO DE AGENDA DE RUTA
+if (btnReducirMovimiento) {
+    btnReducirMovimiento.addEventListener('click', () => {
+        const estaActivo = document.documentElement.classList.contains(
+            'reducir-movimiento'
+        );
+
+        const nuevoEstado = !estaActivo;
+
+        aplicarPreferenciaMovimiento(nuevoEstado);
+
+        localStorage.setItem(
+            claveMovimiento,
+            String(nuevoEstado)
+        );
+    });
+}
+
+// ===== Formulario de agenda de ruta =====
 const formRuta = document.getElementById('form-ruta');
 
 if (formRuta) {
@@ -94,6 +127,7 @@ if (formRuta) {
     const fechaLocal = new Date(hoy.getTime() - hoy.getTimezoneOffset() * 60000)
         .toISOString()
         .slice(0, 10);
+
     campoFecha.min = fechaLocal;
 
     formRuta.addEventListener('submit', (evento) => {
@@ -117,17 +151,25 @@ if (formRuta) {
             return;
         }
 
+        if (!fecha) {
+            resultadoRuta.textContent = 'Selecciona la fecha de tu viaje.';
+            campoFecha.focus();
+            return;
+        }
+
         if (!Number.isInteger(pasajeros) || pasajeros < 1 || pasajeros > 20) {
             resultadoRuta.textContent = 'Indica entre 1 y 20 pasajeros.';
             resultadoRuta.focus();
             return;
         }
 
-        const fechaTexto = fecha
-            ? ` Fecha del viaje: ${fecha}.`
-            : '';
+        const fechaTexto = ` Fecha del viaje: ${fecha}.`;
 
-        resultadoRuta.textContent = `Búsqueda preparada: ${origen} → ${destino}. Pasajeros: ${pasajeros}.${fechaTexto} Esta demostración no consulta horarios ni disponibilidad reales.`;
+        resultadoRuta.textContent =
+            `Búsqueda preparada: ${origen} → ${destino}. ` +
+            `Pasajeros: ${pasajeros}.${fechaTexto} ` +
+            'Esta demostración no consulta horarios ni disponibilidad reales.';
+
         resultadoRuta.focus();
     });
 }
