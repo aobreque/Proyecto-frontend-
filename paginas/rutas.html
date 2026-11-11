@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutas-EcoRuta</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/explorar.css">
 </head>
-<body>
+<body class="ec-explorar">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
@@ -35,12 +36,12 @@
         </nav>
     </header>
 
-<main>
+<main id="main-content">
     <section class="pagina-simple rutas-page">
 
         <section class="rutas-listado">
             <h1>Agenda tu ruta</h1>
-            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Indica tu origen y destino para comenzar.</p>
+            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Elige un destino, cómo recorrerlo y con cuántas personas viajarás.</p>
 
             <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
                 <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
@@ -55,6 +56,9 @@
                             <option value="Pucón">Pucón</option>
                             <option value="Angol">Angol</option>
                             <option value="Victoria">Victoria</option>
+                            <option value="Melipeuco">Melipeuco</option>
+                            <option value="Curacautín">Curacautín</option>
+                            <option value="Saavedra">Saavedra</option>
                             <option value="Lautaro">Lautaro</option>
                         </select>
                     </div>
@@ -62,14 +66,7 @@
                     <div class="campo-ruta">
                         <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
                         <select id="destino" name="destino" required>
-                            <option value="">Selecciona una ciudad</option>
-                            <option value="Temuco">Temuco</option>
-                            <option value="Villarrica">Villarrica</option>
-                            <option value="Pucón">Pucón</option>
-                            <option value="Angol">Angol</option>
-                            <option value="Victoria">Victoria</option>
-                            <option value="Lautaro">Lautaro</option>
-                        </select>
+<option value="">Selecciona un destino</option><option value="villarrica">Villarrica y su costanera · Villarrica</option><option value="pucon">Pucón y el lago Villarrica · Pucón</option><option value="conguillio">Parque Nacional Conguillío · Melipeuco</option><option value="malalcahuello">Reserva Nacional Malalcahuello · Curacautín</option><option value="nahuelbuta">Parque Nacional Nahuelbuta · Angol</option><option value="budi">Lago Budi y entorno costero · Saavedra</option></select>
                     </div>
 
                     <div class="campo-ruta">
@@ -78,22 +75,29 @@
                     </div>
 
                     <div class="campo-ruta">
-                        <label for="pasajeros">Número de pasajeros</label>
-                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1">
+                        <label for="pasajeros">Cantidad de integrantes</label>
+                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" step="1" value="1" required>
                     </div>
                 </div>
 
-                <button type="submit" class="btn-agendar-ruta">Buscar ruta</button>
+                <fieldset class="ec-preferencias"><legend>¿Cómo quieres recorrer el destino?</legend>
+                <div class="campos-ruta">
+                <div class="campo-ruta"><label for="modalidad">Modalidad del recorrido</label><select id="modalidad" name="modalidad"><option value="">Cualquier modalidad</option><option value="guiada">Con guía</option><option value="autoguiada">Por cuenta propia (autoguiada)</option></select></div>
+                <div class="campo-ruta"><label for="transporte">Medio de desplazamiento</label><select id="transporte" name="transporte"><option value="">Cualquier medio</option><option value="vehicular">Transporte vehicular</option><option value="pie">A pie</option></select></div>
+                </div><p class="ec-ayuda">Puedes combinar una ruta guiada con transporte vehicular. El origen indica desde dónde planificas salir; no confirma un servicio de traslado.</p></fieldset>
+                <button type="submit" class="btn-agendar-ruta">Buscar propuestas de ruta</button>
+                <button type="reset" class="ec-boton ec-boton--secundario">Limpiar filtros</button>
                 <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
 
-            <p class="nota-rutas">Esta función es una demostración del formulario. Todavía no consulta horarios, tarifas ni disponibilidad de transporte en tiempo real.</p>
+            <p class="nota-rutas">Catálogo de propuestas orientativas. La cantidad de integrantes se compara con el tamaño de grupo propuesto, no con cupos reales. No se confirman guías, transporte, precios ni disponibilidad para la fecha elegida.</p>
         </section>
 
         <section class="destinos-listado" aria-labelledby="titulo-destinos">
-            <h2 id="titulo-destinos">Destinos turísticos</h2>
+            <h2 id="titulo-destinos">Propuestas de rutas</h2>
 
-            <div id="lista-destinos" class="destinos-grid"></div>
+            <div id="lista-destinos" class="ec-resultados"></div>
+            <noscript><p>Activa JavaScript para consultar las propuestas filtradas. Puedes seguir explorando los lugares en <a href="turismo.html">Turismo</a>.</p></noscript>
         </section>
 
         <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
@@ -113,5 +117,6 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/api.js"></script>
+    <script type="module" src="../js/generado/rutas-explorar.js"></script>
 </body>
 </html>

@@ -1,0 +1,267 @@
+// Propuestas editoriales para demostrar filtros; no representan servicios ni cupos publicados.
+export const propuestas = [
+    {
+        "id": "villarrica-guiada-vehicular",
+        "destino": "villarrica",
+        "nombre": "Villarrica y su costanera: Con guía y traslado vehicular",
+        "localidad": "Villarrica",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "villarrica-guiada-pie",
+        "destino": "villarrica",
+        "nombre": "Villarrica y su costanera: Con guía, a pie",
+        "localidad": "Villarrica",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "villarrica-autoguiada-vehicular",
+        "destino": "villarrica",
+        "nombre": "Villarrica y su costanera: En vehículo, por tu cuenta",
+        "localidad": "Villarrica",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "villarrica-autoguiada-pie",
+        "destino": "villarrica",
+        "nombre": "Villarrica y su costanera: A pie, a tu ritmo",
+        "localidad": "Villarrica",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "pucon-guiada-vehicular",
+        "destino": "pucon",
+        "nombre": "Pucón y el lago Villarrica: Con guía y traslado vehicular",
+        "localidad": "Pucón",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "pucon-guiada-pie",
+        "destino": "pucon",
+        "nombre": "Pucón y el lago Villarrica: Con guía, a pie",
+        "localidad": "Pucón",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "pucon-autoguiada-vehicular",
+        "destino": "pucon",
+        "nombre": "Pucón y el lago Villarrica: En vehículo, por tu cuenta",
+        "localidad": "Pucón",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "pucon-autoguiada-pie",
+        "destino": "pucon",
+        "nombre": "Pucón y el lago Villarrica: A pie, a tu ritmo",
+        "localidad": "Pucón",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
+        "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
+    },
+    {
+        "id": "conguillio-guiada-vehicular",
+        "destino": "conguillio",
+        "nombre": "Parque Nacional Conguillío: Con guía y traslado vehicular",
+        "localidad": "Melipeuco",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
+    },
+    {
+        "id": "conguillio-guiada-pie",
+        "destino": "conguillio",
+        "nombre": "Parque Nacional Conguillío: Con guía, a pie",
+        "localidad": "Melipeuco",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
+    },
+    {
+        "id": "conguillio-autoguiada-vehicular",
+        "destino": "conguillio",
+        "nombre": "Parque Nacional Conguillío: En vehículo, por tu cuenta",
+        "localidad": "Melipeuco",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
+    },
+    {
+        "id": "conguillio-autoguiada-pie",
+        "destino": "conguillio",
+        "nombre": "Parque Nacional Conguillío: A pie, a tu ritmo",
+        "localidad": "Melipeuco",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
+    },
+    {
+        "id": "malalcahuello-guiada-vehicular",
+        "destino": "malalcahuello",
+        "nombre": "Reserva Nacional Malalcahuello: Con guía y traslado vehicular",
+        "localidad": "Curacautín",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
+    },
+    {
+        "id": "malalcahuello-guiada-pie",
+        "destino": "malalcahuello",
+        "nombre": "Reserva Nacional Malalcahuello: Con guía, a pie",
+        "localidad": "Curacautín",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
+    },
+    {
+        "id": "malalcahuello-autoguiada-vehicular",
+        "destino": "malalcahuello",
+        "nombre": "Reserva Nacional Malalcahuello: En vehículo, por tu cuenta",
+        "localidad": "Curacautín",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
+    },
+    {
+        "id": "malalcahuello-autoguiada-pie",
+        "destino": "malalcahuello",
+        "nombre": "Reserva Nacional Malalcahuello: A pie, a tu ritmo",
+        "localidad": "Curacautín",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
+    },
+    {
+        "id": "nahuelbuta-guiada-vehicular",
+        "destino": "nahuelbuta",
+        "nombre": "Parque Nacional Nahuelbuta: Con guía y traslado vehicular",
+        "localidad": "Angol",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+    },
+    {
+        "id": "nahuelbuta-guiada-pie",
+        "destino": "nahuelbuta",
+        "nombre": "Parque Nacional Nahuelbuta: Con guía, a pie",
+        "localidad": "Angol",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+    },
+    {
+        "id": "nahuelbuta-autoguiada-vehicular",
+        "destino": "nahuelbuta",
+        "nombre": "Parque Nacional Nahuelbuta: En vehículo, por tu cuenta",
+        "localidad": "Angol",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+    },
+    {
+        "id": "nahuelbuta-autoguiada-pie",
+        "destino": "nahuelbuta",
+        "nombre": "Parque Nacional Nahuelbuta: A pie, a tu ritmo",
+        "localidad": "Angol",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
+        "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
+    },
+    {
+        "id": "budi-guiada-vehicular",
+        "destino": "budi",
+        "nombre": "Lago Budi y entorno costero: Con guía y traslado vehicular",
+        "localidad": "Saavedra",
+        "modalidad": "guiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 8,
+        "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
+        "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
+    },
+    {
+        "id": "budi-guiada-pie",
+        "destino": "budi",
+        "nombre": "Lago Budi y entorno costero: Con guía, a pie",
+        "localidad": "Saavedra",
+        "modalidad": "guiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
+        "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
+    },
+    {
+        "id": "budi-autoguiada-vehicular",
+        "destino": "budi",
+        "nombre": "Lago Budi y entorno costero: En vehículo, por tu cuenta",
+        "localidad": "Saavedra",
+        "modalidad": "autoguiada",
+        "transporte": "vehicular",
+        "maxIntegrantes": 5,
+        "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
+        "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
+    },
+    {
+        "id": "budi-autoguiada-pie",
+        "destino": "budi",
+        "nombre": "Lago Budi y entorno costero: A pie, a tu ritmo",
+        "localidad": "Saavedra",
+        "modalidad": "autoguiada",
+        "transporte": "pie",
+        "maxIntegrantes": 6,
+        "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
+        "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
+    }
+];

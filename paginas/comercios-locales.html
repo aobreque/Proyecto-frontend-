@@ -6,8 +6,9 @@
     <title>Comercios Locales-La Araucanía</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/comercios.css">
+    <link rel="stylesheet" href="../css/explorar.css">
 </head>
-<body>
+<body class="ec-explorar ec-comercios">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
@@ -41,7 +42,7 @@
         <section class="cta-emprendedor">
             <div class="cta-emprendedor__texto">
                 <h1>¿Eres emprendedor?</h1>
-                <a href="emprendedores.html" class="cta-emprendedor__link">Haz clic aquí</a>
+                <a href="emprendedores.html" class="cta-emprendedor__link">Ingresa tu emprendimiento</a>
             </div>
             <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen">
         </section>
@@ -49,6 +50,8 @@
         
 <section class="lista-emprendimientos"
          aria-label="Comercios locales">
+    <h2>Conoce los emprendimientos locales</h2>
+    <p>Descubre lo que ofrece cada negocio y encuentra sus datos de contacto.</p>
 
     <div id="lista-comercios" aria-live="polite">
         <p>Cargando comercios...</p>
@@ -64,16 +67,7 @@
 
     <script src="../js/main.js"></script>
 
-    <h2 class = "titulo"> Slider automatico</h2>
-    <div class=""Slider-box>
-        <ul>
-            <li>
-                <img scr = 
-            </li>
-        </ul>
-    </div>
-
-    <script src="../js/listar-comercios.js"></script>
+    <script type="module" src="../js/generado/listar-comercios.js"></script>
 
 </body>
 </html>

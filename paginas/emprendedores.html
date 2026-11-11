@@ -1,45 +1,54 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Registrar comercio | EcoRuta</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresa tu emprendimiento | EcoRuta</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/comercios.css">
+    <link rel="stylesheet" href="../css/explorar.css">
 </head>
-<body>
-
+<body class="ec-explorar">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
+        <div class="logo">
+            <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
+
+        <search>
+            <input type="search" placeholder="Buscar lugares turísticos..." aria-label="Buscar lugares turísticos">
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+        </search>
+
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
+            <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
+        </div>
+
         <nav aria-label="Navegación principal">
-            <a href="../index.html">EcoRuta</a>
-            <a href="comercios-locales.html">
-                Ver comercios
-            </a>
+            <ul class="menu">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="turismo.html">Turismo</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="emprendedores.html">Ingresa tu emprendimiento</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="registro-comercio">
-            <h1>Registra tu comercio local</h1>
 
-            <p>
-                Forma parte de EcoRuta y da a conocer
-                tu emprendimiento en La Araucanía.
-            </p>
-
-            <form id="form-comercio" novalidate>
-
-                
-<form id="form-comercio" novalidate>
-
-    <!-- Nombre del comercio -->
+<main id="main-content" class="ec-contenedor">
+<section class="ec-intro"><p class="ec-antetitulo">CREZCAMOS EN COMUNIDAD</p><h1>Ingresa tu emprendimiento</h1><p>Acerca tu negocio a quienes recorren La Araucanía. Cuéntanos qué ofreces y dónde encontrarte.</p></section>
+<section class="registro-comercio ec-registro" aria-labelledby="titulo-registro"><h2 id="titulo-registro">Datos de tu emprendimiento</h2><p>Todos los campos son obligatorios. Utiliza un correo de contacto que quieras publicar junto a tu comercio.</p>
+<form id="form-comercio">    <!-- Nombre del comercio -->
     <label for="nombre">Nombre del comercio</label>
     <input
         type="text"
+        autocomplete="organization"
         id="nombre"
         name="nombre"
         placeholder="Ej: Eco Café Victoria"
@@ -59,8 +68,8 @@
         required
     ></textarea>
 
-    <!-- Ciudad -->
-    <label for="ciudad">Ciudad</label>
+    <!-- Localidad -->
+    <label for="ciudad">Localidad</label>
     <input
         type="text"
         id="ciudad"
@@ -73,6 +82,7 @@
     <label for="direccion">Dirección</label>
     <input
         type="text"
+        autocomplete="street-address"
         id="direccion"
         name="direccion"
         placeholder="Ej: Avenida Prat 123"
@@ -83,6 +93,7 @@
     <label for="contacto">Correo de contacto</label>
     <input
         type="email"
+        autocomplete="email"
         id="contacto"
         name="contacto"
         placeholder="Ej: contacto@ecocafe.cl"
@@ -102,11 +113,10 @@
     ></p>
 
 </form>
-
-            </form>
-        </section>
-    </main>
-
+<noscript><p>El envío requiere JavaScript. Puedes completar los campos, pero el registro no se guardará mientras esté desactivado.</p></noscript>
+<a class="ec-fuente" href="comercios-locales.html">Ver comercios locales</a></section></main>
+    <footer><p>&copy; 2026 EcoRuta. Todos los derechos reservados.</p></footer>
+    <script src="../js/main.js"></script>
     <script src="../js/comercios.js"></script>
 </body>
 </html>
