@@ -20,16 +20,30 @@ lo que ayuda a los comercios de la zona a tener mas visibilidad.
 
 ## Tecnologías utilizadas
 
-- HTML5/css3/JS(por aplicar)
-
- (Framework a definir)
+- HTML5, CSS3 y TypeScript compilado a JavaScript.
+- TypeScript como única dependencia de desarrollo.
 
 ## Cómo ejecutar el proyecto
 
- Abrir el archivo index.html directamente
- Si solo quieres previsualizar la página de forma rápida sin extensiones:Busca la carpeta de tu proyecto Proyecto-frontend- en el explorador de archivos de tu sistema operativo.Haz doble clic en el archivo index.html.   Se abrirá directamente en tu navegador.
+Instala las dependencias y compila los archivos TypeScript desde la raíz:
 
- Tambien se puede abrir con VS code( pero con la extencion LIVE SERVER ).
+```bash
+npm install
+npm run build
+```
+
+Los archivos JavaScript se generan junto a sus archivos TypeScript y se incluyen en el repositorio porque GitHub Pages publica los archivos sin compilarlos. Para trabajar mientras editas, ejecuta `npm run watch` o abre `index.html` con Live Server en Visual Studio Code.
+
+## APIs públicas
+
+EcoRuta usa dos proyectos independientes de MockAPI:
+
+| Funcionalidad | URL base | Recurso y operaciones |
+| --- | --- | --- |
+| Rutas | `https://6ad9530ff89c5702ed9a864f.mockapi.io/api/v1` | `GET /rutas` |
+| Comercios | `https://6ae15049be3bc8fead98617f.mockapi.io/comercios` | `GET` y `POST` sobre la URL base |
+
+El módulo `js/api.ts` centraliza ambas URL base y ofrece las funciones genéricas `obtener<T>` y `enviar<T>`. Las páginas muestran estados de carga, error, lista vacía y resultados cuando consultan los datos.
 
 
 ## Estado del proyecto

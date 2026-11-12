@@ -1,51 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Registrar comercio | EcoRuta</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresa tu emprendimiento | EcoRuta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/comercios.css">
+    <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/bootstrap-adapt.css">
 </head>
-<body>
+<body class="ec-explorar">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    <p id="anuncios" class="sr-only" aria-live="polite"></p>
+    <header class="ecoruta-header">
+        <div class="logo">
+            <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
+            <span>EcoRuta</span>
+        </div>
 
-    <header>
-        <nav aria-label="Navegación principal">
-            <a href="../index.html">EcoRuta</a>
-            <a href="comercios-locales.html">
-                Ver comercios
-            </a>
+        <search>
+            <input id="buscar" type="search" placeholder="Buscar contenido..." aria-label="Buscar contenido">
+            <button type="button" class="btn-buscar" aria-label="Buscar"></button>
+        </search>
+
+        <div class="accesibilidad" role="toolbar" aria-label="Accesibilidad">
+            <button type="button" id="btn-letra-mas" aria-label="Aumentar tamaño de letra">A+</button>
+            <button type="button" id="btn-letra-menos" aria-label="Disminuir tamaño de letra">A-</button>
+            <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
+        </div>
+
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
+                <li><a href="../index.html#inicio">Inicio</a></li>
+                <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="turismo.html">Turismo</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="emprendedores.html">Ingresa tu emprendimiento</a></li>
+                <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
+                <li><a href="../index.html#contacto">Contacto</a></li>
+            </ul>
         </nav>
     </header>
 
-    <main>
-        <section class="registro-comercio">
-            <h1>Registra tu comercio local</h1>
 
-            <p>
-                Forma parte de EcoRuta y da a conocer
-                tu emprendimiento en La Araucanía.
-            </p>
-
-            <form id="form-comercio" novalidate>
-
-                
-<form id="form-comercio" novalidate>
-
-    <!-- Nombre del comercio -->
+<main id="main-content" class="ec-contenedor ecoruta-main">
+<section class="ec-intro"><p class="ec-antetitulo">CREZCAMOS EN COMUNIDAD</p><h1>Ingresa tu emprendimiento</h1><p>Acerca tu negocio a quienes recorren La Araucanía. Cuéntanos qué ofreces y dónde encontrarte.</p></section>
+<section class="registro-comercio ec-registro container-xxl" aria-labelledby="titulo-registro"><h2 id="titulo-registro">Datos de tu emprendimiento</h2><p>Todos los campos son obligatorios. Utiliza un correo de contacto que quieras publicar junto a tu comercio.</p>
+<form id="form-comercio">    <!-- Nombre del comercio -->
     <label for="nombre">Nombre del comercio</label>
     <input
         type="text"
+        autocomplete="organization"
         id="nombre"
         name="nombre"
         placeholder="Ej: Eco Café Victoria"
         minlength="3"
         maxlength="100"
         required
+        class="form-control"
     >
 
     <!-- Descripción -->
@@ -57,40 +70,46 @@
         minlength="10"
         maxlength="500"
         required
+        class="form-control"
     ></textarea>
 
-    <!-- Ciudad -->
-    <label for="ciudad">Ciudad</label>
+    <!-- Localidad -->
+    <label for="ciudad">Localidad</label>
     <input
         type="text"
         id="ciudad"
         name="ciudad"
         placeholder="Ej: Victoria"
         required
+        class="form-control"
     >
 
     <!-- Dirección -->
     <label for="direccion">Dirección</label>
     <input
         type="text"
+        autocomplete="street-address"
         id="direccion"
         name="direccion"
         placeholder="Ej: Avenida Prat 123"
         required
+        class="form-control"
     >
 
     <!-- Correo -->
     <label for="contacto">Correo de contacto</label>
     <input
         type="email"
+        autocomplete="email"
         id="contacto"
         name="contacto"
         placeholder="Ej: contacto@ecocafe.cl"
         required
+        class="form-control"
     >
 
     <!-- Botón de registro -->
-    <button type="submit" id="btn-registrar">
+    <button type="submit" id="btn-registrar" class="btn btn-success">
         Registrar comercio
     </button>
 
@@ -102,11 +121,12 @@
     ></p>
 
 </form>
-
-            </form>
-        </section>
-    </main>
-
-    <script src="../js/comercios.js"></script>
+<noscript><p>El envío requiere JavaScript. Puedes completar los campos, pero el registro no se guardará mientras esté desactivado.</p></noscript>
+<a class="ec-fuente" href="comercios-locales.html">Ver comercios locales</a></section></main>
+    <footer><p>&copy; 2026 EcoRuta. Todos los derechos reservados.</p></footer>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/comercios.js"></script>
+    <script type="module" src="../js/busqueda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

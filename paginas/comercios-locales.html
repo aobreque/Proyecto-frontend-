@@ -4,20 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comercios Locales-La Araucanía</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/comercios.css">
+    <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/bootstrap-adapt.css">
 </head>
-<body>
+<body class="ec-explorar ec-comercios">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
-    <header>
+    <header class="ecoruta-header">
         <div class="logo">
             <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
             <span>EcoRuta</span>
         </div>
 
         <search>
-            <input type="search" placeholder="Buscar emprendimiento..." aria-label="Buscar emprendimiento">
+            <input id="buscar" type="search" placeholder="Buscar emprendimiento..." aria-label="Buscar emprendimiento">
             <button type="button" class="btn-buscar" aria-label="Buscar"></button>
         </search>
         
@@ -27,53 +30,55 @@
             <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false" >🌙</button>
         </div>
 
-        <nav aria-label="Navegación principal">
-            <ul class="menu">
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
                 <li><a href="../index.html#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
-        <a href="../index.html" class="volver">← Volver a inicio</a>
-        <section class="cta-emprendedor">
-            <div class="cta-emprendedor__texto">
-                <h1>¿Eres emprendedor?</h1>
-                <a href="emprendedores.html" class="cta-emprendedor__link">Haz clic aquí</a>
-            </div>
-            <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen">
-        </section>
+    <main id="main-content" class="ec-comercios ecoruta-main">
+        <div class="container py-4 py-lg-5">
+            <a href="../index.html" class="volver btn btn-link p-0 mb-3">← Volver a inicio</a>
+            <section class="cta-emprendedor card shadow-sm mb-5" aria-labelledby="titulo-cta-emprendedor">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-md-7">
+                        <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center align-items-start">
+                            <h1 id="titulo-cta-emprendedor" class="card-title h2 mb-3">¿Eres emprendedor?</h1>
+                            <a href="emprendedores.html" class="btn btn-ecoruta btn-lg">Ingresa tu emprendimiento</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen img-fluid">
+                    </div>
+                </div>
+            </section>
 
-        
-<section class="lista-emprendimientos"
-         aria-label="Comercios locales">
+            <section class="lista-emprendimientos" aria-labelledby="titulo-comercios">
+                <div class="mb-4">
+                    <h2 id="titulo-comercios" class="h2 mb-2">Conoce los emprendimientos locales</h2>
+                    <p class="lead mb-0">Descubre lo que ofrece cada negocio y encuentra sus datos de contacto.</p>
+                </div>
 
-    <div id="lista-comercios" aria-live="polite">
-        <p>Cargando comercios...</p>
-    </div>
-
-</section>
-
+                <div id="lista-comercios" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 ecoruta-bootstrap-grid" aria-live="polite">
+                    <p class="col-12 alert alert-info mb-0" role="status">Cargando comercios...</p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
         <p>&copy; Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <script type="module" src="../js/main.js"></script>
 
-    <h2 class = "titulo"> Slider automatico</h2>
-    <div class=""Slider-box>
-        <ul>
-            <li>
-                <img scr = 
-            </li>
-        </ul>
-    </div>
+    <script type="module" src="../js/listar-comercios.js"></script>
 
-    <script src="../js/listar-comercios.js"></script>
-
+    <script type="module" src="../js/busqueda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
