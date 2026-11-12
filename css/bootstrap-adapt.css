@@ -16,6 +16,7 @@
 .ecoruta-rutas-grid .ecoruta-estado-rutas { padding: 1.5rem; color: var(--color-text); }
 .ecoruta-destinos .ec-destino { flex: 0 0 auto; width: 50%; }
 .ec-destino.card { padding: 0; }
+.ecoruta-destinos .ec-destino__imagen { display: block; width: 100%; height: 220px; object-fit: cover; }
 .ec-comercios #lista-comercios.ecoruta-bootstrap-grid { display: flex; flex-wrap: wrap; gap: 0; }
 .ec-comercios #lista-comercios .emprendimiento.card { padding: 0; color: var(--color-text); }
 .ec-comercios #lista-comercios .emprendimiento.card .emprendimiento__nombre { color: var(--color-text); }
