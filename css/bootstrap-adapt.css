@@ -1,0 +1,39 @@
+/* Adaptacioon Boottrap 5.3.8: conservar identidad visual y comportamiento d EcoRuta */
+.ecoruta-main { min-width: 0; }
+.ecoruta-header { gap: .75rem 1.25rem; }
+.ecoruta-header .menu { padding-left: 0; margin-bottom: 0; }
+.ecoruta-header search, .ecoruta-header search input { min-width: 0; }
+.ecoruta-bootstrap-grid, .ecoruta-rutas-grid, .ecoruta-valores { margin-left: 0; margin-right: 0; padding-left: 0; }
+.ecoruta-bootstrap-grid > li, .ecoruta-rutas-grid > li, .ecoruta-valores > li { min-width: 0; }
+.ecoruta-bootstrap-grid { display: flex; }
+.ecoruta-service-card, .ecoruta-ruta-card { background: var(--color-bg); color: var(--color-text); border-color: var(--color-border); }
+.ecoruta-ruta-card { padding: 0; }
+.ecoruta-ruta-card .card-body { padding: 1.5rem; }
+.ecoruta-ruta-card .card-title { color: var(--color-text); }
+.ecoruta-ruta-card .card-text { color: var(--color-text-light); }
+.ecoruta-rutas-grid .ecoruta-estado-rutas { padding: 1.5rem; color: var(--color-text); }
+.rutas-page .campos-ruta { display: flex; }
+.rutas-page .campo-ruta { min-width: 0; }
+.rutas-page .form-control, .rutas-page .form-select,
+.registro-comercio .form-control { background-color: var(--color-bg); color: var(--color-text); border-color: var(--color-border); }
+.rutas-page .form-control:focus, .rutas-page .form-select:focus,
+.registro-comercio .form-control:focus { background-color: var(--color-bg); color: var(--color-text); }
+body.modo-oscuro .ecoruta-ruta-card, body.modo-oscuro .ecoruta-service-card { background: var(--color-bg); color: var(--color-text); }
+body.modo-oscuro .ecoruta-ruta-card .card-title { color: var(--color-text); }
+body.modo-oscuro .ecoruta-ruta-card .card-text { color: var(--color-text-light); }
+/* Bootstrap puede anular los estilos de enlaces y formularios anteriores */
+.ecoruta-header .menu a { color: var(--color-text); }
+.ecoruta-header .menu a:hover { color: var(--color-primary-dark); }
+@media (max-width: 767.98px) {
+  .ecoruta-header { padding: .75rem 1rem; grid-template-columns: 1fr auto; grid-template-areas: "logo accesibilidad" "busqueda busqueda" "menu menu"; }
+  .ecoruta-header .menu { gap: .5rem 1rem !important; justify-content: center; }
+  .ecoruta-header search { max-width: 100%; }
+  .ecoruta-header .accesibilidad { justify-content: flex-end; }
+  .ecoruta-main section { padding-left: 1rem; padding-right: 1rem; }
+  .rutas-page .campos-ruta { margin-left: 0; margin-right: 0; }
+  .cta-emprendedor__imagen { height: auto; max-height: 320px; object-fit: cover; }
+}
+@media (max-width: 380px) {
+  .ecoruta-header .logo { font-size: 1.15rem; }
+  .ecoruta-header .accesibilidad button { width: 32px; height: 34px; }
+}

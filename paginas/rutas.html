@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutas-EcoRuta</title>
+        <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap-adapt.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
-    <header>
+    <header class="ecoruta-header">
         <div class="logo">
             <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
             <span>EcoRuta</span>
@@ -26,8 +29,8 @@
             <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
         </div>
 
-        <nav aria-label="Navegación principal">
-            <ul class="menu">
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
                 <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
@@ -36,18 +39,18 @@
         </nav>
     </header>
 
-<main id="main-content" class="pagina-simple rutas-page">
-        <section class="rutas-listado">
+<main id="main-content" class="pagina-simple rutas-page ecoruta-main">
+        <section class="rutas-listado container-xxl">
             <h1>Agenda tu ruta</h1>
             <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Indica tu origen y destino para comenzar.</p>
 
             <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
                 <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
 
-                <div class="campos-ruta">
-                    <div class="campo-ruta">
+                <div class="campos-ruta row g-3">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="origen">¿Desde dónde viajas? <span aria-hidden="true">*</span></label>
-                        <select id="origen" name="origen" required>
+                        <select id="origen" name="origen" required class="form-select">
                             <option value="">Selecciona una ciudad</option>
                             <option value="Temuco">Temuco</option>
                             <option value="Villarrica">Villarrica</option>
@@ -58,9 +61,9 @@
                         </select>
                     </div>
 
-                    <div class="campo-ruta">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
-                        <select id="destino" name="destino" required>
+                        <select id="destino" name="destino" required class="form-select">
                             <option value="">Selecciona una ciudad</option>
                             <option value="Temuco">Temuco</option>
                             <option value="Villarrica">Villarrica</option>
@@ -71,35 +74,35 @@
                         </select>
                     </div>
 
-                    <div class="campo-ruta">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="fecha-viaje">Fecha del viaje <span aria-hidden="true">*</span></label>
-                        <input type="date" id="fecha-viaje" name="fecha-viaje" required>
+                        <input type="date" id="fecha-viaje" name="fecha-viaje" required class="form-control">
                     </div>
 
-                    <div class="campo-ruta">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="pasajeros">Número de pasajeros</label>
-                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1">
+                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" value="1" class="form-control">
                     </div>
                 </div>
 
-                <button type="submit" class="btn-agendar-ruta">Buscar ruta</button>
+                <button type="submit" class="btn-agendar-ruta btn btn-success">Buscar ruta</button>
                 <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
 
             <p class="nota-rutas">El listado muestra rutas publicadas. La fecha y el número de pasajeros no consultan horarios, tarifas ni disponibilidad en tiempo real.</p>
         </section>
 
-        <section class="destinos-listado" aria-labelledby="titulo-destinos">
+        <section class="destinos-listado container-xxl" aria-labelledby="titulo-destinos">
             <h2 id="titulo-destinos">Rutas disponibles</h2>
 
-            <ul id="lista-destinos" class="grid" aria-live="polite"></ul>
+            <ul id="lista-destinos" class="grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 list-unstyled ecoruta-rutas-grid" aria-live="polite"></ul>
         </section>
 
-        <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
+        <section id="panel-itinerario" class="panel-itinerario container-xxl" aria-labelledby="titulo-itinerario" hidden>
             <h2 id="titulo-itinerario">Itinerario de la ruta</h2>
             <div id="detalle-itinerario"></div>
 
-            <button id="cerrar-itinerario" type="button">
+            <button id="cerrar-itinerario" type="button" class="btn btn-outline-success">
                 Cerrar itinerario
             </button>
         </section>
@@ -112,5 +115,6 @@
     <script type="module" src="../js/main.js"></script>
     <script type="module" src="../js/rutas.js"></script>
     <script type="module" src="../js/busqueda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

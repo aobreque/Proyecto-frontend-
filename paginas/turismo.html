@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Turismo-La Araucanía</title>
+        <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap-adapt.css">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
-    <header>
+    <header class="ecoruta-header">
         <div class="logo">
             <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
             <span>EcoRuta</span>
@@ -26,8 +29,8 @@
             <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
         </div>
 
-        <nav aria-label="Navegación principal">
-            <ul class="menu">
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
                 <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
@@ -36,9 +39,9 @@
         </nav>
     </header>
 
-    <main id="main-content">
+    <main id="main-content" class="ecoruta-main">
         <a href="../index.html" class="volver">← Volver a inicio</a>
-        <section class="pagina-simple">
+        <section class="pagina-simple container-xxl">
             <h1>Turismo</h1>
             <p>Contenido de turismo próximamente.</p>
         </section>
@@ -50,5 +53,6 @@
 
     <script type="module" src="../js/main.js"></script>
     <script type="module" src="../js/busqueda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
