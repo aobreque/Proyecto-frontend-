@@ -34,7 +34,7 @@ function mostrarEstado(mensaje: string): void {
     if (!listaRutas) return;
 
     const elemento = document.createElement("li");
-    elemento.className = "card";
+    elemento.className = "col-12 ecoruta-estado-rutas";
     elemento.textContent = mensaje;
     listaRutas.replaceChildren(elemento);
 }
@@ -89,21 +89,32 @@ function mostrarRutas(rutas: readonly Ruta[]): void {
 
     const tarjetas = rutas.map((ruta) => {
         const tarjeta = document.createElement("li");
-        tarjeta.className = "card";
+        tarjeta.className = "col";
+
+        const contenido = document.createElement("article");
+        contenido.className = "card h-100 ecoruta-ruta-card";
+
+        const cuerpo = document.createElement("div");
+        cuerpo.className = "card-body d-flex flex-column";
 
         const titulo = document.createElement("h3");
         titulo.textContent = ruta.nombre;
+        titulo.className = "card-title h5";
 
         const resumen = document.createElement("p");
         resumen.textContent =
             `${ruta.origen} → ${ruta.destino} · ${textoDuracion(ruta)} · ${ruta.transporte}`;
+        resumen.className = "card-text";
 
         const botonDetalle = document.createElement("button");
         botonDetalle.type = "button";
+        botonDetalle.className = "btn btn-outline-success mt-auto align-self-start";
         botonDetalle.textContent = "Ver itinerario";
         botonDetalle.addEventListener("click", () => mostrarItinerario(ruta));
 
-        tarjeta.append(titulo, resumen, botonDetalle);
+        cuerpo.append(titulo, resumen, botonDetalle);
+        contenido.appendChild(cuerpo);
+        tarjeta.appendChild(contenido);
         return tarjeta;
     });
 

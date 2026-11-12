@@ -9,7 +9,7 @@ function esComercio(dato) {
 }
 function crearTarjeta(comercio) {
     const articulo = document.createElement("article");
-    articulo.className = "emprendimiento";
+    articulo.className = "emprendimiento card h-100";
     const ficha = document.createElement("div");
     ficha.className = "emprendimiento__ficha";
     // El formulario no solicita fotografías: no atribuir imágenes ajenas a un negocio.

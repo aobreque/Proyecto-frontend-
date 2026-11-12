@@ -35,7 +35,7 @@ if (formulario && listado && estado) {
             return;
         }
         rutas.forEach(ruta => {
-            const tarjeta = document.createElement("article"); tarjeta.className = "ec-propuesta";
+            const tarjeta = document.createElement("article"); tarjeta.className = "ec-propuesta card h-100";
             const titulo = document.createElement("h3"); titulo.textContent = ruta.nombre;
             const etiqueta = parrafo("Recorrido sugerido"); etiqueta.className = "ec-etiqueta";
             const detalle = document.createElement("details"), resumen = document.createElement("summary");

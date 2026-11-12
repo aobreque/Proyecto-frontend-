@@ -13,7 +13,7 @@ function esComercio(dato: unknown): dato is Comercio {
 
 function crearTarjeta(comercio: Comercio): HTMLElement {
     const articulo = document.createElement("article");
-    articulo.className = "emprendimiento";
+    articulo.className = "emprendimiento card h-100";
 
     const ficha = document.createElement("div");
     ficha.className = "emprendimiento__ficha";

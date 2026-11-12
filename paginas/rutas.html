@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rutas-EcoRuta</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/explorar.css">
+    <link rel="stylesheet" href="../css/bootstrap-adapt.css">
 </head>
 <body class="ec-explorar">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
-    <header>
+    <header class="ecoruta-header">
         <div class="logo">
             <img src="../assets/imagenes/bus.v2.png" alt="" class="bus">
             <span>EcoRuta</span>
@@ -27,8 +29,8 @@
             <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
         </div>
 
-        <nav aria-label="Navegación principal">
-            <ul class="menu">
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
                 <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
@@ -37,20 +39,20 @@
         </nav>
     </header>
 
-<main id="main-content">
+<main id="main-content" class="ecoruta-main">
     <section class="pagina-simple rutas-page">
 
-        <section class="rutas-listado">
+        <section class="rutas-listado container-xxl">
             <h1>Agenda tu ruta</h1>
             <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Elige un destino y las opciones que te interesan para recorrerlo.</p>
 
             <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
                 <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
 
-                <div class="campos-ruta">
-                    <div class="campo-ruta">
+                <div class="campos-ruta row g-3">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="origen">¿Desde dónde viajas? <span aria-hidden="true">*</span></label>
-                        <select id="origen" name="origen" required>
+                        <select id="origen" name="origen" required class="form-select">
                             <option value="">Selecciona una ciudad</option>
                             <option value="Temuco">Temuco</option>
                             <option value="Villarrica">Villarrica</option>
@@ -64,49 +66,49 @@
                         </select>
                     </div>
 
-                    <div class="campo-ruta">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="destino">¿A dónde quieres ir? <span aria-hidden="true">*</span></label>
-                        <select id="destino" name="destino" required>
+                        <select id="destino" name="destino" required class="form-select">
 <option value="">Selecciona un destino</option><option value="villarrica">Villarrica y su costanera · Villarrica</option><option value="pucon">Pucón y el lago Villarrica · Pucón</option><option value="conguillio">Parque Nacional Conguillío · Melipeuco</option><option value="malalcahuello">Reserva Nacional Malalcahuello · Curacautín</option><option value="nahuelbuta">Parque Nacional Nahuelbuta · Angol</option><option value="budi">Lago Budi y entorno costero · Saavedra</option></select>
                     </div>
 
-                    <div class="campo-ruta">
+                    <div class="campo-ruta col-12 col-md-6">
                         <label for="fecha-viaje">Fecha del viaje <span aria-hidden="true">*</span></label>
-                        <input type="date" id="fecha-viaje" name="fecha-viaje" required>
+                        <input type="date" id="fecha-viaje" name="fecha-viaje" required class="form-control">
                     </div>
                 </div>
 
                 <fieldset class="ec-preferencias"><legend>¿Cómo quieres recorrer el destino?</legend>
-                <div class="campos-ruta">
-                <div class="campo-ruta"><label for="modalidad">Modalidad del recorrido</label><select id="modalidad" name="modalidad"><option value="">Cualquier modalidad</option><option value="guiada">Con guía</option><option value="autoguiada">Por cuenta propia (autoguiada)</option></select></div>
-                <div class="campo-ruta"><label for="transporte">Medio de desplazamiento</label><select id="transporte" name="transporte"><option value="">Cualquier medio</option><option value="vehicular">Transporte vehicular</option><option value="pie">A pie</option></select></div>
+                <div class="campos-ruta row g-3">
+                <div class="campo-ruta col-12 col-md-6"><label for="modalidad">Modalidad del recorrido</label><select id="modalidad" name="modalidad" class="form-select"><option value="">Cualquier modalidad</option><option value="guiada">Con guía</option><option value="autoguiada">Por cuenta propia (autoguiada)</option></select></div>
+                <div class="campo-ruta col-12 col-md-6"><label for="transporte">Medio de desplazamiento</label><select id="transporte" name="transporte" class="form-select"><option value="">Cualquier medio</option><option value="vehicular">Transporte vehicular</option><option value="pie">A pie</option></select></div>
                 </div><p class="ec-ayuda">Puedes combinar una ruta guiada con transporte vehicular. El origen indica desde dónde planificas salir; no confirma un servicio de traslado.</p></fieldset>
-                <button type="submit" class="btn-agendar-ruta">Buscar propuestas de ruta</button>
-                <button type="reset" class="ec-boton ec-boton--secundario">Limpiar filtros</button>
+                <button type="submit" class="btn-agendar-ruta btn btn-success">Buscar propuestas de ruta</button>
+                <button type="reset" class="ec-boton ec-boton--secundario btn btn-outline-success">Limpiar filtros</button>
                 <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
 
             <p class="nota-rutas">Catálogo de propuestas orientativas. No se confirman guías, transporte, cupos, precios ni disponibilidad para la fecha elegida.</p>
         </section>
 
-        <section class="destinos-listado" aria-labelledby="titulo-destinos">
+        <section class="destinos-listado container-xxl" aria-labelledby="titulo-destinos">
             <h2 id="titulo-destinos">Propuestas de rutas</h2>
 
-            <div id="lista-destinos" class="ec-resultados"></div>
+            <div id="lista-destinos" class="ec-resultados row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 ecoruta-rutas-grid"></div>
             <noscript><p>Activa JavaScript para consultar las propuestas filtradas. Puedes seguir explorando los lugares en <a href="turismo.html">Turismo</a>.</p></noscript>
         </section>
 
-        <section class="destinos-listado" aria-labelledby="titulo-publicadas">
+        <section class="destinos-listado container-xxl" aria-labelledby="titulo-publicadas">
             <h2 id="titulo-publicadas">Rutas publicadas</h2>
             <p>Estas rutas provienen del listado del equipo y se filtran por ciudad de origen y localidad de destino. Su duración e itinerario están disponibles en cada ficha. La API no informa modalidad de guía, capacidad ni disponibilidad por fecha.</p>
-            <ul id="lista-rutas-publicadas" class="grid" aria-live="polite"></ul>
+            <ul id="lista-rutas-publicadas" class="grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 list-unstyled ecoruta-rutas-grid" aria-live="polite"></ul>
         </section>
 
-        <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
+        <section id="panel-itinerario" class="panel-itinerario container-xxl" aria-labelledby="titulo-itinerario" hidden>
             <h2 id="titulo-itinerario">Itinerario de la ruta</h2>
             <div id="detalle-itinerario"></div>
 
-            <button id="cerrar-itinerario" type="button">
+            <button id="cerrar-itinerario" type="button" class="btn btn-outline-success">
                 Cerrar itinerario
             </button>
         </section>
@@ -120,5 +122,6 @@
     <script type="module" src="../js/main.js"></script>
     <script type="module" src="../js/rutas-explorar.js"></script>
     <script type="module" src="../js/busqueda.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>

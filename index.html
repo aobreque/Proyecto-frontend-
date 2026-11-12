@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Descubre rutas, destinos turísticos y comercios locales de La Araucanía con EcoRuta.">
     <title>EcoRuta</title>
+        <!-- Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-adapt.css">
 </head>
 
 <body>
@@ -18,7 +21,7 @@
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
 
     <!-- ENCABEZADO -->
-    <header>
+    <header class="ecoruta-header">
         <div class="logo">
             <img
                 src="assets/imagenes/bus.v2.png"
@@ -76,8 +79,8 @@
         </div>
 
         <!-- NAVEGACIÓN -->
-        <nav aria-label="Navegación principal">
-            <ul class="menu">
+        <nav aria-label="Navegación principal" class="ecoruta-nav">
+            <ul class="menu d-flex flex-wrap justify-content-center gap-3">
                 <li><a href="#inicio">Inicio</a></li>
                 <li><a href="#servicios">Servicios</a></li>
                 <li><a href="#quienes-somos">Quiénes somos</a></li>
@@ -87,7 +90,7 @@
     </header>
 
     <!-- CONTENIDO PRINCIPAL -->
-    <main id="main-content">
+    <main id="main-content" class="ecoruta-main">
 
         <!-- PORTADA Y CARRUSEL -->
         <section
@@ -162,14 +165,14 @@
         </section>
 
         <!-- SERVICIOS -->
-        <section id="servicios" class="servicios">
+        <section id="servicios" class="servicios container-xxl">
 
             <h2>Servicios</h2>
 
-            <ul class="grid">
+            <ul class="grid row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 list-unstyled ecoruta-bootstrap-grid">
 
-                <li>
-                    <a href="paginas/rutas.html" class="card">
+                <li class="col">
+                    <a href="paginas/rutas.html" class="card h-100 ecoruta-service-card">
                         <h3>Rutas</h3>
                         <p>
                             Encuentra rutas turísticas recomendadas.
@@ -177,8 +180,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="paginas/turismo.html" class="card">
+                <li class="col">
+                    <a href="paginas/turismo.html" class="card h-100 ecoruta-service-card">
                         <h3>Turismo</h3>
                         <p>
                             Descubre destinos y lugares turísticos de la zona.
@@ -186,8 +189,8 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="paginas/comercios-locales.html" class="card">
+                <li class="col">
+                    <a href="paginas/comercios-locales.html" class="card h-100 ecoruta-service-card">
                         <h3>Comercios locales</h3>
                         <p>
                             Conoce emprendimientos y comercios que puedes
@@ -201,7 +204,7 @@
         </section>
 
         <!-- QUIÉNES SOMOS -->
-        <section id="quienes-somos" class="quienes-somos">
+        <section id="quienes-somos" class="quienes-somos container-xxl">
 
             <h2>Quiénes somos</h2>
 
@@ -211,9 +214,9 @@
                 para que viajes de forma segura y consciente.
             </p>
 
-            <ul class="valores">
+            <ul class="valores row row-cols-1 row-cols-md-3 g-4 list-unstyled ecoruta-valores">
 
-                <li tabindex="0">
+                <li tabindex="0" class="col">
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Misión</h3>
                     <p>
@@ -222,7 +225,7 @@
                     </p>
                 </li>
 
-                <li tabindex="0">
+                <li tabindex="0" class="col">
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Visión</h3>
                     <p>
@@ -231,7 +234,7 @@
                     </p>
                 </li>
 
-                <li tabindex="0">
+                <li tabindex="0" class="col">
                     <span class="valor-icono" aria-hidden="true">✔</span>
                     <h3>Valores</h3>
                     <p>
@@ -244,7 +247,7 @@
         </section>
 
         <!-- CONTACTO -->
-        <section id="contacto" class="contacto">
+        <section id="contacto" class="contacto container-xxl">
 
             <h2>Contacto</h2>
 
@@ -267,5 +270,6 @@
     <script type="module" src="js/carrusel.js"></script>
     <script type="module" src="js/busqueda.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
