@@ -1,20 +1,12 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ES2020",
-    "moduleResolution": "node",
-    "lib": [
-      "ES2020",
-      "DOM"
-    ],
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
+    "verbatimModuleSyntax": true,
     "noEmitOnError": true,
-    "rootDir": "js",
-    "outDir": "js/generado"
+    "sourceMap": false
   },
-  "include": [
-    "js/rutas-explorar.ts",
-    "js/rutas-catalogo.ts",
-    "js/listar-comercios.ts"
-  ]
+  "include": ["js/**/*.ts"]
 }

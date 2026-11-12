@@ -1,108 +1,66 @@
-
-const btnModoOscuro = document.getElementById('btn-modo-oscuro');
-const btnLetraMas = document.getElementById('btn-letra-mas');
-const btnLetraMenos = document.getElementById('btn-letra-menos');
-const anuncios = document.getElementById('anuncios');
-
-const btnReducirMovimiento = document.getElementById(
-    'btn-reducir-movimiento'
-);
-
-// ===== Modo oscuro =====
-if (localStorage.getItem('modoOscuro') === 'true') {
-    document.body.classList.add('modo-oscuro');
-    btnModoOscuro.setAttribute('aria-pressed', 'true');
-    btnModoOscuro.textContent = '☀';
+// Controles de accesibilidad compartidos por las páginas del sitio.
+const botonModoOscuro = document.querySelector("#btn-modo-oscuro");
+const botonLetraMas = document.querySelector("#btn-letra-mas");
+const botonLetraMenos = document.querySelector("#btn-letra-menos");
+const botonReducirMovimiento = document.querySelector("#btn-reducir-movimiento");
+const anuncios = document.querySelector("#anuncios");
+// Recupera y aplica el modo oscuro guardado en este navegador.
+const modoOscuroActivo = localStorage.getItem("modoOscuro") === "true";
+document.body.classList.toggle("modo-oscuro", modoOscuroActivo);
+function actualizarBotonModoOscuro(activado) {
+    if (!botonModoOscuro)
+        return;
+    botonModoOscuro.setAttribute("aria-pressed", String(activado));
+    botonModoOscuro.textContent = activado ? "☀️" : "🌙";
 }
-
-btnModoOscuro.addEventListener('click', () => {
-    document.body.classList.toggle('modo-oscuro');
-
-    const activado = document.body.classList.contains('modo-oscuro');
-
-    btnModoOscuro.setAttribute('aria-pressed', String(activado));
-    btnModoOscuro.textContent = activado ? '☀' : '🌙';
-
-    anuncios.textContent = activado
-        ? 'Modo oscuro activado'
-        : 'Modo oscuro desactivado';
-
-    localStorage.setItem('modoOscuro', String(activado));
-});
-
-// ===== Tamaño de letra =====
-let tamanoBase = parseInt(localStorage.getItem('tamanoLetra'), 10) || 100;
-
-document.documentElement.style.fontSize = tamanoBase + '%';
-
-function actualizarTamano() {
-    document.documentElement.style.fontSize = tamanoBase + '%';
-
-    localStorage.setItem('tamanoLetra', tamanoBase);
-
-    anuncios.textContent = 'Tamaño de letra: ' + tamanoBase + '%';
-}
-
-btnLetraMas.addEventListener('click', () => {
-    if (tamanoBase < 200) {
-        tamanoBase += 10;
-        actualizarTamano();
+actualizarBotonModoOscuro(modoOscuroActivo);
+botonModoOscuro?.addEventListener("click", () => {
+    const activado = document.body.classList.toggle("modo-oscuro");
+    actualizarBotonModoOscuro(activado);
+    localStorage.setItem("modoOscuro", String(activado));
+    if (anuncios) {
+        anuncios.textContent = activado
+            ? "Modo oscuro activado"
+            : "Modo oscuro desactivado";
     }
 });
-
-btnLetraMenos.addEventListener('click', () => {
-    if (tamanoBase > 80) {
-        tamanoBase -= 10;
-        actualizarTamano();
+// Limita el tamaño guardado al rango permitido: de 80 % a 200 %.
+const tamanoGuardado = Number.parseInt(localStorage.getItem("tamanoLetra") ?? "100", 10);
+let tamanoLetra = Number.isFinite(tamanoGuardado)
+    ? Math.min(200, Math.max(80, tamanoGuardado))
+    : 100;
+function aplicarTamanoLetra() {
+    document.documentElement.style.fontSize = `${tamanoLetra}%`;
+    localStorage.setItem("tamanoLetra", String(tamanoLetra));
+    if (anuncios)
+        anuncios.textContent = `Tamaño de letra: ${tamanoLetra}%`;
+}
+document.documentElement.style.fontSize = `${tamanoLetra}%`;
+botonLetraMas?.addEventListener("click", () => {
+    if (tamanoLetra < 200) {
+        tamanoLetra = Math.min(200, tamanoLetra + 10);
+        aplicarTamanoLetra();
     }
 });
-
-
- // ===== Reducción de movimiento =====
-const claveMovimiento = 'reducirMovimiento';
-
+botonLetraMenos?.addEventListener("click", () => {
+    if (tamanoLetra > 80) {
+        tamanoLetra = Math.max(80, tamanoLetra - 10);
+        aplicarTamanoLetra();
+    }
+});
+// Conserva la preferencia de movimiento reducido si la página ofrece el control.
+const claveMovimiento = "reducirMovimiento";
 function aplicarPreferenciaMovimiento(reducir) {
-    document.documentElement.classList.toggle(
-        'reducir-movimiento',
-        reducir
-    );
-
-    // Actualizar el botón solo si existe en esta página.
-    if (btnReducirMovimiento) {
-        btnReducirMovimiento.setAttribute(
-            'aria-pressed',
-            String(reducir)
-        );
-
-        btnReducirMovimiento.setAttribute(
-            'aria-label',
-            reducir
-                ? 'Activar animaciones y transiciones'
-                : 'Reducir animaciones y transiciones'
-        );
+    document.documentElement.classList.toggle("reducir-movimiento", reducir);
+    if (botonReducirMovimiento) {
+        botonReducirMovimiento.setAttribute("aria-pressed", String(reducir));
+        botonReducirMovimiento.setAttribute("aria-label", reducir ? "Activar animaciones y transiciones" : "Reducir animaciones y transiciones");
     }
 }
-
-const preferenciaGuardada = localStorage.getItem(claveMovimiento);
-
-aplicarPreferenciaMovimiento(preferenciaGuardada === 'true');
-
-// Registrar el evento solo si el botón existe.
-if (btnReducirMovimiento) {
-    btnReducirMovimiento.addEventListener('click', () => {
-        const estaActivo = document.documentElement.classList.contains(
-            'reducir-movimiento'
-        );
-
-        const nuevoEstado = !estaActivo;
-
-        aplicarPreferenciaMovimiento(nuevoEstado);
-
-        localStorage.setItem(
-            claveMovimiento,
-            String(nuevoEstado)
-        );
-    });
-}
-
-// El formulario de rutas se gestiona desde rutas-explorar.ts.
+aplicarPreferenciaMovimiento(localStorage.getItem(claveMovimiento) === "true");
+botonReducirMovimiento?.addEventListener("click", () => {
+    const reducir = !document.documentElement.classList.contains("reducir-movimiento");
+    aplicarPreferenciaMovimiento(reducir);
+    localStorage.setItem(claveMovimiento, String(reducir));
+});
+export {};

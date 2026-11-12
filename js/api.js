@@ -1,45 +1,33 @@
-const BASE_URL = "https://6ad9530ff89c5702ed9a864f.mockapi.io/api/v1";
-
-function esc(texto) {
-  const p = document.createElement("p");
-  p.textContent = texto ?? "";
-  return p.innerHTML;
+// Las APIs pertenecen a proyectos MockAPI distintos y usan bases diferentes.
+export const API_RUTAS_BASE_URL = "https://6ad9530ff89c5702ed9a864f.mockapi.io/api/v1";
+export const API_COMERCIOS_BASE_URL = "https://6ae15049be3bc8fead98617f.mockapi.io/comercios";
+async function solicitar(url, opciones) {
+    let respuesta;
+    try {
+        respuesta = await fetch(url, opciones);
+    }
+    catch {
+        throw new Error("No se pudo conectar con el servidor. Comprueba tu conexión.");
+    }
+    if (!respuesta.ok) {
+        throw new Error(`La solicitud falló (HTTP ${respuesta.status}).`);
+    }
+    try {
+        return await respuesta.json();
+    }
+    catch {
+        throw new Error("El servidor devolvió una respuesta JSON no válida.");
+    }
 }
-
-async function obtener(ruta) {
-  const resp = await fetch(`${BASE_URL}/${ruta}`);
-  if (!resp.ok) throw new Error(`Error ${resp.status}`);
-  return resp.json();
+// Obtiene una respuesta y la devuelve con el tipo indicado por el módulo que la usa.
+export function obtener(url) {
+    return solicitar(url);
 }
-
-async function enviar(recurso, datos) {
-  const resp = await fetch(`${BASE_URL}/${recurso}`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(datos)
-  });
-  if (!resp.ok) throw new Error(`Error ${resp.status}`);
-  return resp.json();
+// Envía datos JSON y devuelve la respuesta con el tipo indicado por el módulo.
+export function enviar(url, datos) {
+    return solicitar(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(datos)
+    });
 }
-
-async function mostrarLista(contenedor, ruta, plantilla) {
-  contenedor.textContent = "Cargando...";
-  try {
-    const datos = await obtener(ruta);
-    contenedor.innerHTML = datos.length
-      ? datos.map(plantilla).join("")
-      : "<li>No hay resultados.</li>";
-  } catch (error) {
-    contenedor.textContent = "Error al cargar datos. Intenta nuevamente.";
-  }
-}
-
-const tarjetaRuta = (r) => `
-  <li class="card">
-    <h3>${esc(r.nombre)}</h3>
-    <p>${esc(r.origen)} → ${esc(r.destino)} · ${esc(r.duracion)} · ${esc(r.transporte)}</p>
-    <ol>${esc(r.itinerario).split("; ").map((p) => `<li>${p}</li>`).join("")}</ol>
-  </li>`;
-
-const listaRutas = document.querySelector("#lista-rutas");
-if (listaRutas) mostrarLista(listaRutas, "rutas", tarjetaRuta);

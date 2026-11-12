@@ -17,7 +17,7 @@
         </div>
 
         <search>
-            <input type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
+            <input id="buscar" type="search" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
             <button type="button" class="btn-buscar" aria-label="Buscar"></button>
         </search>
 
@@ -31,6 +31,7 @@
             <ul class="menu">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
                 <li><a href="../index.html#contacto">Contacto</a></li>
             </ul>
         </nav>
@@ -100,6 +101,12 @@
             <noscript><p>Activa JavaScript para consultar las propuestas filtradas. Puedes seguir explorando los lugares en <a href="turismo.html">Turismo</a>.</p></noscript>
         </section>
 
+        <section class="destinos-listado" aria-labelledby="titulo-publicadas">
+            <h2 id="titulo-publicadas">Rutas publicadas</h2>
+            <p>Estas rutas provienen del listado del equipo y se filtran por ciudad de origen y localidad de destino. Su duración e itinerario están disponibles en cada ficha. La API no informa modalidad de guía, capacidad ni disponibilidad por fecha.</p>
+            <ul id="lista-rutas-publicadas" class="grid" aria-live="polite"></ul>
+        </section>
+
         <section id="panel-itinerario" class="panel-itinerario" aria-labelledby="titulo-itinerario" hidden>
             <h2 id="titulo-itinerario">Itinerario de la ruta</h2>
             <div id="detalle-itinerario"></div>
@@ -115,8 +122,8 @@
         <p>&copy; Todos los derechos reservados.</p>
     </footer>
 
-    <script src="../js/main.js"></script>
-    <script src="../js/api.js"></script>
-    <script type="module" src="../js/generado/rutas-explorar.js"></script>
+    <script type="module" src="../js/main.js"></script>
+    <script type="module" src="../js/rutas-explorar.js"></script>
+    <script type="module" src="../js/busqueda.js"></script>
 </body>
 </html>

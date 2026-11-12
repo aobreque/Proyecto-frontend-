@@ -1,3 +1,4 @@
+import { filtrarRutasPublicadas } from "./rutas.js";
 import { propuestas, type PropuestaRuta } from "./rutas-catalogo.js";
 
 export interface FiltrosRuta { destino: string; modalidad: string; transporte: string; integrantes: number; }
@@ -52,6 +53,9 @@ if (formulario && listado && estado) {
         const cantidad = Number(integrantes.value);
         const resultados = filtrarPropuestas(propuestas, {destino: destino.value, modalidad: modalidad.value, transporte: transporte.value, integrantes: cantidad});
         renderizar(resultados);
+        const destinosPublicados: Record<string, string> = { conguillio: "Conguillío", malalcahuello: "Malalcahuello", nahuelbuta: "Nahuelbuta", budi: "Lago Budi" };
+        const localidad = destinosPublicados[destino.value] ?? propuestas.find(ruta => ruta.destino === destino.value)?.localidad ?? "";
+        filtrarRutasPublicadas(origen.value, localidad);
         mensaje.textContent = `${resultados.length} propuestas para ${cantidad} integrante(s). Origen de planificación: ${origen.value}. Fecha deseada: ${fecha.value}. No confirma cupos ni servicios.`;
         mensaje.focus();
     }
@@ -65,6 +69,6 @@ if (formulario && listado && estado) {
     });
     form.addEventListener("reset", () => {
         // Espera a que el navegador restablezca los valores del formulario.
-        queueMicrotask(() => { renderizar(propuestas); mensaje.textContent = "Filtros restablecidos. Se muestran todas las propuestas."; });
+        queueMicrotask(() => { renderizar(propuestas); filtrarRutasPublicadas("", ""); mensaje.textContent = "Filtros restablecidos. Se muestran todas las propuestas."; });
     });
 }

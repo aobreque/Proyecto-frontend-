@@ -1,69 +1,56 @@
-const carrusel = document.querySelector('#inicio .carrusel');
-const track = carrusel?.querySelector('.carrusel__track');
-const puntos = document.getElementById('puntos');
-const btnAnterior = document.getElementById('anterior');
-const btnSiguiente = document.getElementById('siguiente');
-
-if (carrusel && track && puntos && btnAnterior && btnSiguiente) {
-    const imagenes = track.querySelectorAll('img');
-
+// Carrusel manual de la portada: no cambia de imagen automáticamente.
+const carrusel = document.querySelector("#inicio .carrusel");
+const pista = carrusel?.querySelector(".carrusel__track");
+const contenedorPuntos = document.querySelector("#puntos");
+const botonAnterior = document.querySelector("#anterior");
+const botonSiguiente = document.querySelector("#siguiente");
+const anunciosCarrusel = document.querySelector("#anuncios");
+if (carrusel && pista && contenedorPuntos && botonAnterior && botonSiguiente) {
+    const pistaCarrusel = pista;
+    const imagenes = Array.from(pistaCarrusel.querySelectorAll("img"));
     if (imagenes.length > 0) {
         let indiceActual = 0;
-
-        // Crear los indicadores de las imagenes.
         imagenes.forEach((imagen, indice) => {
-            const punto = document.createElement('button');
-
-            punto.type = 'button';
-            punto.classList.add('carrusel__punto');
-            punto.setAttribute(
-                'aria-label',
-                `Mostrar imagen ${indice + 1} de ${imagenes.length}`
-            );
-
-            punto.addEventListener('click', () => {
-                mostrarImagen(indice);
-            });
-
-            puntos.appendChild(punto);
+            const punto = document.createElement("button");
+            punto.type = "button";
+            punto.classList.add("carrusel__punto");
+            punto.setAttribute("aria-label", `Mostrar imagen ${indice + 1} de ${imagenes.length}`);
+            punto.addEventListener("click", () => mostrarImagen(indice));
+            contenedorPuntos.appendChild(punto);
         });
-
-        const indicadores = puntos.querySelectorAll('.carrusel__punto');
-
-        // Mostrar una imagen y actualizar los indicadores.
+        const indicadores = Array.from(contenedorPuntos.querySelectorAll(".carrusel__punto"));
         function mostrarImagen(indice) {
             indiceActual = (indice + imagenes.length) % imagenes.length;
-
-            track.style.transform = `translateX(-${indiceActual * 100}%)`;
-
+            pistaCarrusel.style.transform = `translateX(-${indiceActual * 100}%)`;
             indicadores.forEach((indicador, posicion) => {
                 if (posicion === indiceActual) {
-                    indicador.setAttribute('aria-current', 'true');
-                } else {
-                    indicador.removeAttribute('aria-current');
+                    indicador.setAttribute("aria-current", "true");
+                }
+                else {
+                    indicador.removeAttribute("aria-current");
                 }
             });
-
-            if (anuncios) {
+            if (anunciosCarrusel) {
                 const descripcion = imagenes[indiceActual].alt;
-
-                anuncios.textContent =
+                anunciosCarrusel.textContent =
                     `Imagen ${indiceActual + 1} de ${imagenes.length}. ` +
-                    (descripcion ? descripcion : 'Sin descripción disponible.');
+                        (descripcion || "Sin descripción disponible.");
             }
         }
-
-        // Ir a la imagen anterior.
-        btnAnterior.addEventListener('click', () => {
-            mostrarImagen(indiceActual - 1);
+        botonAnterior.addEventListener("click", () => mostrarImagen(indiceActual - 1));
+        botonSiguiente.addEventListener("click", () => mostrarImagen(indiceActual + 1));
+        // Las flechas del teclado funcionan cuando el foco está dentro del carrusel.
+        carrusel.addEventListener("keydown", (evento) => {
+            if (evento.key === "ArrowLeft") {
+                evento.preventDefault();
+                mostrarImagen(indiceActual - 1);
+            }
+            else if (evento.key === "ArrowRight") {
+                evento.preventDefault();
+                mostrarImagen(indiceActual + 1);
+            }
         });
-
-        // Ir a la imagen siguiente.
-        btnSiguiente.addEventListener('click', () => {
-            mostrarImagen(indiceActual + 1);
-        });
-
-        // Configurar el carrusel al cargar la pagina.
         mostrarImagen(0);
     }
 }
+export {};

@@ -1,23 +1,20 @@
+import type { Comercio } from "./types.js";
+import { API_COMERCIOS_BASE_URL, obtener } from "./api.js";
 
-export {};
-interface Comercio {
- nombre?: string; ciudad?: string; descripcion?: string; direccion?: string; contacto?: string;
+const listaComercios = document.querySelector<HTMLElement>("#lista-comercios");
+
+function esComercio(dato: unknown): dato is Comercio {
+    if (typeof dato !== "object" || dato === null) return false;
+
+    const comercio = dato as Record<string, unknown>;
+    return ["id", "nombre", "descripcion", "ciudad", "direccion", "contacto"]
+        .every((campo) => typeof comercio[campo] === "string");
 }
-function esComercio(valor: unknown): valor is Comercio {
- if (typeof valor !== "object" || valor === null) return false;
- const comercio = valor as Record<string, unknown>;
- return ["nombre", "ciudad", "descripcion", "direccion", "contacto"].every(campo => comercio[campo] === undefined || typeof comercio[campo] === "string");
-}
-
-const API_COMERCIOS =
-    "https://6ae15049be3bc8fead98617f.mockapi.io/comercios";
-
-const listaComercios = document.getElementById("lista-comercios");
 
 function crearTarjeta(comercio: Comercio): HTMLElement {
     const articulo = document.createElement("article");
     articulo.className = "emprendimiento";
-    
+
     const ficha = document.createElement("div");
     ficha.className = "emprendimiento__ficha";
 
@@ -43,61 +40,38 @@ function crearTarjeta(comercio: Comercio): HTMLElement {
     informacion.className = "emprendimiento__info";
 
     const descripcion = document.createElement("p");
-    descripcion.textContent =
-        comercio.descripcion || "Sin descripción";
-
+    descripcion.textContent = comercio.descripcion || "Sin descripción";
     const direccion = document.createElement("p");
-    direccion.textContent =
-        `Dirección: ${comercio.direccion || "No indicada"}`;
-
+    direccion.textContent = `Dirección: ${comercio.direccion || "No indicada"}`;
     const contacto = document.createElement("p");
-    contacto.textContent =
-        `Contacto: ${comercio.contacto || "No indicado"}`;
+    contacto.textContent = `Contacto: ${comercio.contacto || "No indicado"}`;
 
     ficha.append(imagen, nombre, ciudad);
     informacion.append(descripcion, direccion, contacto);
     articulo.append(ficha, informacion);
-
     return articulo;
 }
 
-async function cargarComercios() {
-    const lista = listaComercios;
-    if (!lista) return;
-    lista.textContent = "Cargando comercios...";
+async function cargarComercios(): Promise<void> {
+    if (!listaComercios) return;
+    listaComercios.textContent = "Cargando comercios...";
 
     try {
-        const respuesta = await fetch(API_COMERCIOS);
-
-        if (!respuesta.ok) {
-            throw new Error(`Error HTTP: ${respuesta.status}`);
+        const datos = await obtener<unknown>(API_COMERCIOS_BASE_URL);
+        if (!Array.isArray(datos) || !datos.every(esComercio)) {
+            throw new Error("La respuesta no contiene una lista válida de comercios.");
         }
 
-        const comercios = await respuesta.json();
-
-        if (!Array.isArray(comercios) || !comercios.every(esComercio)) {
-            throw new Error("La API no devolvió una lista.");
-        }
-
-        lista.replaceChildren();
-
-        if (comercios.length === 0) {
-            lista.textContent =
-                "Todavía no hay comercios registrados.";
+        if (datos.length === 0) {
+            listaComercios.textContent = "Todavía no hay comercios registrados.";
             return;
         }
 
-        comercios.forEach((comercio) => {
-            const tarjeta = crearTarjeta(comercio);
-            lista.appendChild(tarjeta);
-        });
-
-    } catch (error) {
-        console.error("Error al cargar comercios:", error);
-
-        lista.textContent =
-            "No se pudieron cargar los comercios. Intenta nuevamente.";
+        listaComercios.replaceChildren(...datos.map(crearTarjeta));
+    } catch (error: unknown) {
+        const detalle = error instanceof Error ? error.message : "Error inesperado.";
+        listaComercios.textContent = `No se pudieron cargar los comercios. ${detalle}`;
     }
 }
 
-cargarComercios();
+void cargarComercios();
