@@ -1,12 +1,19 @@
 /* Adaptación Bootstrap 5.3.8: conserva la identidad visual y el comportamiento de EcoRuta */
 .ecoruta-main { min-width: 0; }
-.ecoruta-header { gap: .75rem 1.25rem; }
+.ecoruta-header { gap: .75rem 1.25rem; grid-template-columns: auto minmax(0, 1fr) max-content; }
+.ecoruta-header .accesibilidad { flex-wrap: nowrap; white-space: nowrap; }
 .ecoruta-header .menu { padding-left: 0; margin-bottom: 0; }
 .ecoruta-header search, .ecoruta-header search input { min-width: 0; }
 .ecoruta-bootstrap-grid, .ecoruta-rutas-grid, .ecoruta-valores, .ecoruta-destinos { margin-left: 0; margin-right: 0; padding-left: 0; }
-.ecoruta-bootstrap-grid > li, .ecoruta-rutas-grid > li, .ecoruta-valores > li { min-width: 0; }
-.ecoruta-bootstrap-grid, .ecoruta-rutas-grid, .ec-resultados, .ecoruta-destinos { display: flex; flex-wrap: wrap; gap: 0; }
-.ecoruta-valores { display: flex !important; flex-wrap: wrap; gap: 0; }
+.ecoruta-bootstrap-grid > *, .ecoruta-rutas-grid > *, .ecoruta-valores > *, .ecoruta-destinos > * { min-width: 0; width: auto; }
+.ecoruta-bootstrap-grid > li.col, .ecoruta-rutas-grid > li.col, .ecoruta-valores > li.col { padding-left: 0; padding-right: 0; }
+.ecoruta-bootstrap-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2rem; }
+.ecoruta-rutas-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+.ecoruta-rutas-grid > .col-12 { grid-column: 1 / -1; width: 100%; }
+.ecoruta-valores { display: grid !important; grid-template-columns: minmax(0, 1fr); gap: 24px; }
+.ecoruta-destinos { display: grid; }
+.ecoruta-destinos .ec-destino { flex: initial; }
+.ecoruta-bootstrap-grid > .col-12 { grid-column: 1 / -1; width: 100%; }
 .ecoruta-bootstrap-grid > .emprendimiento { min-width: 0; }
 .ecoruta-service-card, .ecoruta-ruta-card { background: var(--color-bg); color: var(--color-text); border-color: var(--color-border); }
 .ecoruta-ruta-card { padding: 0; }
@@ -14,10 +21,10 @@
 .ecoruta-ruta-card .card-title { color: var(--color-text); }
 .ecoruta-ruta-card .card-text { color: var(--color-text-light); }
 .ecoruta-rutas-grid .ecoruta-estado-rutas { padding: 1.5rem; color: var(--color-text); }
-.ecoruta-destinos .ec-destino { flex: 0 0 auto; width: 50%; }
 .ec-destino.card { padding: 0; }
 .ecoruta-destinos .ec-destino__imagen { display: block; width: 100%; height: 220px; object-fit: cover; }
-.ec-comercios #lista-comercios.ecoruta-bootstrap-grid { display: flex; flex-wrap: wrap; gap: 0; }
+.ec-comercios #lista-comercios.ecoruta-bootstrap-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
+.ec-comercios #lista-comercios.ecoruta-bootstrap-grid > .emprendimiento { width: auto; }
 .ec-comercios #lista-comercios .emprendimiento.card { padding: 0; color: var(--color-text); }
 .ec-comercios #lista-comercios .emprendimiento.card .emprendimiento__nombre { color: var(--color-text); }
 .ec-comercios #lista-comercios .emprendimiento.card .emprendimiento__info { color: var(--color-text-light); }
@@ -33,15 +40,27 @@ body.modo-oscuro .ecoruta-ruta-card .card-text { color: var(--color-text-light);
 /* Bootstrap puede anular los estilos de enlaces y formularios anteriores */
 .ecoruta-header .menu a { color: var(--color-text); }
 .ecoruta-header .menu a:hover { color: var(--color-primary-dark); }
+@media (min-width: 768px) {
+  .ecoruta-bootstrap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ecoruta-rutas-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ecoruta-valores { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ec-comercios #lista-comercios.ecoruta-bootstrap-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px) {
+  .ecoruta-bootstrap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1200px) {
+  .ecoruta-rutas-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ec-comercios #lista-comercios.ecoruta-bootstrap-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 767.98px) {
-  .ecoruta-header { padding: .75rem 1rem; grid-template-columns: 1fr auto; grid-template-areas: "logo accesibilidad" "busqueda busqueda" "menu menu"; }
+  .ecoruta-header { padding: .75rem 1rem; grid-template-columns: minmax(0, 1fr) max-content; grid-template-areas: "logo accesibilidad" "busqueda busqueda" "menu menu"; }
   .ecoruta-header .menu { gap: .5rem 1rem !important; justify-content: center; }
   .ecoruta-header search { max-width: 100%; }
   .ecoruta-header .accesibilidad { justify-content: flex-end; }
   .ecoruta-main section { padding-left: 1rem; padding-right: 1rem; }
   .rutas-page .campos-ruta { margin-left: 0; margin-right: 0; }
   .cta-emprendedor__imagen { height: auto; max-height: 320px; object-fit: cover; }
-  .ecoruta-destinos .ec-destino { width: 100%; }
 }
 @media (max-width: 380px) {
   .ecoruta-header .logo { font-size: 1.15rem; }
