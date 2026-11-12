@@ -4,7 +4,7 @@ const buscador = document.querySelector<HTMLInputElement>("header search input[t
 const botonBuscar = document.querySelector<HTMLButtonElement>("header .btn-buscar");
 const anuncioBusqueda = document.querySelector<HTMLElement>("#anuncios");
 const elementosFiltrables = (): HTMLElement[] =>
-    Array.from(document.querySelectorAll<HTMLElement>("main .card, main .emprendimiento"));
+    Array.from(document.querySelectorAll<HTMLElement>("main .card, main .emprendimiento, main .ec-destino, main .ec-propuesta"));
 
 function filtrarContenido(): number {
     if (!buscador) return 0;

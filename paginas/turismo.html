@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Turismo-La Araucanía</title>
+    <title>Turismo en La Araucanía | EcoRuta</title>
     <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/explorar.css">
 </head>
-<body>
+<body class="ec-explorar">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
     <p id="anuncios" class="sr-only" aria-live="polite"></p>
     <header>
@@ -16,7 +18,7 @@
         </div>
 
         <search>
-            <input type="search" id="buscar" placeholder="Buscar ruta o destino..." aria-label="Buscar ruta o destino">
+            <input id="buscar" type="search" placeholder="Buscar lugares turísticos..." aria-label="Buscar lugares turísticos">
             <button type="button" class="btn-buscar" aria-label="Buscar"></button>
         </search>
 
@@ -30,25 +32,84 @@
             <ul class="menu">
                 <li><a href="../index.html#inicio">Inicio</a></li>
                 <li><a href="../index.html#servicios">Servicios</a></li>
+                <li><a href="turismo.html">Turismo</a></li>
+                <li><a href="rutas.html">Rutas</a></li>
+                <li><a href="emprendedores.html">Ingresa tu emprendimiento</a></li>
                 <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
                 <li><a href="../index.html#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
-    <main id="main-content">
-        <a href="../index.html" class="volver">← Volver a inicio</a>
-        <section class="pagina-simple">
-            <h1>Turismo</h1>
-            <p>Contenido de turismo próximamente.</p>
-        </section>
-    </main>
 
-    <footer>
-        <p>&copy; Todos los derechos reservados.</p>
-    </footer>
-
+<main id="main-content" class="ec-contenedor">
+<section class="ec-intro"><p class="ec-antetitulo">DESCUBRE LA REGIÓN</p><h1>La Araucanía, a tu ritmo</h1><p>Desde la cordillera hasta la costa: elige un destino y descubre propuestas para tu próximo recorrido.</p></section>
+<div class="ec-destinos"><article class="ec-destino" aria-labelledby="titulo-villarrica">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Zona lacustre</span><p>Villarrica</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-villarrica">Villarrica y su costanera</h2><p>Un paseo para conocer la ciudad y el entorno del lago Villarrica.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=villarrica#form-ruta">Explorar rutas de Villarrica</a>
+        <a class="ec-fuente" href="https://chile.travel/destinos/villarrica-y-pucon/">Información oficial del destino</a>
+    </div></details></div>
+</article><article class="ec-destino" aria-labelledby="titulo-pucon">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Zona lacustre</span><p>Pucón</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-pucon">Pucón y el lago Villarrica</h2><p>Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=pucon#form-ruta">Explorar rutas de Pucón</a>
+        <a class="ec-fuente" href="https://chile.travel/destinos/villarrica-y-pucon/">Información oficial del destino</a>
+    </div></details></div>
+</article><article class="ec-destino" aria-labelledby="titulo-conguillio">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Araucanía andina</span><p>Melipeuco</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-conguillio">Parque Nacional Conguillío</h2><p>Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=conguillio#form-ruta">Explorar rutas de Melipeuco</a>
+        <a class="ec-fuente" href="https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/">Información oficial del destino</a>
+    </div></details></div>
+</article><article class="ec-destino" aria-labelledby="titulo-malalcahuello">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Araucanía andina</span><p>Curacautín</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-malalcahuello">Reserva Nacional Malalcahuello</h2><p>Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=malalcahuello#form-ruta">Explorar rutas de Curacautín</a>
+        <a class="ec-fuente" href="https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/">Información oficial del destino</a>
+    </div></details></div>
+</article><article class="ec-destino" aria-labelledby="titulo-nahuelbuta">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Cordillera de la Costa</span><p>Angol</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-nahuelbuta">Parque Nacional Nahuelbuta</h2><p>Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=nahuelbuta#form-ruta">Explorar rutas de Angol</a>
+        <a class="ec-fuente" href="https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/">Información oficial del destino</a>
+    </div></details></div>
+</article><article class="ec-destino" aria-labelledby="titulo-budi">
+    <div class="ec-destino__cabecera"><span class="ec-etiqueta">Costa de La Araucanía</span><p>Saavedra</p></div>
+    <div class="ec-destino__contenido"><h2 id="titulo-budi">Lago Budi y entorno costero</h2><p>Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.</p>
+    <details><summary>Ver recorridos asociados</summary><div class="ec-desplegable">
+        <p><strong>Propuestas para planificar tu visita</strong></p>
+        <p>Consulta opciones guiadas o autoguiadas y combina un traslado vehicular con recorridos a pie según tu preferencia.</p>
+        <p>El acceso y los servicios deben confirmarse con la administración del lugar o con un prestador local.</p>
+        <a class="ec-boton" href="rutas.html?destino=budi#form-ruta">Explorar rutas de Saavedra</a>
+        <a class="ec-fuente" href="https://chile.travel/destinos/temuco-y-lago-budi/">Información oficial del destino</a>
+    </div></details></div>
+</article></div>
+<aside class="ec-aviso"><h2>Planifica una visita consciente</h2><p>Estos recorridos son sugerencias, no reservas ni servicios confirmados. Revisa las condiciones de acceso en las fuentes oficiales, lleva tus residuos de regreso y respeta las indicaciones locales.</p></aside>
+</main>
+    <footer><p>&copy; 2026 EcoRuta. Todos los derechos reservados.</p></footer>
     <script type="module" src="../js/main.js"></script>
+
     <script type="module" src="../js/busqueda.js"></script>
 </body>
 </html>

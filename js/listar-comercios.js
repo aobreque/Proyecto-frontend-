@@ -12,16 +12,15 @@ function crearTarjeta(comercio) {
     articulo.className = "emprendimiento";
     const ficha = document.createElement("div");
     ficha.className = "emprendimiento__ficha";
-    const imagen = document.createElement("img");
-    imagen.className = "emprendimiento__imagen";
-    const imagenes = [
-        "../assets/imagenes/emprendimiento1_frontend.png",
-        "../assets/imagenes/emprendimiento2_frontend.png"
-    ];
-    const indiceImagen = (Number(comercio.id) || 1) - 1;
-    imagen.src = imagenes[indiceImagen % imagenes.length];
-    imagen.alt = "Imagen ilustrativa de comercio local";
-    imagen.loading = "lazy";
+    // El formulario no solicita fotografías: no atribuir imágenes ajenas a un negocio.
+    const imagen = document.createElement("div");
+    imagen.className = "comercio-sin-foto";
+    const inicial = document.createElement("span");
+    inicial.textContent = (comercio.nombre?.trim().charAt(0) || "E").toLocaleUpperCase("es");
+    inicial.setAttribute("aria-hidden", "true");
+    const aviso = document.createElement("p");
+    aviso.textContent = "Sin fotografía del emprendimiento";
+    imagen.append(inicial, aviso);
     const nombre = document.createElement("h2");
     nombre.className = "emprendimiento__nombre";
     nombre.textContent = comercio.nombre || "Sin nombre";

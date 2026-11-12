@@ -2,7 +2,7 @@ import { normalizarTexto } from "./rutas-utils.js";
 const buscador = document.querySelector("header search input[type='search']");
 const botonBuscar = document.querySelector("header .btn-buscar");
 const anuncioBusqueda = document.querySelector("#anuncios");
-const elementosFiltrables = () => Array.from(document.querySelectorAll("main .card, main .emprendimiento"));
+const elementosFiltrables = () => Array.from(document.querySelectorAll("main .card, main .emprendimiento, main .ec-destino, main .ec-propuesta"));
 function filtrarContenido() {
     if (!buscador)
         return 0;
