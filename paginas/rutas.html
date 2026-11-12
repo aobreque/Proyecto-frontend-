@@ -42,7 +42,7 @@
 
         <section class="rutas-listado">
             <h1>Agenda tu ruta</h1>
-            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Elige un destino, cómo recorrerlo y con cuántas personas viajarás.</p>
+            <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Elige un destino y las opciones que te interesan para recorrerlo.</p>
 
             <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
                 <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
@@ -74,11 +74,6 @@
                         <label for="fecha-viaje">Fecha del viaje <span aria-hidden="true">*</span></label>
                         <input type="date" id="fecha-viaje" name="fecha-viaje" required>
                     </div>
-
-                    <div class="campo-ruta">
-                        <label for="pasajeros">Cantidad de integrantes</label>
-                        <input type="number" id="pasajeros" name="pasajeros" min="1" max="20" step="1" value="1" required>
-                    </div>
                 </div>
 
                 <fieldset class="ec-preferencias"><legend>¿Cómo quieres recorrer el destino?</legend>
@@ -91,7 +86,7 @@
                 <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
 
-            <p class="nota-rutas">Catálogo de propuestas orientativas. La cantidad de integrantes se compara con el tamaño de grupo propuesto, no con cupos reales. No se confirman guías, transporte, precios ni disponibilidad para la fecha elegida.</p>
+            <p class="nota-rutas">Catálogo de propuestas orientativas. No se confirman guías, transporte, cupos, precios ni disponibilidad para la fecha elegida.</p>
         </section>
 
         <section class="destinos-listado" aria-labelledby="titulo-destinos">

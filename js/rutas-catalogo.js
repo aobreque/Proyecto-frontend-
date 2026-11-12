@@ -7,7 +7,6 @@ export const propuestas = [
         "localidad": "Villarrica",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -18,7 +17,6 @@ export const propuestas = [
         "localidad": "Villarrica",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -29,7 +27,6 @@ export const propuestas = [
         "localidad": "Villarrica",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -40,7 +37,6 @@ export const propuestas = [
         "localidad": "Villarrica",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Un paseo para conocer la ciudad y el entorno del lago Villarrica.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -51,7 +47,6 @@ export const propuestas = [
         "localidad": "Pucón",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -62,7 +57,6 @@ export const propuestas = [
         "localidad": "Pucón",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -73,7 +67,6 @@ export const propuestas = [
         "localidad": "Pucón",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -84,7 +77,6 @@ export const propuestas = [
         "localidad": "Pucón",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Descubre Pucón y su paisaje lacustre, una puerta de entrada al turismo de naturaleza de la región.",
         "fuente": "https://chile.travel/destinos/villarrica-y-pucon/"
     },
@@ -95,7 +87,6 @@ export const propuestas = [
         "localidad": "Melipeuco",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
     },
@@ -106,7 +97,6 @@ export const propuestas = [
         "localidad": "Melipeuco",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
     },
@@ -117,7 +107,6 @@ export const propuestas = [
         "localidad": "Melipeuco",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
     },
@@ -128,7 +117,6 @@ export const propuestas = [
         "localidad": "Melipeuco",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Un paisaje de araucarias y lagos. Melipeuco es una de las localidades de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-conguillio/"
     },
@@ -139,7 +127,6 @@ export const propuestas = [
         "localidad": "Curacautín",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
         "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
     },
@@ -150,7 +137,6 @@ export const propuestas = [
         "localidad": "Curacautín",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
         "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
     },
@@ -161,7 +147,6 @@ export const propuestas = [
         "localidad": "Curacautín",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
         "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
     },
@@ -172,7 +157,6 @@ export const propuestas = [
         "localidad": "Curacautín",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Una reserva de la comuna de Curacautín para descubrir el patrimonio natural de la cordillera.",
         "fuente": "https://www.conaf.cl/parque_nacionales/reserva-nacional-malalcahuello/"
     },
@@ -183,7 +167,6 @@ export const propuestas = [
         "localidad": "Angol",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
     },
@@ -194,7 +177,6 @@ export const propuestas = [
         "localidad": "Angol",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
     },
@@ -205,7 +187,6 @@ export const propuestas = [
         "localidad": "Angol",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
     },
@@ -216,7 +197,6 @@ export const propuestas = [
         "localidad": "Angol",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Bosques de araucarias en la cordillera de la Costa. Angol es un punto de acceso al parque.",
         "fuente": "https://www.conaf.cl/parque_nacionales/parque-nacional-nahuelbuta/"
     },
@@ -227,7 +207,6 @@ export const propuestas = [
         "localidad": "Saavedra",
         "modalidad": "guiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 8,
         "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
         "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
     },
@@ -238,7 +217,6 @@ export const propuestas = [
         "localidad": "Saavedra",
         "modalidad": "guiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
         "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
     },
@@ -249,7 +227,6 @@ export const propuestas = [
         "localidad": "Saavedra",
         "modalidad": "autoguiada",
         "transporte": "vehicular",
-        "maxIntegrantes": 5,
         "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
         "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
     },
@@ -260,7 +237,6 @@ export const propuestas = [
         "localidad": "Saavedra",
         "modalidad": "autoguiada",
         "transporte": "pie",
-        "maxIntegrantes": 6,
         "descripcion": "Conoce el paisaje del lago Budi y el entorno costero de La Araucanía, con respeto por las comunidades locales.",
         "fuente": "https://chile.travel/destinos/temuco-y-lago-budi/"
     }
