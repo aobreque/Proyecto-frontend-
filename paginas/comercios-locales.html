@@ -40,34 +40,34 @@
         </nav>
     </header>
 
-    <main id="main-content" class="ecoruta-main">
-        <a href="../index.html" class="volver">← Volver a inicio</a>
-        <section class="cta-emprendedor container-xxl">
-            <div class="row g-4 align-items-center">
-                <div class="col-12 col-md-6">
-                    <div class="cta-emprendedor__texto">
-                        <h1>¿Eres emprendedor?</h1>
-                        <a href="emprendedores.html" class="cta-emprendedor__link btn btn-success">Ingresa tu emprendimiento</a>
+    <main id="main-content" class="ec-comercios ecoruta-main">
+        <div class="container py-4 py-lg-5">
+            <a href="../index.html" class="volver btn btn-link p-0 mb-3">← Volver a inicio</a>
+            <section class="cta-emprendedor card shadow-sm mb-5" aria-labelledby="titulo-cta-emprendedor">
+                <div class="row g-0 align-items-stretch">
+                    <div class="col-md-7">
+                        <div class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center align-items-start">
+                            <h1 id="titulo-cta-emprendedor" class="card-title h2 mb-3">¿Eres emprendedor?</h1>
+                            <a href="emprendedores.html" class="btn btn-ecoruta btn-lg">Ingresa tu emprendimiento</a>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen img-fluid">
                     </div>
                 </div>
-                <div class="col-12 col-md-6">
-                    <img src="../assets/imagenes/persona_sonriendo_frontend.jpg" alt="" class="cta-emprendedor__imagen img-fluid">
+            </section>
+
+            <section class="lista-emprendimientos" aria-labelledby="titulo-comercios">
+                <div class="mb-4">
+                    <h2 id="titulo-comercios" class="h2 mb-2">Conoce los emprendimientos locales</h2>
+                    <p class="lead mb-0">Descubre lo que ofrece cada negocio y encuentra sus datos de contacto.</p>
                 </div>
-            </div>
-        </section>
 
-        
-<section class="lista-emprendimientos container-xxl"
-         aria-label="Comercios locales">
-    <h2>Conoce los emprendimientos locales</h2>
-    <p>Descubre lo que ofrece cada negocio y encuentra sus datos de contacto.</p>
-
-    <div id="lista-comercios" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 list-unstyled ecoruta-bootstrap-grid" aria-live="polite">
-        <p class="col-12 alert alert-info mb-0" role="status">Cargando comercios...</p>
-    </div>
-
-</section>
-
+                <div id="lista-comercios" class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 ecoruta-bootstrap-grid" aria-live="polite">
+                    <p class="col-12 alert alert-info mb-0" role="status">Cargando comercios...</p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer>
