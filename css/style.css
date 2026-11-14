@@ -188,7 +188,15 @@ nav {
 .menu a:focus-visible {
     color: var(--color-primary-text);
 }
+/* Identificar la página actual en el menú */
+.menu a[aria-current="page"] {
+    color: var(--color-primary-text);
+    font-weight: 800;
+}
 
+.menu a[aria-current="page"]::after {
+    width: 100%;
+}
 .menu a:hover::after,
 .menu a:focus-visible::after {
     width: 100%;

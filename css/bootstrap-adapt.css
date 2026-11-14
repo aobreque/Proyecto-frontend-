@@ -66,3 +66,17 @@ body.modo-oscuro .ecoruta-ruta-card .card-text { color: var(--color-text-light);
   .ecoruta-header .logo { font-size: 1.15rem; }
   .ecoruta-header .accesibilidad button { width: 32px; height: 34px; }
 }
+.ecoruta-header search {
+    border-color: #b7dfbd;
+    box-shadow: none;
+}
+
+.ecoruta-header search:focus-within {
+    border-color: #7fbd88;
+    box-shadow: none;
+}
+
+.ecoruta-header search input[type="search"]:focus {
+    outline: none;
+    box-shadow: none;
+}

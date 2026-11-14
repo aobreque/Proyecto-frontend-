@@ -29,14 +29,27 @@
             <button type="button" id="btn-modo-oscuro" aria-label="Alternar modo oscuro" aria-pressed="false">🌙</button>
         </div>
 
+
         <nav aria-label="Navegación principal" class="ecoruta-nav">
             <ul class="menu d-flex flex-wrap justify-content-center gap-3">
-                <li><a href="../index.html#inicio">Inicio</a></li>
-                <li><a href="../index.html#servicios">Servicios</a></li>
-                <li><a href="../index.html#quienes-somos">Quiénes somos</a></li>
-                <li><a href="../index.html#contacto">Contacto</a></li>
+                <li>
+                    <a href="../index.html#inicio">Inicio</a>
+                </li>
+                <li>
+                    <a href="turismo.html">Turismo</a>
+                </li>
+                <li>
+                    <a href="rutas.html" aria-current="page">Rutas</a>
+                </li>
+                <li>
+                    <a href="comercios-locales.html">Comercios locales</a>
+                </li>
+                <li>
+                    <a href="../index.html#contacto">Contacto</a>
+                </li>
             </ul>
         </nav>
+
     </header>
 
 <main id="main-content" class="ecoruta-main">
@@ -46,7 +59,7 @@
             <h1>Agenda tu ruta</h1>
             <p class="rutas-intro">Planifica tu próximo viaje por La Araucanía. Elige un destino y las opciones que te interesan para recorrerlo.</p>
 
-            <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta">
+            <form id="form-ruta" class="form-ruta" aria-describedby="ayuda-ruta" novalidate>
                 <p id="ayuda-ruta" class="ayuda-formulario">Los campos marcados con <span aria-hidden="true">*</span> son obligatorios.</p>
 
                 <div class="campos-ruta row g-3">
@@ -78,12 +91,42 @@
                     </div>
                 </div>
 
-                <fieldset class="ec-preferencias"><legend>¿Cómo quieres recorrer el destino?</legend>
-                <div class="campos-ruta row g-3">
-                <div class="campo-ruta col-12 col-md-6"><label for="modalidad">Modalidad del recorrido</label><select id="modalidad" name="modalidad" class="form-select"><option value="">Cualquier modalidad</option><option value="guiada">Con guía</option><option value="autoguiada">Por cuenta propia (autoguiada)</option></select></div>
-                <div class="campo-ruta col-12 col-md-6"><label for="transporte">Medio de desplazamiento</label><select id="transporte" name="transporte" class="form-select"><option value="">Cualquier medio</option><option value="vehicular">Transporte vehicular</option><option value="pie">A pie</option></select></div>
-                </div><p class="ec-ayuda">Puedes combinar una ruta guiada con transporte vehicular. El origen indica desde dónde planificas salir; no confirma un servicio de traslado.</p></fieldset>
-                <button type="submit" class="btn-agendar-ruta btn btn-success">Buscar propuestas de ruta</button>
+
+                <div id="preferencias-avanzadas" hidden>
+                    <fieldset class="ec-preferencias">
+                        <legend>Personaliza tu recorrido</legend>
+
+                        <div class="campos-ruta row g-3">
+                            <div class="campo-ruta col-12 col-md-6">
+                                <label for="modalidad">Modalidad del recorrido</label>
+                                <select id="modalidad" name="modalidad" class="form-select">
+                                    <option value="">Cualquier modalidad</option>
+                                    <option value="guiada">Con guía</option>
+                                    <option value="autoguiada">Por cuenta propia (autoguiada)</option>
+                                </select>
+                            </div>
+
+                            <div class="campo-ruta col-12 col-md-6">
+                                <label for="transporte">Medio de desplazamiento</label>
+                                <select id="transporte" name="transporte" class="form-select">
+                                    <option value="">Cualquier medio</option>
+                                    <option value="vehicular">Transporte vehicular</option>
+                                    <option value="pie">A pie</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <p class="ec-ayuda">
+                            Puedes combinar una ruta guiada con transporte vehicular.
+                            El origen indica desde dónde planificas salir; no confirma
+                            un servicio de traslado.
+                        </p>
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="btn-agendar-ruta btn btn-success">
+                    Buscar rutas
+                </button>
                 <button type="reset" class="ec-boton ec-boton--secundario btn btn-outline-success">Limpiar filtros</button>
                 <p id="resultado-ruta" class="resultado-ruta" role="status" aria-live="polite" tabindex="-1"></p>
             </form>
@@ -91,14 +134,14 @@
             <p class="nota-rutas">Catálogo de propuestas orientativas. No se confirman guías, transporte, cupos, precios ni disponibilidad para la fecha elegida.</p>
         </section>
 
-        <section class="destinos-listado container-xxl" aria-labelledby="titulo-destinos">
+        <section class="destinos-listado container-xxl" aria-labelledby="titulo-destinos" id="seccion-propuestas" hidden>
             <h2 id="titulo-destinos">Propuestas de rutas</h2>
 
             <div id="lista-destinos" class="ec-resultados row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 ecoruta-rutas-grid"></div>
             <noscript><p>Activa JavaScript para consultar las propuestas filtradas. Puedes seguir explorando los lugares en <a href="turismo.html">Turismo</a>.</p></noscript>
         </section>
 
-        <section class="destinos-listado container-xxl" aria-labelledby="titulo-publicadas">
+        <section class="destinos-listado container-xxl" aria-labelledby="titulo-publicadas" id="seccion-publicadas" hidden>
             <h2 id="titulo-publicadas">Rutas publicadas</h2>
             <p>Estas rutas provienen del listado del equipo y se filtran por ciudad de origen y localidad de destino. Su duración e itinerario están disponibles en cada ficha. La API no informa modalidad de guía, capacidad ni disponibilidad por fecha.</p>
             <ul id="lista-rutas-publicadas" class="grid row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 list-unstyled ecoruta-rutas-grid" aria-live="polite"></ul>
