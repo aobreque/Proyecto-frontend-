@@ -10,6 +10,39 @@ const imagenesDestinos = {
     budi: "../assets/imagenes/fondo lago budi.jpg"
 };
 
+const ubicacionesDestinos = {
+    villarrica: {
+        nombre: "Villarrica",
+        latitud: -39.2857,
+        longitud: -72.2279
+    },
+    pucon: {
+        nombre: "Pucón",
+        latitud: -39.2823,
+        longitud: -71.9543
+    },
+    conguillio: {
+        nombre: "Parque Nacional Conguillío",
+        latitud: -38.65,
+        longitud: -71.65
+    },
+    malalcahuello: {
+        nombre: "Reserva Nacional Malalcahuello",
+        latitud: -38.45,
+        longitud: -71.58
+    },
+    nahuelbuta: {
+        nombre: "Parque Nacional Nahuelbuta",
+        latitud: -37.8,
+        longitud: -73.0
+    },
+    budi: {
+        nombre: "Lago Budi",
+        latitud: -38.86,
+        longitud: -73.2
+    }
+};
+
 export function filtrarPropuestas(rutas, filtros) {
     return rutas.filter(ruta =>
         (!filtros.destino || ruta.destino === filtros.destino)
@@ -26,17 +59,25 @@ const preferencias = document.querySelector("#preferencias-avanzadas");
 const seccionPropuestas = document.querySelector("#seccion-propuestas");
 const seccionPublicadas = document.querySelector("#seccion-publicadas");
 
+const seccionMapa = document.querySelector("#seccion-mapa");
+const contenedorMapa = document.querySelector("#mapa-rutas");
+const descripcionMapa = document.querySelector("#descripcion-mapa");
+
 if (
     formulario &&
     listado &&
     estado &&
     preferencias &&
     seccionPropuestas &&
-    seccionPublicadas
+    seccionPublicadas &&
+    seccionMapa &&
+    contenedorMapa &&
+    descripcionMapa
 ) {
     const form = formulario;
     const lista = listado;
     const mensaje = estado;
+    
 
     function campo(id) {
         const elemento = form.querySelector(`#${id}`);
@@ -56,6 +97,58 @@ if (
     const fecha = campo("fecha-viaje");
     const modalidad = campo("modalidad");
     const transporte = campo("transporte");
+
+    let mapa = null;
+    let marcadorDestino = null;
+
+    function mostrarMapa(destinoSeleccionado) {
+        const ubicacion = ubicacionesDestinos[destinoSeleccionado];
+
+        if (!ubicacion) {
+            seccionMapa.hidden = true;
+            return;
+        }
+
+        seccionMapa.hidden = false;
+
+        descripcionMapa.textContent =
+            `Ubicación referencial de ${ubicacion.nombre}.`;
+
+        if (!mapa) {
+            mapa = L.map("mapa-rutas").setView(
+                [ubicacion.latitud, ubicacion.longitud],
+                11
+            );
+
+            L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            }).addTo(mapa);
+
+            marcadorDestino = L.marker([
+                ubicacion.latitud,
+                ubicacion.longitud
+            ]).addTo(mapa);
+
+        } else {
+            mapa.setView(
+                [ubicacion.latitud, ubicacion.longitud],
+                11
+            );
+
+            marcadorDestino.setLatLng([
+                ubicacion.latitud,
+                ubicacion.longitud
+            ]);
+        }
+
+        marcadorDestino.bindPopup(
+            `<strong>${ubicacion.nombre}</strong><br>Ubicación referencial`
+        );
+
+        requestAnimationFrame(() => {
+            mapa.invalidateSize();
+        });
+    }    
 
     const hoy = new Date();
 
@@ -175,7 +268,7 @@ if (
         });
 
         renderizar(resultados);
-
+        mostrarMapa(destino.value);
         const destinosPublicados = {
             conguillio: "Conguillío",
             malalcahuello: "Malalcahuello",
@@ -215,7 +308,7 @@ if (
     preferencias.hidden = true;
     seccionPropuestas.hidden = true;
     seccionPublicadas.hidden = true;
-
+    seccionMapa.hidden = true;
     form.addEventListener("submit", evento => {
         evento.preventDefault();
 
@@ -230,7 +323,7 @@ if (
             preferencias.hidden = true;
             seccionPropuestas.hidden = true;
             seccionPublicadas.hidden = true;
-
+            seccionMapa.hidden = true;
             lista.replaceChildren();
 
             filtrarRutasPublicadas("", "");

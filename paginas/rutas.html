@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/explorar.css">
     <link rel="stylesheet" href="../css/bootstrap-adapt.css">
+    <link rel="stylesheet"href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="crossorigin="">
 </head>
 <body class="ec-explorar">
     <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
@@ -132,6 +133,22 @@
             </form>
 
             <p class="nota-rutas">Catálogo de propuestas orientativas. No se confirman guías, transporte, cupos, precios ni disponibilidad para la fecha elegida.</p>
+
+            <section id="seccion-mapa" class="seccion-mapa" hidden
+                aria-labelledby="titulo-mapa">
+
+                <h2 id="titulo-mapa">Ubicación del destino</h2>
+
+                <p id="descripcion-mapa">
+                    Explora la ubicación geográfica del destino seleccionado.
+                </p>
+
+                <div id="mapa-rutas"
+                    role="region"
+                    aria-label="Mapa interactivo del destino seleccionado">
+                </div>
+
+            </section>
         </section>
 
         <section class="destinos-listado container-xxl" aria-labelledby="titulo-destinos" id="seccion-propuestas" hidden>
@@ -166,5 +183,6 @@
     <script type="module" src="../js/rutas-explorar.js"></script>
     <script type="module" src="../js/busqueda.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="crossorigin=""></script>
 </body>
 </html>
